@@ -2,57 +2,57 @@ import Image from "next/image";
 
 const categories = [
   {
-    name: "New Arrivals",
+    name: "Casa Central",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg",
+      "https://www.duna.cl/media/2015/08/universidad-de-chile.jpg",
   },
   {
-    name: "Productivity",
+    name: "Tecnologia",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg",
+      "https://media.elmostrador.cl/2016/06/fut-1-700x434.jpg",
   },
   {
-    name: "Workspace",
+    name: "Deportes",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg",
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.deporteazul.cl%2Fmain_wp%2Fwp-content%2Fuploads%2F2020%2F08%2FWhatsApp-Image-2020-08-12-at-12.26.51.jpeg&f=1&nofb=1&ipt=7134369cfd15784b8aaaef7ff24e79d636fc9d68e7606a66b93fbcc3730523a7&ipo=images",
   },
   {
-    name: "Accessories",
+    name: "Ciencia",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Ynl7g-2_5flHOlLTEvWgTQHaJ4%26pid%3DApi&f=1&ipt=9dc46857d0a15fa6b5fafd13a349d502963cda3aab075368999eb17fb8740ca7&ipo=images",
   },
   {
-    name: "Sale",
+    name: "Social",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.theclinic.cl%2Fwp-content%2Fuploads%2F2014%2F10%2F1980-Pedag%25C3%25B2gico-Uchile-Protesta-por-robo-de-un-diario-mural-Junio_2-e1412871361264.jpg&f=1&nofb=1&ipt=12aadd23afb6fcdba155a78149417c079a92aa5285ca346cc71d98c9974f985d&ipo=images",
   },
 ];
 
 const collections = [
   {
-    name: "Handcrafted Collection",
+    name: "Andres Bello",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg",
+      "https://revistasantiago.cl/cms/wp-content/uploads/2020/08/andresbello-diarioavance.jpg",
     imageAlt:
-      "Brown leather key ring with brass metal loops and rivets on wood table.",
+      "Imagen de Andréss Bello",
     description:
-      "Keep your phone, keys, and wallet together, so you can lose everything at once.",
+      "Retrato de Andrés Bello, primer rector de la Universidad de Chile.",
   },
   {
-    name: "Organized Desk Collection",
+    name: "Nicanor Parra",
     href: "#",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg",
+      "https://www.poblanerias.com/wp-content/archivos/2018/01/0123-Nicanor-Parra.jpg",
     imageAlt:
-      "Natural leather mouse pad on white desk next to porcelain mug and keyboard.",
+      "Fotografia en blanco y negro de Nicanor Parra",
     description:
-      "The rest of the house will still be a mess, but your desk will look great.",
+      "Profesor Emerito, antipoeta, Nicanor Parra y su historia con la casa de bello.",
   },
   {
     name: "Focus Collection",
@@ -73,9 +73,11 @@ export default function Home() {
       <div className="relative bg-gray-900">
         {/* Decorative image and overlay */}
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/home-page-01-hero-full-width.jpg"
+          <Image
+            src="/assets/frontis_background.jpg"
             alt=""
+            width={1920}
+            height={1280}
             className="h-full w-full object-cover object-center"
           />
         </div>
@@ -88,18 +90,16 @@ export default function Home() {
 
         <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-32 text-center sm:py-64 lg:px-0">
           <h1 className="text-4xl font-bold tracking-tight text-white lg:text-6xl">
-            New arrivals are here
+            Memoria fotografica
           </h1>
           <p className="mt-4 text-xl text-white">
-            The new arrivals have, well, newly arrived. Check out the latest
-            options from our summer small-batch release while they're still in
-            stock.
+            La historia de la Universidad de Chile en imágenes.
           </p>
           <a
             href="#"
             className="mt-8 inline-block rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
-            Shop New Arrivals
+            Descubre la historia
           </a>
         </div>
       </div>
@@ -115,13 +115,13 @@ export default function Home() {
               id="category-heading"
               className="text-2xl font-bold tracking-tight text-gray-900"
             >
-              Shop by Category
+              Explorar por categoría
             </h2>
             <a
               href="#"
               className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
             >
-              Browse all categories
+              Ver todas las categorías
               <span aria-hidden="true"> &rarr;</span>
             </a>
           </div>
@@ -162,7 +162,7 @@ export default function Home() {
               href="#"
               className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500"
             >
-              Browse all categories
+              Ver todas las categorías
               <span aria-hidden="true"> &rarr;</span>
             </a>
           </div>
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-lg">
             <div className="absolute inset-0">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-01.jpg"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffen.uchile.cl%2Fuploads%2Fimages%2Fimages%2FDSC_0011.jpg&f=1&nofb=1&ipt=0de84a61fc7478198d224db028abab03e83bb70222a11ec6507e291c13cd0e98&ipo=images"
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
@@ -187,20 +187,20 @@ export default function Home() {
                   id="social-impact-heading"
                   className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                  <span className="block sm:inline">Level up</span>
-                  <span className="block sm:inline">your desk</span>
+                  <span className="block sm:inline">Que es </span>
+                  <span className="block sm:inline">Memoria fotografica</span>
                 </h2>
                 <p className="mt-3 text-xl text-white">
-                  Make your desk beautiful and organized. Post a picture to
-                  social media and watch it get more likes than life-changing
-                  announcements. Reflect on the shallow nature of existence. At
-                  least you have a really nice desk setup.
+                  El proyecto de memoria fotográfica de la Universidad de Chile
+                  es un proyecto estudiantil impulsado por la Biblioteca Central
+                  del campus Beauchef con el objectivo de recuperar y compartir
+                  la historia de la Universidad a través de materia audiovisual.
                 </p>
                 <a
                   href="#"
                   className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
-                  Shop Workspace
+                  Aporta aqui
                 </a>
               </div>
             </div>
@@ -216,11 +216,11 @@ export default function Home() {
             id="collection-heading"
             className="text-2xl font-bold tracking-tight text-gray-900"
           >
-            Shop by Collection
+            Explorar por colección
           </h2>
-          <p className="mt-4 text-base text-gray-500">
-            Each season, we collaborate with world-class designers to create a
-            collection inspired by the natural world.
+          <p className="mt-4 text-base text-gray-300">
+            Explora las colecciones y aportes de diferentes autores
+            colaboradores de la Universidad de Chile.
           </p>
 
           <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
@@ -243,7 +243,7 @@ export default function Home() {
                 <h3 className="mt-4 text-base font-semibold text-gray-900">
                   {collection.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-gray-300">
                   {collection.description}
                 </p>
               </a>
@@ -259,7 +259,7 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-lg">
             <div className="absolute inset-0">
               <img
-                src="https://tailwindui.com/img/ecommerce-images/home-page-01-feature-section-02.jpg"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fagronomia.uchile.cl%2Fdam%2Fjcr%3Adf1cde97-249a-4b4f-9c27-47c7509598b8%2Fhistoria7.jpg&f=1&nofb=1&ipt=edd0401ace8727b6b16496d1bf23221edc277a48e52e67a65728185bfd9969cb&ipo=images"
                 alt=""
                 className="h-full w-full object-cover object-center"
               />
@@ -270,19 +270,18 @@ export default function Home() {
                   id="comfort-heading"
                   className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                  Simple productivity
+                  Historia la hacemos todos
                 </h2>
                 <p className="mt-3 text-xl text-white">
-                  Endless tasks, limited hours, a single piece of paper. Not
-                  really a haiku, but we're doing our best here. No kanban
-                  boards, burndown charts, or tangled flowcharts with our Focus
-                  system. Just the undeniable urge to fill empty circles.
+                  La historia de la Universidad de Chile es la historia de
+                  todos, y es por eso que queremos que todos puedan ser parte
+                  de ella. ¿Quieres aportar con tus fotos? Contactanos!
                 </p>
                 <a
                   href="#"
                   className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
-                  Shop Focus
+                  Contactanos
                 </a>
               </div>
             </div>

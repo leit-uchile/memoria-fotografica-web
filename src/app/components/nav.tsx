@@ -1,5 +1,6 @@
 "use client";
-import { Dialog, Menu, Popover, Tab, Transition } from "@headlessui/react";
+
+import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   ChevronDownIcon,
@@ -11,7 +12,7 @@ import {
 import classNames from "classnames";
 import React, { Fragment, useState } from "react";
 
-const currencies = ['CAD', 'USD', 'AUD', 'EUR', 'GBP']
+const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
 type MenuProps = {
   categories: Array<{
@@ -25,6 +26,37 @@ type MenuProps = {
   }>;
   pages: Array<{ name: string; href: string }>;
 };
+
+const BlockCategory: React.FC<{
+  category: {
+    imageSrc: string;
+    imageAlt: string;
+    name: string;
+    href: string;
+  };
+  linkExtraClasses?: string;
+  fontSize?: string;
+}> = ({ category, linkExtraClasses, fontSize }) => (
+  <div className="group relative">
+    <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
+      <img
+        src={category.imageSrc}
+        alt={category.imageAlt}
+        className="object-cover object-center"
+      />
+    </div>
+    <a
+      href={category.href}
+      className={`block ${fontSize} font-medium text-gray-900 ${linkExtraClasses}`}
+    >
+      <span className="absolute inset-0 z-10" aria-hidden="true" />
+      {category.name}
+    </a>
+    <p aria-hidden="true" className={`mt-1 ${fontSize} text-gray-500`}>
+      Explorar
+    </p>
+  </div>
+);
 
 const MobileNavigation: React.FC<
   {
@@ -102,31 +134,12 @@ const MobileNavigation: React.FC<
                   >
                     <div className="grid grid-cols-2 gap-x-4 gap-y-10">
                       {category.featured.map((item) => (
-                        <div key={item.name} className="group relative">
-                          <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                            <img
-                              src={item.imageSrc}
-                              alt={item.imageAlt}
-                              className="object-cover object-center"
-                            />
-                          </div>
-                          <a
-                            href={item.href}
-                            className="mt-6 block text-sm font-medium text-gray-900"
-                          >
-                            <span
-                              className="absolute inset-0 z-10"
-                              aria-hidden="true"
-                            />
-                            {item.name}
-                          </a>
-                          <p
-                            aria-hidden="true"
-                            className="mt-1 text-sm text-gray-500"
-                          >
-                            Shop now
-                          </p>
-                        </div>
+                        <BlockCategory
+                          key={item.name}
+                          category={item}
+                          linkExtraClasses="mb-6"
+                          fontSize="text-sm"
+                        />
                       ))}
                     </div>
                   </Tab.Panel>
@@ -153,7 +166,7 @@ const MobileNavigation: React.FC<
                   href="#"
                   className="-m-2 block p-2 font-medium text-gray-900"
                 >
-                  Create an account
+                  Crear una cuenta
                 </a>
               </div>
               <div className="flow-root">
@@ -161,37 +174,9 @@ const MobileNavigation: React.FC<
                   href="#"
                   className="-m-2 block p-2 font-medium text-gray-900"
                 >
-                  Sign in
+                  Ingresar
                 </a>
               </div>
-            </div>
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              {/* Currency selector */}
-              <form>
-                <div className="inline-block">
-                  <label htmlFor="mobile-currency" className="sr-only">
-                    Currency
-                  </label>
-                  <div className="group relative -ml-2 rounded-md border-transparent focus-within:ring-2 focus-within:ring-white">
-                    <select
-                      id="mobile-currency"
-                      name="currency"
-                      className="flex items-center rounded-md border-transparent bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-gray-700 focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-800"
-                    >
-                      {currencies.map((currency) => (
-                        <option key={currency}>{currency}</option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                      <ChevronDownIcon
-                        className="h-5 w-5 text-gray-500"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </form>
             </div>
           </Dialog.Panel>
         </Transition.Child>
@@ -213,53 +198,27 @@ const Navigation: React.FC<MenuProps> = (props) => {
       <header className="relative z-10">
         <nav aria-label="Top">
           {/* Top navigation */}
-          <div className="bg-gray-900">
+          <div className="bg-mainmf-700">
             <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-              {/* Currency selector */}
-              <form>
-                <div>
-                  <label htmlFor="desktop-currency" className="sr-only">
-                    Currency
-                  </label>
-                  <div className="group relative -ml-2 rounded-md border-transparent bg-gray-900 focus-within:ring-2 focus-within:ring-white">
-                    <select
-                      id="desktop-currency"
-                      name="currency"
-                      className="flex items-center rounded-md border-transparent bg-gray-900 bg-none py-0.5 pl-2 pr-5 text-sm font-medium text-white focus:border-transparent focus:outline-none focus:ring-0 group-hover:text-gray-100"
-                    >
-                      {currencies.map((currency) => (
-                        <option key={currency}>{currency}</option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                      <ChevronDownIcon
-                        className="h-5 w-5 text-gray-300"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </form>
-
               <div className="flex items-center space-x-6">
                 <a
                   href="#"
                   className="text-sm font-medium text-white hover:text-gray-100"
                 >
-                  Sign in
+                  Ingresar
                 </a>
                 <a
                   href="#"
                   className="text-sm font-medium text-white hover:text-gray-100"
                 >
-                  Create an account
+                  Crear una cuenta
                 </a>
               </div>
             </div>
           </div>
 
           {/* Secondary navigation */}
-          <div className="bg-gray-700 backdrop-blur-md backdrop-filter">
+          <div className="bg-mainmf-900 backdrop-blur-md backdrop-filter">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div>
                 <div className="flex h-16 items-center justify-between">
@@ -267,11 +226,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                   <div className="hidden lg:flex lg:flex-1 lg:items-center">
                     <a href="#">
                       <span className="sr-only">Your Company</span>
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                        alt=""
-                      />
+                      <img className="h-8 w-auto" src="/mf.ico" alt="" />
                     </a>
                   </div>
 
@@ -311,39 +266,15 @@ const Navigation: React.FC<MenuProps> = (props) => {
                                       className="absolute inset-0 top-1/2 bg-white shadow"
                                       aria-hidden="true"
                                     />
-
                                     <div className="relative bg-white">
                                       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                         <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
                                           {category.featured.map((item) => (
-                                            <div
+                                            <BlockCategory
                                               key={item.name}
-                                              className="group relative"
-                                            >
-                                              <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                                                <img
-                                                  src={item.imageSrc}
-                                                  alt={item.imageAlt}
-                                                  className="object-cover object-center"
-                                                />
-                                              </div>
-                                              <a
-                                                href={item.href}
-                                                className="mt-4 block font-medium text-gray-900"
-                                              >
-                                                <span
-                                                  className="absolute inset-0 z-10"
-                                                  aria-hidden="true"
-                                                />
-                                                {item.name}
-                                              </a>
-                                              <p
-                                                aria-hidden="true"
-                                                className="mt-1"
-                                              >
-                                                Shop now
-                                              </p>
-                                            </div>
+                                              category={item}
+                                              linkExtraClasses="mt-4"
+                                            />
                                           ))}
                                         </div>
                                       </div>
@@ -381,7 +312,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
 
                     {/* Search */}
                     <a href="#" className="ml-2 p-2 text-white">
-                      <span className="sr-only">Search</span>
+                      <span className="sr-only">Buscar</span>
                       <MagnifyingGlassIcon
                         className="h-6 w-6"
                         aria-hidden="true"
@@ -392,11 +323,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                   {/* Logo (lg-) */}
                   <a href="#" className="lg:hidden">
                     <span className="sr-only">Your Company</span>
-                    <img
-                      src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                      alt=""
-                      className="h-8 w-auto"
-                    />
+                    <img src="/mf.ico" alt="" className="h-8 w-auto" />
                   </a>
 
                   <div className="flex flex-1 items-center justify-end">
@@ -404,7 +331,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                       href="#"
                       className="hidden text-sm font-medium text-white lg:block"
                     >
-                      Search
+                      Buscar
                     </a>
 
                     <div className="flex items-center lg:ml-8">
@@ -424,7 +351,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                       </a>
 
                       {/* Cart */}
-                      <div className="ml-4 flow-root lg:ml-8">
+                      <div className="ml-4 flow-root lg:ml-8 hidden">
                         <a
                           href="#"
                           className="group -m-2 flex items-center p-2"
