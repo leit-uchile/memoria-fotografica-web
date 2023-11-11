@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 const navigation = {
   categories: [
     {
-      name: "Women",
+      name: "Categorias",
       featured: [
         {
           name: "New Arrivals",
@@ -45,7 +45,7 @@ const navigation = {
       ],
     },
     {
-      name: "Men",
+      name: "Colecciones",
       featured: [
         {
           name: "New Arrivals",
@@ -82,32 +82,32 @@ const navigation = {
     },
   ],
   pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
+    { name: "Nosotros", href: "#" },
+    { name: "Aporta", href: "#" },
   ],
 };
 
 const footerNavigation = {
   campus: [
-    { name: "Bags", href: "#" },
-    { name: "Tees", href: "#" },
-    { name: "Objects", href: "#" },
-    { name: "Home Goods", href: "#" },
-    { name: "Accessories", href: "#" },
+    { name: "Beauchef", href: "#" },
+    { name: "Andrés Bello", href: "#" },
+    { name: "Campus Sur", href: "#" },
+    { name: "Juan Gomez Millas", href: "#" },
+    { name: "Medicina", href: "#" },
   ],
   albums: [
-    { name: "Who we are", href: "#" },
-    { name: "Sustainability", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Terms & Conditions", href: "#" },
-    { name: "Privacy", href: "#" },
+    { name: "Colecciones de autor", href: "#" },
+    { name: "Material de estudiantes", href: "#" },
+    { name: "Prensa", href: "#" },
+    { name: "UChile y sociedad", href: "#" },
+    { name: "Restauraciones", href: "#" },
   ],
   connect: [
-    { name: "Contact Us", href: "#" },
+    { name: "Nosotros", href: "#" },
+    { name: "Biblioteca Central", href: "#" },
     { name: "Twitter", href: "#" },
     { name: "Instagram", href: "#" },
-    { name: "Pinterest", href: "#" },
+    { name: "Términos y condiciones", href: "#" },
   ],
 };
 
