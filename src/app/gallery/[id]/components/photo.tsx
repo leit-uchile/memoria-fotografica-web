@@ -7,6 +7,7 @@ type PhotoProps = {
     date: string;
     description: string;
     properties: {
+      code: string;
       cc: string;
       width: number;
       height: number;
@@ -115,7 +116,7 @@ const Photo: React.FC<PhotoProps> = ({
                   </div>
                   <div className="mt-4 flex w-full flex-none px-6">
                     <dt className="flex-none">
-                      <span className="sr-only">Fecha</span>
+                      <span className="sr-only">Date</span>
                     </dt>
                     <dd className="text-sm leading-6 text-gray-500">
                       <time dateTime="2023-01-31">{date}</time>
