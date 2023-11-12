@@ -337,7 +337,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                     <div className="flex items-center lg:ml-8">
                       {/* Help */}
                       <a href="#" className="p-2 text-white lg:hidden">
-                        <span className="sr-only">Help</span>
+                        <span className="sr-only">Ayuda</span>
                         <QuestionMarkCircleIcon
                           className="h-6 w-6"
                           aria-hidden="true"
@@ -347,7 +347,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                         href="#"
                         className="hidden text-sm font-medium text-white lg:block"
                       >
-                        Help
+                        Ayuda
                       </a>
 
                       {/* Cart */}
