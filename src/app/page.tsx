@@ -1,17 +1,13 @@
-import Image from "next/image";
-
 const categories = [
   {
     name: "Casa Central",
     href: "#",
-    imageSrc:
-      "https://www.duna.cl/media/2015/08/universidad-de-chile.jpg",
+    imageSrc: "https://www.duna.cl/media/2015/08/universidad-de-chile.jpg",
   },
   {
     name: "Tecnologia",
     href: "#",
-    imageSrc:
-      "https://media.elmostrador.cl/2016/06/fut-1-700x434.jpg",
+    imageSrc: "https://media.elmostrador.cl/2016/06/fut-1-700x434.jpg",
   },
   {
     name: "Deportes",
@@ -39,8 +35,7 @@ const collections = [
     href: "#",
     imageSrc:
       "https://revistasantiago.cl/cms/wp-content/uploads/2020/08/andresbello-diarioavance.jpg",
-    imageAlt:
-      "Imagen de Andréss Bello",
+    imageAlt: "Imagen de Andréss Bello",
     description:
       "Retrato de Andrés Bello, primer rector de la Universidad de Chile.",
   },
@@ -49,8 +44,7 @@ const collections = [
     href: "#",
     imageSrc:
       "https://www.poblanerias.com/wp-content/archivos/2018/01/0123-Nicanor-Parra.jpg",
-    imageAlt:
-      "Fotografia en blanco y negro de Nicanor Parra",
+    imageAlt: "Fotografia en blanco y negro de Nicanor Parra",
     description:
       "Profesor Emerito, antipoeta, Nicanor Parra y su historia con la casa de bello.",
   },
@@ -72,22 +66,15 @@ export default function Home() {
       {/* Hero section */}
       <div className="relative bg-gray-900">
         {/* Decorative image and overlay */}
-        <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/assets/frontis_background.jpg"
-            alt=""
-            width={1920}
-            height={1280}
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 overflow-hidden parallax"
+        ></div>
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-gray-900 opacity-50"
         />
-
         {/* Navigation */}
-
         <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-32 text-center sm:py-64 lg:px-0">
           <h1 className="text-4xl font-bold tracking-tight text-white lg:text-6xl">
             Memoria fotografica
@@ -274,8 +261,8 @@ export default function Home() {
                 </h2>
                 <p className="mt-3 text-xl text-white">
                   La historia de la Universidad de Chile es la historia de
-                  todos, y es por eso que queremos que todos puedan ser parte
-                  de ella. ¿Quieres aportar con tus fotos? Contactanos!
+                  todos, y es por eso que queremos que todos puedan ser parte de
+                  ella. ¿Quieres aportar con tus fotos? Contactanos!
                 </p>
                 <a
                   href="#"
