@@ -28,12 +28,23 @@ export default function Gallery() {
   const router = useRouter();
 
   return (
-    <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-20">
-      <PhotoAlbum
-        layout="rows"
-        photos={parsedPhotos}
-        onClick={(e) => router.push(`/gallery/${e.index}`)}
+    <div className="relative bg-gray-900">
+      {/* Decorative image and overlay */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden parallax"
+      ></div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gray-900 opacity-50"
       />
+      <div className="relative mx-auto max-w-7xl bg-white px-3 py-3">
+        <PhotoAlbum
+          layout="rows"
+          photos={parsedPhotos}
+          onClick={(e) => router.push(`/gallery/${e.index}`)}
+        />
+      </div>
     </div>
   );
 }
