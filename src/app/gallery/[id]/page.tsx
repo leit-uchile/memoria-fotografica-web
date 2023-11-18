@@ -27,8 +27,6 @@ export default function PhotoPage() {
     }
   );
 
-  console.log(currentPhotoId, currentPhoto, query);
-
   return (
     <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-20">
       {!isValidating && <Photo photo={currentPhoto} loading={isValidating} />}
