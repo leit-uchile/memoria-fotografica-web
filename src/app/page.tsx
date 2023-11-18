@@ -1,3 +1,5 @@
+import { truncate } from "@/services/string";
+
 const categories = [
   {
     name: "Casa Central",
@@ -29,7 +31,7 @@ const categories = [
   },
 ];
 
-const collections = [
+const deprecated_collections = [
   {
     name: "Andres Bello",
     href: "#",
@@ -60,7 +62,24 @@ const collections = [
   },
 ];
 
-export default function Home() {
+async function fetchCollections() {
+  const res = await fetch("http://localhost:3000/fixtures/collections.json");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const collections = await fetchCollections();
+  const mappedCollections = collections.map((collection: any) => ({
+    ...collection,
+    href: `/collection/${collection.id}`,
+    imageAlt: collection.title,
+  }));
+
   return (
     <>
       {/* Hero section */}
@@ -83,10 +102,10 @@ export default function Home() {
             La historia de la Universidad de Chile en imágenes.
           </p>
           <a
-            href="#"
+            href="/gallery"
             className="mt-8 inline-block rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100"
           >
-            Descubre la historia
+            Explora la historia
           </a>
         </div>
       </div>
@@ -184,7 +203,7 @@ export default function Home() {
                   la historia de la Universidad a través de materia audiovisual.
                 </p>
                 <a
-                  href="#"
+                  href="/donate"
                   className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
                   Aporta aqui
@@ -201,17 +220,24 @@ export default function Home() {
         >
           <h2
             id="collection-heading"
-            className="text-2xl font-bold tracking-tight text-gray-900"
+            className="text-2xl font-bold tracking-tight text-gray-900 flex justify-between"
           >
-            Explorar por colección
+            <span>Explorar por colección</span>
+            <a
+              href="/collection"
+              className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
+            >
+              Ver todas las colecciones
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
           </h2>
-          <p className="mt-4 text-base text-gray-300">
+          <p className="mt-4 text-base text-gray-900">
             Explora las colecciones y aportes de diferentes autores
             colaboradores de la Universidad de Chile.
           </p>
 
           <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-            {collections.map((collection) => (
+            {mappedCollections.slice(0,3).map((collection: any) => (
               <a
                 key={collection.name}
                 href={collection.href}
@@ -222,16 +248,16 @@ export default function Home() {
                   className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-5 group-hover:opacity-75"
                 >
                   <img
-                    src={collection.imageSrc}
+                    src={collection.imgSrc}
                     alt={collection.imageAlt}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
                 <h3 className="mt-4 text-base font-semibold text-gray-900">
-                  {collection.name}
+                  {collection.title}
                 </h3>
-                <p className="mt-2 text-sm text-gray-300">
-                  {collection.description}
+                <p className="mt-2 text-sm text-gray-900">
+                  {truncate(collection.description, 250)}
                 </p>
               </a>
             ))}

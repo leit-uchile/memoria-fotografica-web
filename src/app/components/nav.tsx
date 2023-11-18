@@ -224,8 +224,8 @@ const Navigation: React.FC<MenuProps> = (props) => {
                 <div className="flex h-16 items-center justify-between">
                   {/* Logo (lg+) */}
                   <div className="hidden lg:flex lg:flex-1 lg:items-center">
-                    <a href="#">
-                      <span className="sr-only">Your Company</span>
+                    <a href="/">
+                      <span className="sr-only">Memoria fotografica</span>
                       <img className="h-8 w-auto" src="/mf.ico" alt="" />
                     </a>
                   </div>
@@ -311,7 +311,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                     </button>
 
                     {/* Search */}
-                    <a href="#" className="ml-2 p-2 text-white">
+                    <a href="/gallery" className="ml-2 p-2 text-white">
                       <span className="sr-only">Buscar</span>
                       <MagnifyingGlassIcon
                         className="h-6 w-6"
@@ -321,17 +321,21 @@ const Navigation: React.FC<MenuProps> = (props) => {
                   </div>
 
                   {/* Logo (lg-) */}
-                  <a href="#" className="lg:hidden">
-                    <span className="sr-only">Your Company</span>
+                  <a href="/" className="lg:hidden">
+                    <span className="sr-only">Memoria fotografica</span>
                     <img src="/mf.ico" alt="" className="h-8 w-auto" />
                   </a>
 
                   <div className="flex flex-1 items-center justify-end">
                     <a
-                      href="#"
-                      className="hidden text-sm font-medium text-white lg:block"
+                      href="/gallery"
+                      className="hidden text-sm font-medium text-white lg:flex space-x-2"
                     >
-                      Buscar
+                      <span>Buscar</span>
+                      <MagnifyingGlassIcon
+                        className="h-6 w-6"
+                        aria-hidden="true"
+                      />
                     </a>
 
                     <div className="flex items-center lg:ml-8">
