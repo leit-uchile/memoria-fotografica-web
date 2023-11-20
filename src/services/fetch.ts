@@ -64,14 +64,22 @@ export async function fetchTags(){
   return res.json();
 }
 
-export async function fetchTagDetails(index: string) {
-  const res = await fetch("http://localhost:3000/fixtures/tags.json");
+export async function fetchCategories(){
+  const res = await fetch("http://localhost:3000/fixtures/categories.json");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
-  const parsed = await res.json();
+  return res.json();
+}
 
-  return parsed[index];
+export async function fetchMails(){
+  const res = await fetch("http://localhost:3000/fixtures/mails.json");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
 }

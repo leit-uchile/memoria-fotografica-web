@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "archived": false,
+    "solved": false,
+    "createdAt": "2023-01-15T12:30:00Z",
+    "asunto": "Solicitud de fotografía",
+    "name": "Juan",
+    "lastname": "Perez",
+    "phone": "123-456-7890",
+    "message": "Hola, estoy interesado en solicitar una fotografía. ¿Podrían proporcionarme más información?",
+    "code": "",
+    "isPhotoRequest": true,
+    "photoCode": "ABC123"
+  },
+  {
+    "id": 2,
+    "archived": false,
+    "solved": false,
+    "createdAt": "2023-01-15T12:30:00Z",
+    "asunto": "Contacto",
+    "name": "María",
+    "lastname": "Gomez",
+    "phone": "987-654-3210",
+    "message": "Hola, quisiera obtener más detalles sobre sus servicios.",
+    "code": "",
+    "isPhotoRequest": false,
+    "photoCode": ""
+  },
+  {
+    "id": 3,
+    "archived": false,
+    "solved": false,
+    "createdAt": "2023-01-15T12:30:00Z",
+    "asunto": "Solicitud de fotografía",
+    "name": "Carlos",
+    "lastname": "Rodriguez",
+    "phone": "555-555-5555",
+    "message": "Me gustaría solicitar una sesión de fotografía para un evento próximo.",
+    "code": "",
+    "isPhotoRequest": true,
+    "photoCode": "XYZ789"
+  },
+  {
+    "id": 4,
+    "archived": false,
+    "solved": false,
+    "createdAt": "2023-01-15T12:30:00Z",
+    "asunto": "Contacto",
+    "name": "Ana",
+    "lastname": "Lopez",
+    "phone": "111-222-3333",
+    "message": "Saludos, estoy interesada en obtener información sobre sus servicios.",
+    "code": "",
+    "isPhotoRequest": false,
+    "photoCode": ""
+  },
+  {
+    "id": 5,
+    "archived": false,
+    "solved": false,
+    "createdAt": "2023-01-15T12:30:00Z",
+    "asunto": "Solicitud de fotografía",
+    "name": "Pedro",
+    "lastname": "Martinez",
+    "phone": "999-888-7777",
+    "message": "Necesito información sobre la disponibilidad para una sesión de fotos.",
+    "code": "",
+    "isPhotoRequest": true,
+    "photoCode": "DEF456"
+  }
+]

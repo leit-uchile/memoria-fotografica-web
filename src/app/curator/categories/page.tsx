@@ -1,6 +1,6 @@
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
-import { fetchTags } from "@/services/fetch";
+import { fetchCategories } from "@/services/fetch";
 import { EyeIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
@@ -16,6 +16,7 @@ enum sortOptionsEnum {
   "name=ASC" = 0,
   "name=DESC" = 1,
 }
+
 
 const actions: {
   [action: string]: {
@@ -60,17 +61,17 @@ const actions: {
   },
 };
 
-export default function CuratorTags() {
+export default function CuratorCategories() {
   const [openEditor, setOpenEditor] = useState(false);
-  const [tagId, setTagId] = useState<number | null>(null);
+  const [categoryId, setCategoryId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["name=ASC"]
   );
 
-  const { data: tags, isValidating } = useSWR("curator-tags", fetchTags);
+  const { data: categories, isValidating } = useSWR("curator-categories", fetchCategories);
 
-  const toggleEditor = (tagId: number) => {
-    setTagId(tagId);
+  const toggleEditor = (categoryId: number) => {
+    setCategoryId(categoryId);
     setOpenEditor(!openEditor);
   };
 
@@ -79,40 +80,40 @@ export default function CuratorTags() {
     setSortBy(number);
   };
 
-  const sortTags = (sortOption: sortOptionsEnum, tags: TagProps[]) => {
+  const sortCategories = (sortOption: sortOptionsEnum, categories: CategoryProps[]) => {
     switch (sortOption) {
       case 0: // A -> Z (orden alfabético ascendente por título)
-        return tags.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return categories.slice().sort((a, b) => a.name.localeCompare(b.name));
 
       case 1: // Z -> A (orden alfabético descendente por título)
-        return tags.slice().sort((a, b) => b.name.localeCompare(a.name));
+        return categories.slice().sort((a, b) => b.name.localeCompare(a.name));
 
       default:
         console.error("Tipo de orden no reconocido");
-        return tags;
+        return categories;
     }
   };
 
-  const sortedTags = sortTags(sortBy, tags ?? []);
+  const sortedCategories = sortCategories(sortBy, categories ?? []);
 
-  const groupTagsByInitial = (tags: TagProps[]) => {
-    const groupedTags: { [initial: string]: TagProps[] } = {};
+  const groupedCategoriesByInitial = (categories: CategoryProps[]) => {
+    const groupedCategories: { [initial: string]: CategoryProps[] } = {};
 
-    tags.forEach((tag) => {
-      const initial = tag.name.charAt(0).toUpperCase();
+    categories.forEach((category) => {
+      const initial = category.name.charAt(0).toUpperCase();
 
-      const existsInitial = Object.keys(groupedTags).includes(initial);
+      const existsInitial = Object.keys(groupedCategories).includes(initial);
       if (!existsInitial) {
-        groupedTags[initial] = [] as TagProps[];
+        groupedCategories[initial] = [] as CategoryProps[];
       }
 
-      groupedTags[initial].push(tag);
+      groupedCategories[initial].push(category);
     });
 
-    return groupedTags;
+    return groupedCategories;
   };
 
-  const groupedTags = groupTagsByInitial(sortedTags ?? []);
+  const groupedCategories = groupedCategoriesByInitial(sortedCategories ?? []);
 
   const router = useRouter();
 
@@ -123,15 +124,15 @@ export default function CuratorTags() {
       type: string;
       label: string;
     },
-    tagId: number
+    categoryId: number
   ) => {
     return {
       ...action,
       onClick: () => {
         if (action.type === "edit") {
-          toggleEditor(tagId);
+          toggleEditor(categoryId);
         } else if (action.type === "view") {
-          router.push(`/gallery/${tagId.toString()}`);
+          router.push(`/gallery/${categoryId.toString()}`);
         } else if (action.type === "delete") {
           console.log("delete");
         }
@@ -143,7 +144,7 @@ export default function CuratorTags() {
     <div>
       <div className="mb-8 border-b border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
         <h3 className="text-base font-semibold leading-6 text-gray-900">
-          Etiquetas
+          Categorías
           <button
             type="button"
             className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -188,7 +189,7 @@ export default function CuratorTags() {
           </tr>
         </thead>
         <tbody className="bg-white">
-          {Object.keys(groupedTags).map((initial: string) => (
+          {Object.keys(groupedCategories).map((initial: string) => (
             <Fragment key={initial}>
               <tr className="border-t border-gray-200">
                 <th
@@ -199,28 +200,28 @@ export default function CuratorTags() {
                   {initial}
                 </th>
               </tr>
-              {groupedTags[initial].map((tag, tagIdx) => {
+              {groupedCategories[initial].map((category, categoryIdx) => {
                 const tagActions: ActionItemProps[] = [
-                  addOnClickFunction(actions.view, tag.id),
-                  addOnClickFunction(actions.edit, tag.id),
-                  addOnClickFunction(actions.delete, tag.id),
+                  addOnClickFunction(actions.view, category.id),
+                  addOnClickFunction(actions.edit, category.id),
+                  addOnClickFunction(actions.delete, category.id),
                 ];
                 return (
                   <tr
-                    key={tag.name}
+                    key={category.name}
                     className={classNames(
-                      tagIdx === 0 ? "border-gray-300" : "border-gray-200",
+                      categoryIdx === 0 ? "border-gray-300" : "border-gray-200",
                       "border-t"
                     )}
                   >
                     <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                      {tag.name}
+                      {category.name}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {tag.description}
+                      {category.description}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {tag.createdAt.toString()}
+                      {category.createdAt.toString()}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                       <ActionsMenu items={tagActions} />
@@ -232,11 +233,11 @@ export default function CuratorTags() {
           ))}
         </tbody>
       </table>
-      {/* {tagId && (
+      {/* {categoryId && (
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          photo={tags.find((tag: TagProps) => tag.id === tagId)}
+          photo={categories.find((category: CategoryProps) => category.id === categoryId)}
         />
       )} */}
     </div>

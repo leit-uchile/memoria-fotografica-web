@@ -1,5 +1,5 @@
-import { classNames } from "@/services/styles";
-import { ChangeEvent, ChangeEventHandler } from "react";
+import classNames from "classnames";
+import { ChangeEventHandler } from "react";
 
 type SimpleTextAreaProps = {
   label: string;

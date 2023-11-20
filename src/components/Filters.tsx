@@ -1,4 +1,3 @@
-import { classNames } from "@/services/styles";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import {
@@ -6,6 +5,7 @@ import {
   MinusIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
+import classNames from "classnames";
 import { Fragment, useState } from "react";
 
 type FiltersProps = {

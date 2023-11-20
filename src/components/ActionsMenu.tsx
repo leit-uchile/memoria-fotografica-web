@@ -1,6 +1,6 @@
-import { classNames } from "@/services/styles";
 import { Menu, Transition } from "@headlessui/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/20/solid";
+import classNames from "classnames";
 import { Fragment } from "react";
 
 type ActionsMenuProps = {

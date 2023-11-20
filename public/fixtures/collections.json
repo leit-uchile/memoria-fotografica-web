@@ -2,8 +2,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Odontologia/imagenes-contenidos-generales/ceremonia-112-16.JPG/jcr:content/ceremonia%2520112-16.JPG.JPG",
     "title": "Ceremonia Aniversario 112 años Facultad de Odontología.",
-    "date": "04/02/1987",
+    "createdAt": "04/02/1987",
     "description": "Explora la emotiva celebración que conmemora los 112 años de la Facultad de Odontología. Sumérgete en la rica historia, la dedicación de los estudiantes y el compromiso con la excelencia académica. Las imágenes capturan momentos significativos de la ceremonia, reflejando el orgullo y la tradición que caracterizan a esta distinguida institución.",
+    "visible": true,
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
@@ -23,8 +24,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_agosto2023/AA_conmemoracion.jpg/jcr:content/AA_conmemoracion.jpg.jpg",
     "title": "Galería de imágenes",
-    "date": "04/02/2004",
+    "createdAt": "04/02/2004",
     "description": "Descubre la diversidad visual en nuestra Galería de Imágenes. Desde paisajes impresionantes hasta retratos cautivadores, esta colección abarca una amplia gama de temas. Cada fotografía cuenta una historia única, capturando la esencia de momentos inolvidables. Sumérgete en esta galería visual que celebra la creatividad y la habilidad artística.",
+    "visible": false,
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
@@ -44,8 +46,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Octubre-2023/Galeria%20Desayuno%20deportistas%20panamericanos.zip/Galeria-Desayuno-deportistas-panamericanos/Panamericano-027-L.jpg/jcr:content/Panamericano-027-L.jpg.jpg",
     "title": "U. de Chile que participará en los Juegos Panamericanos",
-    "date": "11/08/1986",
+    "createdAt": "11/08/1986",
     "description": "Acompaña a la Universidad de Chile en su emocionante participación en los Juegos Panamericanos. Esta colección de imágenes destaca el espíritu deportivo, la dedicación de los atletas y la representación universitaria en el escenario internacional. Explora los momentos de competición, camaradería y logros que definen la participación de la U. de Chile en este prestigioso evento.",
+    "visible": true,
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
@@ -65,8 +68,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20Mujica.zip/Galeria-Mujica/Mujica--26.jpg/jcr:content/Mujica%2520-26.jpg.jpg",
     "title": "Pepe Mujica en la U. de Chile",
-    "date": "27/01/2001",
+    "createdAt": "27/01/2001",
     "description": "Revive la visita del ilustre Pepe Mujica a la Universidad de Chile. A través de estas imágenes, capturamos los momentos en los que el líder uruguayo comparte su sabiduría, experiencias y perspectivas con la comunidad universitaria. Explora la conexión única entre Mujica y los estudiantes, destacando su impacto inspirador en el entorno académico.",
+    "visible": true,
     "properties": {
       "cc": "Dominio público",
       "width": 515,
@@ -86,8 +90,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20estatuas.zip/Galeria-estatuas/Expo-Los-Presidentes--L-01.jpg/jcr:content/Expo%2520Los%2520Presidentes-%2520L-01.jpg.jpg",
     "title": "Exposición escultórica “Galería de los Presidentes”",
-    "date": "15/08/1996",
+    "createdAt": "15/08/1996",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
@@ -107,8 +112,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%20Juegos%20de%20la%20Innovacio%CC%81n%202%202.zip/Copia-de-1--Juegos-de-la-Innovacio-n-2/16__49B9396.png/jcr:content/16__49B9396.png.png",
     "title": "Primeros Juegos de Innovación para la Sustentabilidad en Minería",
-    "date": "21/12/1993",
+    "createdAt": "21/12/1993",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
@@ -128,8 +134,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Obrabierta.zip/Obrabierta/Exposicion-Obrabierta-L-06.jpg/jcr:content/Exposicion%2520Obrabierta-L-06.jpg.jpg",
     "title": "“Obrabierta: El tiempo, la vida, la información” de Hernán Parada.",
-    "date": "21/06/1981",
+    "createdAt": "21/06/1981",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
@@ -149,8 +156,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Exposicion%20Victor%20Jara.zip/Exposicion-Victor-Jara/Exposicion-Victor-Jara-02.jpg/jcr:content/Exposicion%2520Victor%2520Jara-02.jpg.jpg",
     "title": "U. de Chile inaugura exposición “Víctor Jara. Dos miradas. 50 años”",
-    "date": "01/05/1988",
+    "createdAt": "01/05/1988",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
@@ -170,8 +178,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/galerias/semana-induccion-2023.zip/MECHONES-1.jpg/jcr:content/MECHONES%25201.jpg.jpg",
     "title": "Semana de Inducción 2023",
-    "date": "01/11/2009",
+    "createdAt": "01/11/2009",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
@@ -191,8 +200,9 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%2072(formato_web).zip/Copia-de-72-formato_web-/62_295A0856.jpg/jcr:content/62_295A0856.jpg.jpg",
     "title": "Seminario \"Geomecánica para una Minería Sostenible\"",
-    "date": "01/12/1991",
+    "createdAt": "01/12/1991",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
+    "visible": true,
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,

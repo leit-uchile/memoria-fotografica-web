@@ -23,19 +23,46 @@ type PhotoProps = {
   };
 };
 
-type FieldProps = {
-  name: string;
-  value: string;
-};
-
-type ExtendedFieldProps = FieldProps & {
+type CollectionProps = {
+  id: string;
   imgSrc: string;
+  title: string;
+  description: string;
+  createdAt: Date;
+  visible: boolean;
+  properties: {
+    code: string;
+    width: number;
+    height: number;
+  };
 };
 
 type TagProps = {
   id: number;
   name: string;
   description: string;
+  createdAt: Date;
+};
+
+type CategoryProps = {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: Date;
+};
+
+type MailProps = {
+  id: number;
+  archived: boolean;
+  solved: boolean;
+  asunto: string;
+  name: string;
+  lastname: string;
+  phone: string;
+  message: string;
+  code: string;
+  isPhotoRequest: boolean;
+  photoCode: string;
   createdAt: Date;
 };
 
@@ -46,3 +73,12 @@ type ActionItemProps = {
   label: string;
   onClick: () => void;
 }
+
+type FieldProps = {
+  name: string;
+  value: string;
+};
+
+type ExtendedFieldProps = FieldProps & {
+  imgSrc: string;
+};

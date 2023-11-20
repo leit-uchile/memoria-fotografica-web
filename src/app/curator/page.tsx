@@ -1,6 +1,10 @@
 "use client";
 
+import CuratorCategories from "./categories/page";
+import CuratorCollections from "./collections/page";
+import CuratorMails from "./mail/page";
 import CuratorPhotos from "./photos/page";
+import CuratorTags from "./tags/page";
 import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import {
   CursorArrowRaysIcon,
@@ -12,9 +16,8 @@ import {
   TagIcon,
   BookOpenIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import CuratorTags from "./tags/page";
 import classNames from "classnames";
+import { useState } from "react";
 
 const navigation = [
   { name: "Resumen", href: "#", icon: HomeIcon },
@@ -32,6 +35,7 @@ const navigation = [
     icon: BookOpenIcon,
     count: "10",
   },
+  { name: "Correo", href: "#", icon: EnvelopeOpenIcon },
 ];
 const secondaryNavigation = [
   { name: "FAQ", href: "#", initial: "F", current: false },
@@ -142,6 +146,12 @@ export default function Dashboard() {
         return <CuratorPhotos />;
       case 2:
         return <CuratorTags />;
+      case 3:
+        return <CuratorCategories />;
+      case 4:
+        return <CuratorCollections />;
+      case 5:
+        return <CuratorMails />;
       default:
         return landing;
     }
