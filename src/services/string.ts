@@ -17,3 +17,7 @@ export function truncate(str: string, n: number) {
 export const getPrefix = (alias: string) => {
   return sanitizeText(alias)?.replace(/\s/g, "").slice(0, 3).toLowerCase();
 };
+
+export const dateToISO = (date: string) => {
+  return date.split("/").reverse().join("-");
+}
