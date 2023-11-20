@@ -1,19 +1,10 @@
 "use client";
 
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
+import { fetchPhotos } from "@/services/fetch";
 import { useRouter } from "next/navigation";
 import PhotoAlbum from "react-photo-album";
 import useSWR from "swr";
-
-async function fetchPhotos() {
-  const res = await fetch("http://localhost:3000/fixtures/gallery.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
 
 const LoadingGallery = () => (
   <div className="flex flex-col space-y-4">

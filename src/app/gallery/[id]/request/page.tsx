@@ -9,18 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-
-async function fetchPhotos(index: string) {
-  const res = await fetch("http://localhost:3000/fixtures/gallery.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const parsed = await res.json();
-
-  return parsed[index];
-}
+import { fetchPhotoDetail } from "@/services/fetch";
 
 const ContactForm: React.FC = () => {
   const query = useParams();
@@ -29,7 +18,7 @@ const ContactForm: React.FC = () => {
   const isRequesting = currentPhotoId !== undefined;
 
   const { data: currentPhoto, isValidating } = useSWR(currentPhotoId, () =>
-    fetchPhotos(currentPhotoId ?? "0"),
+    fetchPhotoDetail(currentPhotoId ?? "0"),
     {
       revalidateOnFocus: false,
     }

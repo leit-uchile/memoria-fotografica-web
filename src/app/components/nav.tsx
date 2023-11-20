@@ -3,7 +3,6 @@
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
-  ChevronDownIcon,
   MagnifyingGlassIcon,
   QuestionMarkCircleIcon,
   ShoppingBagIcon,

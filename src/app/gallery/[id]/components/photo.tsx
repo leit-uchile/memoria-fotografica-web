@@ -1,30 +1,9 @@
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
 import { useParams, useRouter } from "next/navigation";
 
-type PhotoProps = {
-  photo: {
-    imgSrc: string;
-    title: string;
-    date: string;
-    description: string;
-    properties: {
-      code: string;
-      cc: string;
-      width: number;
-      height: number;
-      album: string;
-      author: string;
-      location: string;
-      campus: string;
-      format: string;
-      process: string;
-      support: string;
-      photoTechnique: string;
-      tone: string;
-    };
-  };
-  loading?: boolean;
-};
+type ExtendedPhotoProps = {
+  photo: PhotoProps;
+} & { loading?: boolean };
 
 const LoadingSideComponent: React.FC = () => (
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
@@ -56,7 +35,7 @@ const LoadingSideComponent: React.FC = () => (
   </div>
 );
 
-const Photo: React.FC<PhotoProps> = ({
+const Photo: React.FC<ExtendedPhotoProps> = ({
   photo: { imgSrc, title, date, description, properties },
   loading,
 }) => {
@@ -223,7 +202,9 @@ const Photo: React.FC<PhotoProps> = ({
                   </dl>
                   <div
                     className="mt-6 border-t border-gray-900/5 px-6 py-6"
-                    onClick={() => router.push(`/gallery/${currentPhotoId}/request`)}
+                    onClick={() =>
+                      router.push(`/gallery/${currentPhotoId}/request`)
+                    }
                   >
                     <a
                       href="#"

@@ -1,27 +1,18 @@
-'use client'
+"use client";
+
+import { fetchPhotoDetail } from "@/services/fetch";
 import Photo from "./components/photo";
 import { useRouter, useParams } from "next/navigation";
 import useSWR from "swr";
-
-async function fetchPhotos(index: string) {
-  const res = await fetch("http://localhost:3000/fixtures/gallery.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const parsed = await res.json();
-
-  return parsed[index];
-}
 
 export default function PhotoPage() {
   const query = useParams();
 
   const currentPhotoId = query.id;
 
-  const { data: currentPhoto, isValidating } = useSWR(currentPhotoId, () =>
-    fetchPhotos(currentPhotoId ?? "0"),
+  const { data: currentPhoto, isValidating } = useSWR(
+    currentPhotoId,
+    () => fetchPhotoDetail(currentPhotoId ?? "0"),
     {
       revalidateOnFocus: false,
     }

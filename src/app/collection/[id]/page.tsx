@@ -1,34 +1,13 @@
 "use client";
 
+import { fetchCollectionDetail, fetchPhotos } from "@/services/fetch";
 import { useRouter, useParams } from "next/navigation";
-
-async function fetchCollections(collectionId: string) {
-  const res = await fetch("http://localhost:3000/fixtures/collections.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const parsed = await res.json();
-
-  return parsed[collectionId];
-}
-
-async function fetchPhotos() {
-  const res = await fetch("http://localhost:3000/fixtures/gallery.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
 
 export default async function Collection() {
   const params = useParams();
   const router = useRouter();
 
-  const collection = await fetchCollections(params.id);
+  const collection = await fetchCollectionDetail(params.id);
 
   const photos = await fetchPhotos();
 
