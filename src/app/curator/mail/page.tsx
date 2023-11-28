@@ -1,60 +1,17 @@
+import {
+  availableActions,
+  genericSort,
+  sortOptions,
+  sortOptionsEnum,
+} from "../utils";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchMails } from "@/services/fetch";
-import {
-  ArchiveBoxArrowDownIcon,
-  ChatBubbleLeftRightIcon,
-} from "@heroicons/react/24/outline";
+import { isoToDate } from "@/services/string";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
-
-const sortOptions = [
-  { name: "Alfabético: A->Z", value: "title=ASC" },
-  { name: "Alfabético: Z->A", value: "title=DESC" },
-  { name: "Nuevos primero", value: "created_at=DESC" },
-  { name: "Antiguos primero", value: "created_at=ASC" },
-];
-
-enum sortOptionsEnum {
-  "lastName=ASC" = 0,
-  "lastName=DESC" = 1,
-  "created_at=DESC" = 2,
-  "created_at=ASC" = 3,
-}
-
-const actions: {
-  [action: string]: {
-    href: string;
-    icon: React.ReactNode;
-    type: string;
-    label: string;
-  };
-} = {
-  edit: {
-    href: "#",
-    type: "edit",
-    label: "Responder",
-    icon: (
-      <ChatBubbleLeftRightIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  archive: {
-    href: "#",
-    type: "delete",
-    label: "Archivar",
-    icon: (
-      <ArchiveBoxArrowDownIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-};
 
 export default function CuratorMails() {
   const [openEditor, setOpenEditor] = useState(false);
@@ -76,37 +33,13 @@ export default function CuratorMails() {
   };
 
   const sortMails = (sortOption: sortOptionsEnum, mails: MailProps[]) => {
-    switch (sortOption) {
-      case 0: // A -> Z (orden alfabético ascendente por apellido)
-        return mails
-          .slice()
-          .sort((a, b) => a.lastname.localeCompare(b.lastname));
-
-      case 1: // Z -> A (orden alfabético descendente por apellido)
-        return mails
-          .slice()
-          .sort((a, b) => b.lastname.localeCompare(a.lastname));
-
-      case 2: // Nuevos primero (orden descendente por fecha)
-        return mails
-          .slice()
-          .sort(
-            (a, b) =>
-              new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-          );
-
-      case 3: // Viejos primero (orden ascendente por fecha)
-        return mails
-          .slice()
-          .sort(
-            (a, b) =>
-              new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-          );
-
-      default:
-        console.error("Tipo de orden no reconocido");
-        return mails;
-    }
+    return genericSort(
+      sortOption,
+      mails,
+      (a, b) => a.lastname.localeCompare(b.lastname),
+      (a, b) =>
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    );
   };
 
   const sortedMails = sortMails(sortBy, mails ?? []);
@@ -126,6 +59,8 @@ export default function CuratorMails() {
   };
 
   const groupedMails = groupMailsByType(sortedMails ?? []);
+
+  const sortLocalOptions = sortOptions.slice(4, 8);
 
   const router = useRouter();
 
@@ -158,7 +93,7 @@ export default function CuratorMails() {
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <Filters
-            sortOptions={sortOptions}
+            sortOptions={sortLocalOptions}
             setSort={updateSort}
             filters={[]}
             categories={[]}
@@ -206,8 +141,8 @@ export default function CuratorMails() {
               </tr>
               {groupedMails[type].map((mail, mailIdx) => {
                 const tagActions: ActionItemProps[] = [
-                  addOnClickFunction(actions.edit, mail.id),
-                  addOnClickFunction(actions.archive, mail.id),
+                  addOnClickFunction(availableActions.reply, mail.id),
+                  addOnClickFunction(availableActions.archive, mail.id),
                 ];
                 return (
                   <tr
@@ -224,7 +159,7 @@ export default function CuratorMails() {
                       {mail.lastname}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {mail.createdAt.toString()}
+                      {isoToDate(mail.createdAt.toString())}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                       <ActionsMenu items={tagActions} />

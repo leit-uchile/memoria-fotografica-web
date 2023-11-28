@@ -1,64 +1,18 @@
+import {
+  availableActions,
+  genericSort,
+  groupByInitial,
+  sortOptions,
+  sortOptionsEnum,
+} from "../utils";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchTags } from "@/services/fetch";
-import { EyeIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { isoToDate } from "@/services/string";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
-
-const sortOptions = [
-  { name: "Alfabético: A->Z", value: "name=ASC" },
-  { name: "Alfabético: Z->A", value: "name=DESC" },
-];
-
-enum sortOptionsEnum {
-  "name=ASC" = 0,
-  "name=DESC" = 1,
-}
-
-const actions: {
-  [action: string]: {
-    href: string;
-    icon: React.ReactNode;
-    type: string;
-    label: string;
-  };
-} = {
-  edit: {
-    href: "#",
-    type: "edit",
-    label: "Editar",
-    icon: (
-      <PencilIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  view: {
-    href: "#",
-    type: "view",
-    label: "Ver fotografías",
-    icon: (
-      <EyeIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  delete: {
-    href: "#",
-    type: "delete",
-    label: "Eliminar",
-    icon: (
-      <TrashIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-};
 
 export default function CuratorTags() {
   const [openEditor, setOpenEditor] = useState(false);
@@ -80,39 +34,22 @@ export default function CuratorTags() {
   };
 
   const sortTags = (sortOption: sortOptionsEnum, tags: TagProps[]) => {
-    switch (sortOption) {
-      case 0: // A -> Z (orden alfabético ascendente por título)
-        return tags.slice().sort((a, b) => a.name.localeCompare(b.name));
-
-      case 1: // Z -> A (orden alfabético descendente por título)
-        return tags.slice().sort((a, b) => b.name.localeCompare(a.name));
-
-      default:
-        console.error("Tipo de orden no reconocido");
-        return tags;
-    }
+    return genericSort(
+      sortOption,
+      tags,
+      (a, b) => a.name.localeCompare(b.name),
+      (a, b) =>
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    );
   };
 
   const sortedTags = sortTags(sortBy, tags ?? []);
 
-  const groupTagsByInitial = (tags: TagProps[]) => {
-    const groupedTags: { [initial: string]: TagProps[] } = {};
+  const groupedTags = groupByInitial(sortedTags ?? []);
 
-    tags.forEach((tag) => {
-      const initial = tag.name.charAt(0).toUpperCase();
-
-      const existsInitial = Object.keys(groupedTags).includes(initial);
-      if (!existsInitial) {
-        groupedTags[initial] = [] as TagProps[];
-      }
-
-      groupedTags[initial].push(tag);
-    });
-
-    return groupedTags;
-  };
-
-  const groupedTags = groupTagsByInitial(sortedTags ?? []);
+  const sortLocalOptions = sortOptions
+    .slice(2, 4)
+    .concat(sortOptions.slice(6, 8));
 
   const router = useRouter();
 
@@ -153,7 +90,7 @@ export default function CuratorTags() {
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <Filters
-            sortOptions={sortOptions}
+            sortOptions={sortLocalOptions}
             setSort={updateSort}
             filters={[]}
             categories={[]}
@@ -201,9 +138,9 @@ export default function CuratorTags() {
               </tr>
               {groupedTags[initial].map((tag, tagIdx) => {
                 const tagActions: ActionItemProps[] = [
-                  addOnClickFunction(actions.view, tag.id),
-                  addOnClickFunction(actions.edit, tag.id),
-                  addOnClickFunction(actions.delete, tag.id),
+                  addOnClickFunction(availableActions.view, tag.id),
+                  addOnClickFunction(availableActions.edit, tag.id),
+                  addOnClickFunction(availableActions.delete, tag.id),
                 ];
                 return (
                   <tr
@@ -220,7 +157,7 @@ export default function CuratorTags() {
                       {tag.description}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {tag.createdAt.toString()}
+                      {isoToDate(tag.createdAt.toString())}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                       <ActionsMenu items={tagActions} />

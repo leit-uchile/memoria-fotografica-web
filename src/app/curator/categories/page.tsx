@@ -1,65 +1,18 @@
+import {
+  availableActions,
+  genericSort,
+  groupByInitial,
+  sortOptions,
+  sortOptionsEnum,
+} from "../utils";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchCategories } from "@/services/fetch";
-import { EyeIcon, PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { isoToDate } from "@/services/string";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
-
-const sortOptions = [
-  { name: "Alfabético: A->Z", value: "name=ASC" },
-  { name: "Alfabético: Z->A", value: "name=DESC" },
-];
-
-enum sortOptionsEnum {
-  "name=ASC" = 0,
-  "name=DESC" = 1,
-}
-
-
-const actions: {
-  [action: string]: {
-    href: string;
-    icon: React.ReactNode;
-    type: string;
-    label: string;
-  };
-} = {
-  edit: {
-    href: "#",
-    type: "edit",
-    label: "Editar",
-    icon: (
-      <PencilIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  view: {
-    href: "#",
-    type: "view",
-    label: "Ver fotografías",
-    icon: (
-      <EyeIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  delete: {
-    href: "#",
-    type: "delete",
-    label: "Eliminar",
-    icon: (
-      <TrashIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-};
 
 export default function CuratorCategories() {
   const [openEditor, setOpenEditor] = useState(false);
@@ -68,7 +21,10 @@ export default function CuratorCategories() {
     sortOptionsEnum["name=ASC"]
   );
 
-  const { data: categories, isValidating } = useSWR("curator-categories", fetchCategories);
+  const { data: categories, isValidating } = useSWR(
+    "curator-categories",
+    fetchCategories
+  );
 
   const toggleEditor = (categoryId: number) => {
     setCategoryId(categoryId);
@@ -80,40 +36,26 @@ export default function CuratorCategories() {
     setSortBy(number);
   };
 
-  const sortCategories = (sortOption: sortOptionsEnum, categories: CategoryProps[]) => {
-    switch (sortOption) {
-      case 0: // A -> Z (orden alfabético ascendente por título)
-        return categories.slice().sort((a, b) => a.name.localeCompare(b.name));
-
-      case 1: // Z -> A (orden alfabético descendente por título)
-        return categories.slice().sort((a, b) => b.name.localeCompare(a.name));
-
-      default:
-        console.error("Tipo de orden no reconocido");
-        return categories;
-    }
+  const sortCategories = (
+    sortOption: sortOptionsEnum,
+    categories: CategoryProps[]
+  ) => {
+    return genericSort(
+      sortOption,
+      categories,
+      (a, b) => a.name.localeCompare(b.name),
+      (a, b) =>
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    );
   };
 
   const sortedCategories = sortCategories(sortBy, categories ?? []);
 
-  const groupedCategoriesByInitial = (categories: CategoryProps[]) => {
-    const groupedCategories: { [initial: string]: CategoryProps[] } = {};
+  const groupedCategories = groupByInitial(sortedCategories ?? []);
 
-    categories.forEach((category) => {
-      const initial = category.name.charAt(0).toUpperCase();
-
-      const existsInitial = Object.keys(groupedCategories).includes(initial);
-      if (!existsInitial) {
-        groupedCategories[initial] = [] as CategoryProps[];
-      }
-
-      groupedCategories[initial].push(category);
-    });
-
-    return groupedCategories;
-  };
-
-  const groupedCategories = groupedCategoriesByInitial(sortedCategories ?? []);
+  const sortLocalOptions = sortOptions
+    .slice(2, 4)
+    .concat(sortOptions.slice(6, 8));
 
   const router = useRouter();
 
@@ -154,7 +96,7 @@ export default function CuratorCategories() {
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <Filters
-            sortOptions={sortOptions}
+            sortOptions={sortLocalOptions}
             setSort={updateSort}
             filters={[]}
             categories={[]}
@@ -202,9 +144,9 @@ export default function CuratorCategories() {
               </tr>
               {groupedCategories[initial].map((category, categoryIdx) => {
                 const tagActions: ActionItemProps[] = [
-                  addOnClickFunction(actions.view, category.id),
-                  addOnClickFunction(actions.edit, category.id),
-                  addOnClickFunction(actions.delete, category.id),
+                  addOnClickFunction(availableActions.view, category.id),
+                  addOnClickFunction(availableActions.edit, category.id),
+                  addOnClickFunction(availableActions.delete, category.id),
                 ];
                 return (
                   <tr
@@ -221,7 +163,7 @@ export default function CuratorCategories() {
                       {category.description}
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {category.createdAt.toString()}
+                      {isoToDate(category.createdAt.toString())}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                       <ActionsMenu items={tagActions} />

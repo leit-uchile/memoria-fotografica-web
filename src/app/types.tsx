@@ -1,3 +1,20 @@
+interface SortableProps {
+  id: string | number;
+  createdAt?: Date | string;
+  name?: string;
+  lastname?: string;
+  title?: string;
+  date?: string;
+  description?: string;
+}
+
+interface InitialGroupingProps {
+  id: number;
+  name: string;
+  description: string;
+  createdAt: Date;
+}
+
 type PhotoProps = {
   id: string;
   imgSrc: string;
@@ -72,7 +89,7 @@ type ActionItemProps = {
   type: string;
   label: string;
   onClick: () => void;
-}
+};
 
 type FieldProps = {
   name: string;

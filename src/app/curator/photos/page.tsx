@@ -1,34 +1,19 @@
+import {
+  availableActions,
+  genericSort,
+  sortOptions,
+  sortOptionsEnum,
+} from "../utils";
 import SideEditor from "./components/sideEditor";
 import { groupedFilters } from "@/app/constants";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
 import { fetchPhotos } from "@/services/fetch";
-import {
-  ArchiveBoxArrowDownIcon,
-  EyeIcon,
-  MagnifyingGlassIcon,
-  PencilIcon,
-  XCircleIcon,
-} from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useSWR from "swr";
-
-const sortOptions = [
-  { name: "Alfabético: A->Z", value: "title=ASC" },
-  { name: "Alfabético: Z->A", value: "title=DESC" },
-  { name: "Nuevos primero", value: "created_at=DESC" },
-  { name: "Antiguos primero", value: "created_at=ASC" },
-];
-
-enum sortOptionsEnum {
-  "title=ASC" = 0,
-  "title=DESC" = 1,
-  "created_at=DESC" = 2,
-  "created_at=ASC" = 3,
-}
 
 const LoadingGallery = () => (
   <div className="flex flex-col space-y-4">
@@ -50,71 +35,6 @@ const LoadingGallery = () => (
   </div>
 );
 
-const actions: {
-  [action: string]: {
-    href: string;
-    icon: React.ReactNode;
-    type: string;
-    label: string;
-  };
-} = {
-  edit: {
-    href: "#",
-    type: "edit",
-    label: "Editar",
-    icon: (
-      <PencilIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  view: {
-    href: "#",
-    type: "view",
-    label: "Ver",
-    icon: (
-      <EyeIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  archive: {
-    href: "#",
-    type: "delete",
-    label: "Archivar",
-    icon: (
-      <ArchiveBoxArrowDownIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  curar: {
-    href: "#",
-    type: "edit",
-    label: "Curar",
-    icon: (
-      <MagnifyingGlassIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  rechazar: {
-    href: "#",
-    type: "delete",
-    label: "Rechazar",
-    icon: (
-      <XCircleIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-};
-
 export default function CuratorPhotos() {
   const [openEditor, setOpenEditor] = useState(false);
   const [photoId, setPhotoId] = useState("");
@@ -135,31 +55,12 @@ export default function CuratorPhotos() {
   };
 
   const sortPhotos = (sortOption: sortOptionsEnum, photos: PhotoProps[]) => {
-    switch (sortOption) {
-      case 0: // A -> Z (orden alfabético ascendente por título)
-        return photos.slice().sort((a, b) => a.title.localeCompare(b.title));
-
-      case 1: // Z -> A (orden alfabético descendente por título)
-        return photos.slice().sort((a, b) => b.title.localeCompare(a.title));
-
-      case 2: // Nuevos primero (orden descendente por fecha)
-        return photos
-          .slice()
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          );
-
-      case 3: // Viejos primero (orden ascendente por fecha)
-        return photos
-          .slice()
-          .sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-          );
-
-      default:
-        console.error("Tipo de orden no reconocido");
-        return photos;
-    }
+    return genericSort(
+      sortOption,
+      photos,
+      (a, b) => a.title.localeCompare(b.title),
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
   };
 
   const sortedPhotos = sortPhotos(sortBy, photos ?? []);
@@ -181,6 +82,10 @@ export default function CuratorPhotos() {
       ],
     };
   });
+
+  const sortLocalOptions = sortOptions
+    .slice(0, 2)
+    .concat(sortOptions.slice(6, 8));
 
   const router = useRouter();
 
@@ -225,7 +130,7 @@ export default function CuratorPhotos() {
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <Filters
-            sortOptions={sortOptions}
+            sortOptions={sortLocalOptions}
             setSort={updateSort}
             filters={extendedFilters}
             categories={[]}
@@ -249,17 +154,15 @@ export default function CuratorPhotos() {
             const photoActions: ActionItemProps[] =
               photo.approved && photo.visible
                 ? [
-                    addOnClickFunction(actions.view, photo.id),
-                    addOnClickFunction(actions.edit, photo.id),
-                    addOnClickFunction(actions.archive, photo.id),
+                    addOnClickFunction(availableActions.view, photo.id),
+                    addOnClickFunction(availableActions.edit, photo.id),
+                    addOnClickFunction(availableActions.archive, photo.id),
                   ]
                 : photo.approved
-                ? [
-                    addOnClickFunction(actions.edit, photo.id),
-                  ]
+                ? [addOnClickFunction(availableActions.edit, photo.id)]
                 : [
-                    addOnClickFunction(actions.curar, photo.id),
-                    addOnClickFunction(actions.rechazar, photo.id),
+                    addOnClickFunction(availableActions.curar, photo.id),
+                    addOnClickFunction(availableActions.rechazar, photo.id),
                   ];
             return (
               <li key={photo.imgSrc} className="relative">

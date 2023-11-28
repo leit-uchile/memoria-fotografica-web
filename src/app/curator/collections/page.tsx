@@ -1,30 +1,17 @@
+import {
+  availableActions,
+  genericSort,
+  sortOptions,
+  sortOptionsEnum,
+} from "../utils";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
 import { fetchCollections } from "@/services/fetch";
-import {
-  EyeIcon,
-  PencilIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useSWR from "swr";
-
-const sortOptions = [
-  { name: "Alfabético: A->Z", value: "title=ASC" },
-  { name: "Alfabético: Z->A", value: "title=DESC" },
-  { name: "Nuevos primero", value: "created_at=DESC" },
-  { name: "Antiguos primero", value: "created_at=ASC" },
-];
-
-enum sortOptionsEnum {
-  "title=ASC" = 0,
-  "title=DESC" = 1,
-  "created_at=DESC" = 2,
-  "created_at=ASC" = 3,
-}
 
 const LoadingGallery = () => (
   <div className="flex flex-col space-y-4">
@@ -46,49 +33,6 @@ const LoadingGallery = () => (
   </div>
 );
 
-const actions: {
-  [action: string]: {
-    href: string;
-    icon: React.ReactNode;
-    type: string;
-    label: string;
-  };
-} = {
-  edit: {
-    href: "#",
-    type: "edit",
-    label: "Editar",
-    icon: (
-      <PencilIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  view: {
-    href: "#",
-    type: "view",
-    label: "Ver fotografías",
-    icon: (
-      <EyeIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  },
-  delete: {
-    href: "#",
-    type: "delete",
-    label: "Eliminar",
-    icon: (
-      <TrashIcon
-        className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500"
-        aria-hidden="true"
-      />
-    ),
-  }
-};
-
 export default function CuratorCollections() {
   const [openEditor, setOpenEditor] = useState(false);
   const [collectionId, setCollectionId] = useState("");
@@ -96,7 +40,10 @@ export default function CuratorCollections() {
     sortOptionsEnum["created_at=DESC"]
   );
 
-  const { data: collections, isValidating } = useSWR("curator-collections", fetchCollections);
+  const { data: collections, isValidating } = useSWR(
+    "curator-collections",
+    fetchCollections
+  );
 
   const toggleEditor = (collectionId: string) => {
     setCollectionId(collectionId);
@@ -108,35 +55,24 @@ export default function CuratorCollections() {
     setSortBy(number);
   };
 
-  const sortCollections = (sortOption: sortOptionsEnum, collections: CollectionProps[]) => {
-    switch (sortOption) {
-      case 0: // A -> Z (orden alfabético ascendente por título)
-        return collections.slice().sort((a, b) => a.title.localeCompare(b.title));
-
-      case 1: // Z -> A (orden alfabético descendente por título)
-        return collections.slice().sort((a, b) => b.title.localeCompare(a.title));
-
-      case 2: // Nuevos primero (orden descendente por fecha)
-        return collections
-          .slice()
-          .sort(
-            (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-          );
-
-      case 3: // Viejos primero (orden ascendente por fecha)
-        return collections
-          .slice()
-          .sort(
-            (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-          );
-
-      default:
-        console.error("Tipo de orden no reconocido");
-        return collections;
-    }
+  const sortCollections = (
+    sortOption: sortOptionsEnum,
+    collections: CollectionProps[]
+  ) => {
+    return genericSort(
+      sortOption,
+      collections,
+      (a, b) => a.title.localeCompare(b.title),
+      (a, b) =>
+        new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    );
   };
 
   const sortedCollections = sortCollections(sortBy, collections ?? []);
+
+  const sortLocalOptions = sortOptions
+    .slice(0, 2)
+    .concat(sortOptions.slice(6, 8));
 
   const router = useRouter();
 
@@ -177,7 +113,7 @@ export default function CuratorCollections() {
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <Filters
-            sortOptions={sortOptions}
+            sortOptions={sortLocalOptions}
             setSort={updateSort}
             filters={[]}
             categories={[]}
@@ -198,17 +134,16 @@ export default function CuratorCollections() {
           </div>
         ) : (
           sortedCollections.map((collection: CollectionProps) => {
-            const collectionActions: ActionItemProps[] =
-            collection.visible
-                ? [
-                    addOnClickFunction(actions.view, collection.id),
-                    addOnClickFunction(actions.edit, collection.id),
-                    addOnClickFunction(actions.delete, collection.id),
-                  ]
-                : [
-                    addOnClickFunction(actions.edit, collection.id),
-                    addOnClickFunction(actions.delete, collection.id),
-                  ]
+            const collectionActions: ActionItemProps[] = collection.visible
+              ? [
+                  addOnClickFunction(availableActions.view, collection.id),
+                  addOnClickFunction(availableActions.edit, collection.id),
+                  addOnClickFunction(availableActions.delete, collection.id),
+                ]
+              : [
+                  addOnClickFunction(availableActions.edit, collection.id),
+                  addOnClickFunction(availableActions.delete, collection.id),
+                ];
             return (
               <li key={collection.imgSrc} className="relative">
                 <div className="group aspect-w-10 block w-full overflow-hidden rounded-lg focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
