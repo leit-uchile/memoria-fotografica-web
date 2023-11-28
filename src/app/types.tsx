@@ -52,6 +52,7 @@ type CollectionProps = {
     code: string;
     width: number;
     height: number;
+    photos: string[];
   };
 };
 
@@ -67,6 +68,9 @@ type CategoryProps = {
   name: string;
   description: string;
   createdAt: Date;
+  properties:{
+    photos: string[];
+  }
 };
 
 type CampusProps = {
@@ -79,11 +83,14 @@ type MailProps = {
   id: number;
   archived: boolean;
   solved: boolean;
-  asunto: string;
+  approved: boolean;
+  subject: string;
   name: string;
-  lastname: string;
+  lastName: string;
   phone: string;
+  email: string;
   message: string;
+  answer: string;
   code: string;
   isPhotoRequest: boolean;
   photoCode: string;

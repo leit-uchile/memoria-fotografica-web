@@ -1,37 +1,44 @@
+import SearchField from "@/components/SearchField";
 import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
 import { Dialog, Transition } from "@headlessui/react";
 import { LinkIcon } from "@heroicons/react/20/solid";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChangeEvent, Fragment, useEffect, useState } from "react";
 
 type FormFields = {
   name: string;
   description: string;
+  photos: string[];
 };
 
 const defaultForm = {
   name: "",
   description: "",
+  photos: [],
 };
 
 export default function SideEditor({
   open,
   setClose,
-  tag,
+  category,
+  availablePhotos,
 }: {
   open: boolean;
   setClose: any;
-  tag?: TagProps;
+  category?: CategoryProps;
+  availablePhotos?: PhotoProps[];
 }) {
   const [formFields, setFormFields] = useState<FormFields>(defaultForm);
+  const [photoLimit, setPhotoLimit] = useState(7);
 
   useEffect(() => {
     setFormFields({
-      name: tag?.name ?? "",
-      description: tag?.description ?? "",
+      name: category?.name ?? "",
+      description: category?.description ?? "",
+      photos: category?.properties.photos ?? [],
     });
-  }, [tag]);
+  }, [category]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -49,6 +56,22 @@ export default function SideEditor({
     }));
   };
 
+  const handleAddPhoto = (photoIds: string[]) => {
+    const countNewPhotos = photoIds.length - formFields.photos.length;
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      photos: photoIds,
+    }));
+    setPhotoLimit((prevLimit) => prevLimit + countNewPhotos);
+  };
+
+  const handleRemovePhoto = (photoId: string) => {
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      photos: prevFields.photos.filter((photo) => photo !== photoId),
+    }));
+  };
+
   const handleOnSave = () => {
     console.log(formFields);
   };
@@ -58,6 +81,20 @@ export default function SideEditor({
       console.error("Error al copiar al portapapeles: ", err);
     });
   };
+
+  const loadMorePhotos = () => {
+    setPhotoLimit((prevLimit) => prevLimit + 8);
+  };
+
+  const photoList = availablePhotos?.map((photo) => {
+    return {
+      value: photo.id,
+      name: photo.title,
+      secondaryText: photo.properties.code,
+    };
+  });
+
+  const subsetPhotosInCollection = formFields.photos.slice(0, photoLimit) ?? [];
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -76,13 +113,13 @@ export default function SideEditor({
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full"
               >
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
+                <Dialog.Panel className="pointer-events-auto w-screen max-w-2xl">
                   <form className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
                       <div className="bg-indigo-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-semibold leading-6 text-white">
-                            Editando etiqueta
+                            Editando categoría
                           </Dialog.Title>
                           <div className="ml-3 flex h-7 items-center">
                             <button
@@ -126,6 +163,83 @@ export default function SideEditor({
                                 onChange={handleTextAreaChange}
                               />
                             </div>
+                            <div>
+                              <SearchField
+                                label="Agregar fotografías"
+                                optionsList={photoList ?? []}
+                                selectedOptions={formFields.photos ?? []}
+                                setSelectedOptions={handleAddPhoto}
+                                multipleSelection
+                                hideSelectedOptionsFromList
+                              />
+                            </div>
+                            <div>
+                              <ul
+                                role="list"
+                                className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+                              >
+                                {subsetPhotosInCollection.map(
+                                  (photoId: string) => {
+                                    const photo = availablePhotos?.find(
+                                      (photo) => photo.id === photoId
+                                    );
+                                    if (!photo) return null;
+                                    return (
+                                      <li
+                                        key={photo.imgSrc}
+                                        className="relative"
+                                        onClick={() =>
+                                          handleRemovePhoto(photo.id)
+                                        }
+                                      >
+                                        <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                                          <img
+                                            src={photo.imgSrc}
+                                            alt=""
+                                            className="pointer-events-none object-cover group-hover:opacity-75"
+                                          />
+                                          <button
+                                            type="button"
+                                            className="absolute inset-0 focus:outline-none"
+                                          >
+                                            <span className="sr-only">
+                                              Remove {photo.title}
+                                            </span>
+                                          </button>
+                                        </div>
+                                        <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
+                                          {photo.title}
+                                        </p>
+                                        <p className="pointer-events-none block text-sm font-medium text-gray-500">
+                                          {photo.properties.code}
+                                        </p>
+                                      </li>
+                                    );
+                                  }
+                                )}
+                                {formFields.photos.length > photoLimit && (
+                                  <li
+                                    key="load-more"
+                                    className="relative"
+                                    onClick={() => loadMorePhotos()}
+                                  >
+                                    <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                                      <div className="flex items-center justify-center">
+                                        <ArrowPathIcon className="pointer-events-none object-cover text-gray-500 w-10 h-10 group-hover:text-indigo-500" />
+                                      </div>
+                                      <button
+                                        type="button"
+                                        className="absolute inset-0 focus:outline-none"
+                                      >
+                                        <span className="sr-only">
+                                          Load more photos
+                                        </span>
+                                      </button>
+                                    </div>
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
                           </div>
                           <div className="pb-6 pt-4">
                             <div className="flex text-sm">
@@ -140,7 +254,9 @@ export default function SideEditor({
                                 <span
                                   className="ml-2"
                                   onClick={() =>
-                                    handleCopyLink(tag?.id.toString() ?? "")
+                                    handleCopyLink(
+                                      category?.id.toString() ?? ""
+                                    )
                                   }
                                 >
                                   Copiar vínculo

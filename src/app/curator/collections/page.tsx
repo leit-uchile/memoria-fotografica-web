@@ -1,13 +1,10 @@
-import {
-  availableActions,
-  genericSort,
-  sortOptions,
-  sortOptionsEnum,
-} from "../utils";
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort } from "../utils";
+import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
-import { fetchCollections } from "@/services/fetch";
+import { fetchCollections, fetchPhotos } from "@/services/fetch";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -44,6 +41,7 @@ export default function CuratorCollections() {
     "curator-collections",
     fetchCollections
   );
+  const { data: photos } = useSWR("curator-photos", fetchPhotos);
 
   const toggleEditor = (collectionId: string) => {
     setCollectionId(collectionId);
@@ -164,7 +162,7 @@ export default function CuratorCollections() {
                             "bg-red-200"
                           )}
                         >
-                          {"Oculta"}
+                          Oculta
                         </span>
                       )}
                     </span>
@@ -199,13 +197,16 @@ export default function CuratorCollections() {
           })
         )}
       </ul>
-      {/* {collectionId && (
+      {collectionId && (
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          photo={collections.find((collection: CollectionProps) => collection.id === collectionId)}
+          collection={collections.find(
+            (collection: CollectionProps) => collection.id === collectionId
+          )}
+          availablePhotos={photos}
         />
-      )} */}
+      )}
     </div>
   );
 }

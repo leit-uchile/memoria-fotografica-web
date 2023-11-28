@@ -1,15 +1,11 @@
-import {
-  availableActions,
-  genericSort,
-  sortOptions,
-  sortOptionsEnum,
-} from "../utils";
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort } from "../utils";
+import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchMails } from "@/services/fetch";
 import { isoToDate } from "@/services/string";
 import classNames from "classnames";
-import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
 
@@ -20,7 +16,7 @@ export default function CuratorMails() {
     sortOptionsEnum["created_at=DESC"]
   );
 
-  const { data: mails, isValidating } = useSWR("curator-mails", fetchMails);
+  const { data: mails } = useSWR("curator-mails", fetchMails);
 
   const toggleEditor = (mailId: number) => {
     setMailId(mailId);
@@ -36,7 +32,7 @@ export default function CuratorMails() {
     return genericSort(
       sortOption,
       mails,
-      (a, b) => a.lastname.localeCompare(b.lastname),
+      (a, b) => a.lastName.localeCompare(b.lastName),
       (a, b) =>
         new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
     );
@@ -61,8 +57,6 @@ export default function CuratorMails() {
   const groupedMails = groupMailsByType(sortedMails ?? []);
 
   const sortLocalOptions = sortOptions.slice(4, 8);
-
-  const router = useRouter();
 
   const addOnClickFunction = (
     action: {
@@ -108,19 +102,25 @@ export default function CuratorMails() {
               scope="col"
               className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
             >
-              Nombre
-            </th>
-            <th
-              scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
               Apellido
             </th>
             <th
               scope="col"
               className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
             >
+              Nombre
+            </th>
+            <th
+              scope="col"
+              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+            >
               Fecha del primer mensaje
+            </th>
+            <th
+              scope="col"
+              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+            >
+              Código de referencia
             </th>
             <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
               <span className="sr-only">Actions</span>
@@ -140,10 +140,15 @@ export default function CuratorMails() {
                 </th>
               </tr>
               {groupedMails[type].map((mail, mailIdx) => {
-                const tagActions: ActionItemProps[] = [
-                  addOnClickFunction(availableActions.reply, mail.id),
-                  addOnClickFunction(availableActions.archive, mail.id),
-                ];
+                const tagActions: ActionItemProps[] = mail.solved
+                  ? [
+                      addOnClickFunction(availableActions.see, mail.id),
+                      addOnClickFunction(availableActions.archive, mail.id),
+                    ]
+                  : [
+                      addOnClickFunction(availableActions.reply, mail.id),
+                      addOnClickFunction(availableActions.archive, mail.id),
+                    ];
                 return (
                   <tr
                     key={mail.id}
@@ -152,14 +157,37 @@ export default function CuratorMails() {
                       "border-t"
                     )}
                   >
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-3">
+                    <td
+                      className={classNames(
+                        !mail.solved ? "font-bold" : "",
+                        "whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-3"
+                      )}
+                    >
+                      {mail.lastName}
+                    </td>
+                    <td
+                      className={classNames(
+                        !mail.solved ? "font-bold" : "",
+                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                      )}
+                    >
                       {mail.name}
                     </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {mail.lastname}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                    <td
+                      className={classNames(
+                        !mail.solved ? "font-bold" : "",
+                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                      )}
+                    >
                       {isoToDate(mail.createdAt.toString())}
+                    </td>
+                    <td
+                      className={classNames(
+                        !mail.solved ? "font-bold" : "",
+                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                      )}
+                    >
+                      {mail.code}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                       <ActionsMenu items={tagActions} />
@@ -171,13 +199,13 @@ export default function CuratorMails() {
           ))}
         </tbody>
       </table>
-      {/* {mailId && (
+      {mailId && (
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          photo={mails.find((mail: MailProps) => mail.id === mailId)}
+          mail={mails.find((mail: MailProps) => mail.id === mailId)}
         />
-      )} */}
+      )}
     </div>
   );
 }

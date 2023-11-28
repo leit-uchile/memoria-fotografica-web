@@ -1,13 +1,9 @@
-import {
-  availableActions,
-  genericSort,
-  groupByInitial,
-  sortOptions,
-  sortOptionsEnum,
-} from "../utils";
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort, groupByInitial } from "../utils";
+import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
-import { fetchCategories } from "@/services/fetch";
+import { fetchCategories, fetchPhotos } from "@/services/fetch";
 import { isoToDate } from "@/services/string";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
@@ -25,6 +21,7 @@ export default function CuratorCategories() {
     "curator-categories",
     fetchCategories
   );
+  const { data: photos } = useSWR("curator-photos", fetchPhotos);
 
   const toggleEditor = (categoryId: number) => {
     setCategoryId(categoryId);
@@ -143,7 +140,7 @@ export default function CuratorCategories() {
                 </th>
               </tr>
               {groupedCategories[initial].map((category, categoryIdx) => {
-                const tagActions: ActionItemProps[] = [
+                const categoryActions: ActionItemProps[] = [
                   addOnClickFunction(availableActions.view, category.id),
                   addOnClickFunction(availableActions.edit, category.id),
                   addOnClickFunction(availableActions.delete, category.id),
@@ -166,7 +163,7 @@ export default function CuratorCategories() {
                       {isoToDate(category.createdAt.toString())}
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                      <ActionsMenu items={tagActions} />
+                      <ActionsMenu items={categoryActions} />
                     </td>
                   </tr>
                 );
@@ -175,13 +172,16 @@ export default function CuratorCategories() {
           ))}
         </tbody>
       </table>
-      {/* {categoryId && (
+      {categoryId && (
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          photo={categories.find((category: CategoryProps) => category.id === categoryId)}
+          category={categories.find(
+            (category: CategoryProps) => category.id === categoryId
+          )}
+          availablePhotos={photos}
         />
-      )} */}
+      )}
     </div>
   );
 }

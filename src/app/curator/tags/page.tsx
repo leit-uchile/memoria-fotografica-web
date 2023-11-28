@@ -1,10 +1,3 @@
-import {
-  availableActions,
-  genericSort,
-  groupByInitial,
-  sortOptions,
-  sortOptionsEnum,
-} from "../utils";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchTags } from "@/services/fetch";
@@ -14,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
 import SideEditor from "./components/sideEditor";
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort, groupByInitial } from "../utils";
 
 export default function CuratorTags() {
   const [openEditor, setOpenEditor] = useState(false);

@@ -1,9 +1,3 @@
-import {
-  availableActions,
-  genericSort,
-  sortOptions,
-  sortOptionsEnum,
-} from "../utils";
 import SideEditor from "./components/sideEditor";
 import { groupedFilters } from "@/app/constants";
 import ActionsMenu from "@/components/ActionsMenu";
@@ -14,6 +8,8 @@ import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useSWR from "swr";
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort } from "../utils";
 
 const LoadingGallery = () => (
   <div className="flex flex-col space-y-4">

@@ -3,30 +3,45 @@
     "id": 1,
     "name": "Casa Central",
     "description": "Categoría relacionada a la Casa Central.",
-    "createdAt": "2023-01-15T12:30:00Z"
+    "createdAt": "2023-01-15T12:30:00Z",
+    "properties": {
+      "photos": []
+    }
   },
   {
     "id": 2,
     "name": "Tecnología",
     "description": "Categoría relacionada a eventos tecnológicos.",
-    "createdAt": "2023-02-01T09:45:00Z"
+    "createdAt": "2023-02-01T09:45:00Z",
+    "properties": {
+      "photos": []
+    }
   },
   {
     "id": 3,
     "name": "Deportes",
     "description": "Categoría relacionada a eventos deportivos.",
-    "createdAt": "2023-02-10T15:20:00Z"
+    "createdAt": "2023-02-10T15:20:00Z",
+    "properties": {
+      "photos": []
+    }
   },
   {
     "id": 4,
     "name": "Ciencia",
     "description": "Categoría relacionada a eventos científicos.",
-    "createdAt": "2023-03-05T10:10:00Z"
+    "createdAt": "2023-03-05T10:10:00Z",
+    "properties": {
+      "photos": []
+    }
   },
   {
     "id": 5,
     "name": "Social",
     "description": "Categoría relacionada a eventos sociales.",
-    "createdAt": "2023-03-20T14:00:00Z"
+    "createdAt": "2023-03-20T14:00:00Z",
+    "properties": {
+      "photos": []
+    }
   }
 ]

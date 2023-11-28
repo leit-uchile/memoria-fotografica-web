@@ -8,6 +8,7 @@ import { useState } from "react";
 
 type OptionProps = {
   name: string;
+  secondaryText?: string;
   value: string;
 };
 
@@ -106,14 +107,24 @@ const SearchField: React.FC<SearchFieldProps> = ({
                 >
                   {({ active, selected }) => (
                     <>
-                      <span
-                        className={classNames(
-                          "block truncate",
-                          selected && "font-semibold"
-                        )}
-                      >
-                        {option.name}
-                      </span>
+                      <div className="flex">
+                        <span
+                          className={classNames(
+                            "truncate",
+                            selected && "font-semibold"
+                          )}
+                        >
+                          {option.name}
+                        </span>
+                        <span
+                          className={classNames(
+                            "ml-2 truncate text-gray-500",
+                            active ? "text-indigo-200" : "text-gray-500"
+                          )}
+                        >
+                          {option.secondaryText}
+                        </span>
+                      </div>
 
                       {selected && (
                         <span
