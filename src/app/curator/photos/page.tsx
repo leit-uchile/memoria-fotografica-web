@@ -9,7 +9,7 @@ import { groupedFilters } from "@/app/constants";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
-import { fetchCampuses, fetchPhotos, fetchTags } from "@/services/fetch";
+import { fetchCampuses, fetchCollections, fetchPhotos, fetchTags } from "@/services/fetch";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -51,6 +51,7 @@ export default function CuratorPhotos() {
     "curator-campuses",
     fetchCampuses
   );
+  const {data: albums, isValidating: isValidatingAlbums} = useSWR("curator-albums", fetchCollections)
 
   const toggleEditor = (photoId: string) => {
     setPhotoId(photoId);
@@ -240,6 +241,7 @@ export default function CuratorPhotos() {
           open={openEditor}
           setClose={() => setOpenEditor(false)}
           photo={photos.find((photo: PhotoProps) => photo.id === photoId)}
+          availableAlbums={isValidatingAlbums ? [] : albums}
           availabileCampuses={isValidatingCampus ? [] : campuses}
           availableTags={isValidatingTags ? [] : tags}
         />

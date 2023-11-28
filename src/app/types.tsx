@@ -25,7 +25,7 @@ type PhotoProps = {
   approved: boolean;
   properties: {
     code: string;
-    tags: TagProps[];
+    tags: string[];
     cc: string;
     width: number;
     height: number;

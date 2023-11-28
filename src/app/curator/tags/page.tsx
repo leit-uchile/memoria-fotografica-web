@@ -13,6 +13,7 @@ import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
+import SideEditor from "./components/sideEditor";
 
 export default function CuratorTags() {
   const [openEditor, setOpenEditor] = useState(false);
@@ -169,13 +170,13 @@ export default function CuratorTags() {
           ))}
         </tbody>
       </table>
-      {/* {tagId && (
+      {tagId && (
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          photo={tags.find((tag: TagProps) => tag.id === tagId)}
+          tag={tags.find((tag: TagProps) => tag.id === tagId)}
         />
-      )} */}
+      )}
     </div>
   );
 }

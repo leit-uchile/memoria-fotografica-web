@@ -25,6 +25,7 @@ type FormFields = {
   height: number;
   author: string;
   location: string;
+  albumSelected: string;
   campusSelected: string | null;
   formatSelected: string | null;
   processSelected: string | null;
@@ -44,6 +45,7 @@ const defaultForm = {
   height: 0,
   author: "",
   location: "",
+  albumSelected: "",
   campusSelected: null,
   formatSelected: null,
   processSelected: null,
@@ -58,28 +60,30 @@ export default function SideEditor({
   open,
   setClose,
   photo,
+  availableAlbums = [],
   availabileCampuses = [],
   availableTags = [],
 }: {
   open: boolean;
   setClose: any;
   photo?: PhotoProps;
+  availableAlbums?: CollectionProps[];
   availabileCampuses?: CampusProps[];
   availableTags?: TagProps[];
 }) {
   const [formFields, setFormFields] = useState<FormFields>(defaultForm);
 
   useEffect(() => {
-    const tagIds = photo?.properties?.tags?.map((tag) => tag.id.toString());
     setFormFields({
       title: photo?.title ?? "",
       date: photo?.date ? dateToISO(photo?.date) : "",
       description: photo?.description ?? "",
-      tags: tagIds ?? [],
+      tags: photo?.properties?.tags ?? [],
       width: photo?.properties.width ?? 0,
       height: photo?.properties.height ?? 0,
       author: photo?.properties.author ?? "",
       location: photo?.properties.location ?? "",
+      albumSelected: photo?.properties.album ?? "",
       campusSelected: photo?.properties.campus ?? null,
       formatSelected: photo?.properties.format ?? null,
       processSelected: photo?.properties.process ?? null,
@@ -114,11 +118,24 @@ export default function SideEditor({
     }));
   };
 
+  const handleAlbumChange = (value: string[]) => {
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      albumSelected: value[0],
+    }));
+  };
+
   const handleTagsChange = (tags: string[]) => {
-    console.log(tags);
     setFormFields((prevFields) => ({
       ...prevFields,
       tags,
+    }));
+  };
+
+  const handleTagsManuallyRemove = (value: string) => {
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      tags: prevFields.tags.filter((tag) => tag !== value),
     }));
   };
 
@@ -138,6 +155,11 @@ export default function SideEditor({
       console.error("Error al copiar al portapapeles: ", err);
     });
   };
+
+  const mappedAlbumes = availableAlbums.map((album) => ({
+    name: album.title,
+    value: album.id,
+  }));
 
   const mappedTags = availableTags.map((tag) => ({
     name: tag.name,
@@ -245,7 +267,30 @@ export default function SideEditor({
                                 optionsList={mappedTags}
                                 selectedOptions={formFields.tags}
                                 setSelectedOptions={handleTagsChange}
+                                multipleSelection
+                                hideSelectedOptionsFromList
                               />
+                              {formFields.tags.length > 0 && (
+                                <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
+                                  {formFields.tags.map((option) => {
+                                    const name = mappedTags.find(
+                                      (opt) => opt.value === option
+                                    )?.name;
+                                    return (
+                                      <span
+                                        key={option}
+                                        onClick={() =>
+                                          handleTagsManuallyRemove(option)
+                                        }
+                                        className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 bg-gray-50 cursor-pointer"
+                                      >
+                                        {name}{" "}
+                                        <XMarkIcon className="h-4 w-4 ml-1" />
+                                      </span>
+                                    );
+                                  })}
+                                </div>
+                              )}
                             </div>
                             <fieldset>
                               <legend className="block text-sm font-medium leading-6 text-gray-900">
@@ -285,12 +330,15 @@ export default function SideEditor({
                               </div>
                             </fieldset>
                             <div>
-                              <SimpleField
+                              <SearchField
                                 label="Colección a la que pertenece"
-                                fieldName="album"
-                                value={photo?.properties.album ?? "N/A"}
-                                disabled
-                                onChange={() => {}}
+                                optionsList={mappedAlbumes}
+                                selectedOptions={
+                                  formFields.albumSelected
+                                    ? [formFields.albumSelected]
+                                    : []
+                                }
+                                setSelectedOptions={handleAlbumChange}
                               />
                             </div>
                             <div>

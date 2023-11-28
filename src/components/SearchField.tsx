@@ -1,7 +1,7 @@
 import { Combobox } from "@headlessui/react";
 import {
+  CheckIcon,
   MagnifyingGlassCircleIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useState } from "react";
@@ -16,16 +16,26 @@ type SearchFieldProps = {
   optionsList: OptionProps[];
   selectedOptions: string[];
   setSelectedOptions: (value: string[]) => void;
+  multipleSelection?: boolean;
+  hideSelectedOptionsFromList?: boolean;
 };
 const SearchField: React.FC<SearchFieldProps> = ({
   label,
   optionsList,
   selectedOptions,
   setSelectedOptions,
+  multipleSelection = false,
+  hideSelectedOptionsFromList = false,
 }) => {
   const [query, setQuery] = useState("");
 
   const handleSelectedOption = (value: string) => {
+    // If multipleSelection is false, then only one option can be selected
+    if (!multipleSelection) {
+      setSelectedOptions([value]);
+      return;
+    }
+    // Otherwise we can select multiple options
     if (selectedOptions.includes(value)) {
       setSelectedOptions(
         selectedOptions.filter((selectedOption) => {
@@ -38,10 +48,13 @@ const SearchField: React.FC<SearchFieldProps> = ({
   };
 
   // Remove selected options from options list
-  const options = optionsList.filter((option) => {
-    return !selectedOptions.includes(option.value);
-  });
+  const options = hideSelectedOptionsFromList
+    ? optionsList.filter((option) => {
+        return !selectedOptions.includes(option.value);
+      })
+    : optionsList;
 
+  // Filter options by query
   const filteredOptions =
     query === ""
       ? options
@@ -51,7 +64,15 @@ const SearchField: React.FC<SearchFieldProps> = ({
 
   return (
     <>
-      <Combobox as="div" onChange={handleSelectedOption}>
+      <Combobox
+        as="div"
+        value={
+          !multipleSelection && selectedOptions.length == 1
+            ? selectedOptions[0]
+            : null
+        }
+        onChange={handleSelectedOption}
+      >
         <Combobox.Label className="block text-sm font-medium leading-6 text-gray-900">
           {label}
         </Combobox.Label>
@@ -59,7 +80,9 @@ const SearchField: React.FC<SearchFieldProps> = ({
           <Combobox.Input
             className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             onChange={(event) => setQuery(event.target.value)}
-            displayValue={(option: OptionProps) => option?.name}
+            displayValue={(option: string) =>
+              optionsList.find((o) => o.value === option)?.name ?? ""
+            }
           />
           <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
             <MagnifyingGlassCircleIcon
@@ -81,29 +104,35 @@ const SearchField: React.FC<SearchFieldProps> = ({
                     )
                   }
                 >
-                  <span className="block truncate">{option.name}</span>
+                  {({ active, selected }) => (
+                    <>
+                      <span
+                        className={classNames(
+                          "block truncate",
+                          selected && "font-semibold"
+                        )}
+                      >
+                        {option.name}
+                      </span>
+
+                      {selected && (
+                        <span
+                          className={classNames(
+                            "absolute inset-y-0 right-0 flex items-center pr-4",
+                            active ? "text-white" : "text-indigo-600"
+                          )}
+                        >
+                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                        </span>
+                      )}
+                    </>
+                  )}
                 </Combobox.Option>
               ))}
             </Combobox.Options>
           )}
         </div>
       </Combobox>
-      {selectedOptions.length > 0 && (
-        <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
-          {selectedOptions.map((option) => {
-            const name = optionsList.find((opt) => opt.value === option)?.name;
-            return (
-              <span
-                key={option}
-                onClick={() => handleSelectedOption(option)}
-                className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 bg-gray-50 cursor-pointer"
-              >
-                {name} <XMarkIcon className="h-4 w-4 ml-1" />
-              </span>
-            );
-          })}
-        </div>
-      )}
     </>
   );
 };
