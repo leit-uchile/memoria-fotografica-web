@@ -7,24 +7,20 @@ import {
   photoTone,
 } from "@/app/constants";
 import DropdownField from "@/components/DropdownField";
+import SearchField from "@/components/SearchField";
 import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
-import { fetchCampuses } from "@/services/fetch";
 import { dateToISO } from "@/services/string";
 import { Dialog, Transition } from "@headlessui/react";
-import {
-  ChevronUpDownIcon,
-  LinkIcon,
-  QuestionMarkCircleIcon,
-} from "@heroicons/react/20/solid";
+import { LinkIcon, QuestionMarkCircleIcon } from "@heroicons/react/20/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChangeEvent, Fragment, useEffect, useState } from "react";
-import useSWR from "swr";
 
 type FormFields = {
   title: string;
   date: string;
   description: string;
+  tags: string[];
   width: number;
   height: number;
   author: string;
@@ -43,6 +39,7 @@ const defaultForm = {
   title: "",
   date: "",
   description: "",
+  tags: [],
   width: 0,
   height: 0,
   author: "",
@@ -61,18 +58,24 @@ export default function SideEditor({
   open,
   setClose,
   photo,
+  availabileCampuses = [],
+  availableTags = [],
 }: {
   open: boolean;
   setClose: any;
   photo?: PhotoProps;
+  availabileCampuses?: CampusProps[];
+  availableTags?: TagProps[];
 }) {
   const [formFields, setFormFields] = useState<FormFields>(defaultForm);
 
   useEffect(() => {
+    const tagIds = photo?.properties?.tags?.map((tag) => tag.id.toString());
     setFormFields({
       title: photo?.title ?? "",
       date: photo?.date ? dateToISO(photo?.date) : "",
       description: photo?.description ?? "",
+      tags: tagIds ?? [],
       width: photo?.properties.width ?? 0,
       height: photo?.properties.height ?? 0,
       author: photo?.properties.author ?? "",
@@ -111,6 +114,14 @@ export default function SideEditor({
     }));
   };
 
+  const handleTagsChange = (tags: string[]) => {
+    console.log(tags);
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      tags,
+    }));
+  };
+
   const handleVisibilityChange = (value: boolean) => {
     setFormFields((prevFields) => ({
       ...prevFields,
@@ -123,16 +134,15 @@ export default function SideEditor({
   };
 
   const handleCopyLink = (photoid: string) => {
-    navigator.clipboard.writeText(`/gallery/${photoid}`)
-      .catch((err) => {
-        console.error('Error al copiar al portapapeles: ', err);
-      });
-  }
+    navigator.clipboard.writeText(`/gallery/${photoid}`).catch((err) => {
+      console.error("Error al copiar al portapapeles: ", err);
+    });
+  };
 
-  const { data: campuses, isValidating: isValidatingCampus } = useSWR(
-    "campuses",
-    fetchCampuses
-  );
+  const mappedTags = availableTags.map((tag) => ({
+    name: tag.name,
+    value: tag.id.toString(),
+  }));
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -229,6 +239,14 @@ export default function SideEditor({
                                 onChange={handleTextAreaChange}
                               />
                             </div>
+                            <div>
+                              <SearchField
+                                label="Etiquetas"
+                                optionsList={mappedTags}
+                                selectedOptions={formFields.tags}
+                                setSelectedOptions={handleTagsChange}
+                              />
+                            </div>
                             <fieldset>
                               <legend className="block text-sm font-medium leading-6 text-gray-900">
                                 Dimensiones (cm)
@@ -292,14 +310,14 @@ export default function SideEditor({
                               />
                             </div>
                             <div>
-                              {isValidatingCampus ? null : (
+                              {!availabileCampuses ? null : (
                                 <DropdownField
                                   withIcons
                                   label="Campus"
                                   fieldName="campusSelected"
                                   selectedValue={formFields.campusSelected}
                                   onChange={handleDropdownChange}
-                                  options={campuses}
+                                  options={availabileCampuses}
                                 />
                               )}
                             </div>
@@ -437,9 +455,14 @@ export default function SideEditor({
                                   className="h-5 w-5 text-indigo-500 group-hover:text-indigo-900"
                                   aria-hidden="true"
                                 />
-                                <span className="ml-2"
-                                  onClick={() => handleCopyLink(photo?.id ?? "")}
-                                >Copiar vínculo</span>
+                                <span
+                                  className="ml-2"
+                                  onClick={() =>
+                                    handleCopyLink(photo?.id ?? "")
+                                  }
+                                >
+                                  Copiar vínculo
+                                </span>
                               </a>
                             </div>
                             <div className="mt-4 flex text-sm">

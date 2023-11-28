@@ -25,6 +25,7 @@ type PhotoProps = {
   approved: boolean;
   properties: {
     code: string;
+    tags: TagProps[];
     cc: string;
     width: number;
     height: number;
@@ -66,6 +67,12 @@ type CategoryProps = {
   name: string;
   description: string;
   createdAt: Date;
+};
+
+type CampusProps = {
+  name: string;
+  value: string;
+  imgSrc: string;
 };
 
 type MailProps = {
