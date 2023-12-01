@@ -3,7 +3,11 @@ import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
 import { Dialog, Transition } from "@headlessui/react";
 import { LinkIcon } from "@heroicons/react/20/solid";
-import { ArrowPathIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowPathIcon,
+  TrashIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { ChangeEvent, Fragment, useEffect, useState } from "react";
 
 type FormFields = {
@@ -11,6 +15,7 @@ type FormFields = {
   title: string;
   description: string;
   photos: string[];
+  visible: boolean;
 };
 
 const defaultForm = {
@@ -18,16 +23,19 @@ const defaultForm = {
   title: "",
   description: "",
   photos: [],
+  visible: false,
 };
 
 export default function SideEditor({
   open,
-  setClose,
+  setOpen,
+  onSave,
   collection,
-  availablePhotos,
+  availablePhotos = [],
 }: {
   open: boolean;
-  setClose: any;
+  setOpen: any;
+  onSave: (formFields: FormFields) => void;
   collection?: CollectionProps;
   availablePhotos?: PhotoProps[];
 }) {
@@ -40,6 +48,7 @@ export default function SideEditor({
       title: collection?.title ?? "",
       description: collection?.description ?? "",
       photos: collection?.properties.photos ?? [],
+      visible: collection?.visible ?? false,
     });
   }, [collection]);
 
@@ -75,8 +84,6 @@ export default function SideEditor({
     setPhotoLimit((prevLimit) => prevLimit + countNewPhotos);
   };
 
-  console.log(photoLimit);
-
   const handleRemovePhoto = (photoId: string) => {
     setFormFields((prevFields) => ({
       ...prevFields,
@@ -84,8 +91,15 @@ export default function SideEditor({
     }));
   };
 
+  const handleVisibilityChange = (value: boolean) => {
+    setFormFields((prevFields) => ({
+      ...prevFields,
+      visible: value,
+    }));
+  };
+
   const handleOnSave = () => {
-    console.log(formFields);
+    onSave(formFields);
   };
 
   const handleCopyLink = (tagid: string) => {
@@ -98,7 +112,7 @@ export default function SideEditor({
     setPhotoLimit((prevLimit) => prevLimit + 8);
   };
 
-  const photoList = availablePhotos?.map((photo) => {
+  const photoList = availablePhotos.map((photo) => {
     return {
       value: photo.id,
       name: photo.title,
@@ -110,7 +124,7 @@ export default function SideEditor({
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setClose}>
+      <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <div className="fixed inset-0" />
 
         <div className="fixed inset-0 overflow-hidden">
@@ -137,7 +151,7 @@ export default function SideEditor({
                             <button
                               type="button"
                               className="relative rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                              onClick={() => setClose()}
+                              onClick={() => setOpen(false)}
                             >
                               <span className="absolute -inset-2.5" />
                               <span className="sr-only">Close panel</span>
@@ -162,7 +176,7 @@ export default function SideEditor({
                               <img
                                 className="absolute h-full w-full object-cover"
                                 src={
-                                  availablePhotos?.find(
+                                  availablePhotos.find(
                                     (photo) => photo.id === formFields.coverId
                                   )?.imgSrc
                                 }
@@ -196,6 +210,74 @@ export default function SideEditor({
                                 onChange={handleTextAreaChange}
                               />
                             </div>
+                            <fieldset>
+                              <legend className="text-sm font-medium leading-6 text-gray-900">
+                                Privacidad
+                              </legend>
+                              <div className="mt-2 space-y-4">
+                                <div className="relative flex items-start">
+                                  <div className="absolute flex h-6 items-center">
+                                    <input
+                                      id="privacy-public"
+                                      name="privacy"
+                                      aria-describedby="privacy-public-description"
+                                      type="radio"
+                                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                      checked={formFields.visible}
+                                      onChange={() =>
+                                        handleVisibilityChange(true)
+                                      }
+                                    />
+                                  </div>
+                                  <div className="pl-7 text-sm leading-6">
+                                    <label
+                                      htmlFor="privacy-public"
+                                      className="font-medium text-gray-900"
+                                    >
+                                      Publico
+                                    </label>
+                                    <p
+                                      id="privacy-public-description"
+                                      className="text-gray-500"
+                                    >
+                                      Todos los visitantes del sitio pueden
+                                      verla.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div>
+                                  <div className="relative flex items-start">
+                                    <div className="absolute flex h-6 items-center">
+                                      <input
+                                        id="privacy-private-to-project"
+                                        name="privacy"
+                                        aria-describedby="privacy-private-to-project-description"
+                                        type="radio"
+                                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                        checked={!formFields.visible}
+                                        onChange={() =>
+                                          handleVisibilityChange(false)
+                                        }
+                                      />
+                                    </div>
+                                    <div className="pl-7 text-sm leading-6">
+                                      <label
+                                        htmlFor="privacy-private-to-project"
+                                        className="font-medium text-gray-900"
+                                      >
+                                        Oculto
+                                      </label>
+                                      <p
+                                        id="privacy-private-to-project-description"
+                                        className="text-gray-500"
+                                      >
+                                        Solo es visible desde esta interfaz.
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </fieldset>
                             <div>
                               <SearchField
                                 label="Agregar fotografías"
@@ -213,7 +295,7 @@ export default function SideEditor({
                               >
                                 {subsetPhotosInCollection.map(
                                   (photoId: string) => {
-                                    const photo = availablePhotos?.find(
+                                    const photo = availablePhotos.find(
                                       (photo) => photo.id === photoId
                                     );
                                     if (!photo) return null;
@@ -231,6 +313,9 @@ export default function SideEditor({
                                             alt=""
                                             className="pointer-events-none object-cover group-hover:opacity-75"
                                           />
+                                          <div className="flex items-center justify-center">
+                                            <TrashIcon className="w-10 h-10 opacity-0 group-hover:opacity-100" />
+                                          </div>
                                           <button
                                             type="button"
                                             className="absolute inset-0 focus:outline-none"
@@ -302,7 +387,7 @@ export default function SideEditor({
                       <button
                         type="button"
                         className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        onClick={() => setClose()}
+                        onClick={() => setOpen(false)}
                       >
                         Cancelar
                       </button>

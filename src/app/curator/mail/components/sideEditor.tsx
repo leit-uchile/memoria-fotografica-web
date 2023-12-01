@@ -19,11 +19,13 @@ const defaultForm = {
 
 export default function SideEditor({
   open,
-  setClose,
+  setOpen,
+  onSave,
   mail,
 }: {
   open: boolean;
-  setClose: any;
+  setOpen: any;
+  onSave: (formFields: FormFields) => void;
   mail?: MailProps;
 }) {
   const [formFields, setFormFields] = useState<FormFields>(defaultForm);
@@ -59,12 +61,12 @@ export default function SideEditor({
   };
 
   const handleOnSave = () => {
-    console.log(formFields);
+    onSave(formFields);
   };
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setClose}>
+      <Dialog as="div" className="relative z-10" onClose={setOpen}>
         <div className="fixed inset-0" />
 
         <div className="fixed inset-0 overflow-hidden">
@@ -91,7 +93,7 @@ export default function SideEditor({
                             <button
                               type="button"
                               className="relative rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                              onClick={() => setClose()}
+                              onClick={() => setOpen(false)}
                             >
                               <span className="absolute -inset-2.5" />
                               <span className="sr-only">Close panel</span>
@@ -330,7 +332,7 @@ export default function SideEditor({
                       <button
                         type="button"
                         className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                        onClick={() => setClose()}
+                        onClick={() => setOpen(false)}
                       >
                         {mail?.solved ? "Cerrar" : "Cancelar"}
                       </button>

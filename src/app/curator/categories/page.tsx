@@ -1,5 +1,6 @@
 import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
 import { genericSort, groupByInitial } from "../utils";
+import ModalCreator from "./components/modalCreator";
 import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
@@ -11,17 +12,26 @@ import { Fragment, useState } from "react";
 import useSWR from "swr";
 
 export default function CuratorCategories() {
+  const [openCreator, setOpenCreator] = useState(false);
   const [openEditor, setOpenEditor] = useState(false);
   const [categoryId, setCategoryId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["name=ASC"]
   );
 
-  const { data: categories, isValidating } = useSWR(
-    "curator-categories",
-    fetchCategories
+  const {
+    data: categories
+  }: {
+    data: CategoryProps[];
+    isValidating: boolean;
+  } = useSWR("curator-categories", fetchCategories);
+  const {
+    data: photos,
+    isValidating: isValidatingPhotos,
+  }: { data: PhotoProps[]; isValidating: boolean } = useSWR(
+    "curator-photos",
+    fetchPhotos
   );
-  const { data: photos } = useSWR("curator-photos", fetchPhotos);
 
   const toggleEditor = (categoryId: number) => {
     setCategoryId(categoryId);
@@ -87,6 +97,7 @@ export default function CuratorCategories() {
           <button
             type="button"
             className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => setOpenCreator(true)}
           >
             Crear
           </button>
@@ -172,14 +183,21 @@ export default function CuratorCategories() {
           ))}
         </tbody>
       </table>
+      <ModalCreator
+        open={openCreator}
+        setOpen={setOpenCreator}
+        onSave={(formFields) => console.log(formFields)}
+        availablePhotos={photos}
+      />
       {categoryId && (
         <SideEditor
           open={openEditor}
-          setClose={() => setOpenEditor(false)}
+          setOpen={setOpenEditor}
+          onSave={(formFields) => console.log(formFields)}
           category={categories.find(
             (category: CategoryProps) => category.id === categoryId
           )}
-          availablePhotos={photos}
+          availablePhotos={isValidatingPhotos ? [] : photos}
         />
       )}
     </div>

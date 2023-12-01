@@ -1,3 +1,7 @@
+import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
+import { genericSort, groupByInitial } from "../utils";
+import ModalCreator from "./components/modalCreator";
+import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchTags } from "@/services/fetch";
@@ -6,18 +10,16 @@ import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
-import SideEditor from "./components/sideEditor";
-import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
-import { genericSort, groupByInitial } from "../utils";
 
 export default function CuratorTags() {
+  const [openCreator, setOpenCreator] = useState(false);
   const [openEditor, setOpenEditor] = useState(false);
   const [tagId, setTagId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["name=ASC"]
   );
 
-  const { data: tags, isValidating } = useSWR("curator-tags", fetchTags);
+  const { data: tags } = useSWR("curator-tags", fetchTags);
 
   const toggleEditor = (tagId: number) => {
     setTagId(tagId);
@@ -80,6 +82,7 @@ export default function CuratorTags() {
           <button
             type="button"
             className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => setOpenCreator(true)}
           >
             Crear
           </button>
@@ -165,6 +168,11 @@ export default function CuratorTags() {
           ))}
         </tbody>
       </table>
+      <ModalCreator
+        open={openCreator}
+        setOpen={setOpenCreator}
+        onSave={(formFields) => console.log(formFields)}
+      />
       {tagId && (
         <SideEditor
           open={openEditor}

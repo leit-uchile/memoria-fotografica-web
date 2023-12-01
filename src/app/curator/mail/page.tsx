@@ -202,7 +202,8 @@ export default function CuratorMails() {
       {mailId && (
         <SideEditor
           open={openEditor}
-          setClose={() => setOpenEditor(false)}
+          setOpen={setOpenEditor}
+          onSave={(formFields) => console.log(formFields)}
           mail={mails.find((mail: MailProps) => mail.id === mailId)}
         />
       )}

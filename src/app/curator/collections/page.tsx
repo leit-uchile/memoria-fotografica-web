@@ -1,5 +1,6 @@
 import { availableActions, sortOptions, sortOptionsEnum } from "../constants";
 import { genericSort } from "../utils";
+import ModalCreator from "./components/modalCreator";
 import SideEditor from "./components/sideEditor";
 import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
@@ -11,26 +12,30 @@ import { useState } from "react";
 import useSWR from "swr";
 
 const LoadingGallery = () => (
-  <div className="flex flex-col space-y-4">
-    <div className="flex h-60 w-full space-x-4">
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
+  <div className="flex flex-col space-y-8">
+    <div className="flex h-32 w-full space-x-4">
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
     </div>
-    <div className="flex h-60 w-full space-x-4">
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
+    <div className="flex h-32 w-full space-x-4">
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
     </div>
-    <div className="flex h-60 w-full space-x-4">
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
-      <RectangleSkeleton sizeClasses="w-96 h-60" />
+    <div className="flex h-32 w-full space-x-4">
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
+      <RectangleSkeleton sizeClasses="w-52 h-32" />
     </div>
   </div>
 );
 
 export default function CuratorCollections() {
+  const [openCreator, setOpenCreator] = useState(false);
   const [openEditor, setOpenEditor] = useState(false);
   const [collectionId, setCollectionId] = useState("");
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
@@ -105,6 +110,7 @@ export default function CuratorCollections() {
           <button
             type="button"
             className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={() => setOpenCreator(true)}
           >
             Crear
           </button>
@@ -119,19 +125,14 @@ export default function CuratorCollections() {
           />
         </div>
       </div>
-      <ul
-        role="list"
-        className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
-      >
-        {isValidating ? (
-          <div
-            aria-hidden="true"
-            className="overflow-hidden bg-gray-500 bg-blend-darken parallax p-4"
-          >
-            <LoadingGallery />
-          </div>
-        ) : (
-          sortedCollections.map((collection: CollectionProps) => {
+      {isValidating ? (
+        <LoadingGallery />
+      ) : (
+        <ul
+          role="list"
+          className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+        >
+          {sortedCollections.map((collection: CollectionProps) => {
             const collectionActions: ActionItemProps[] = collection.visible
               ? [
                   addOnClickFunction(availableActions.view, collection.id),
@@ -194,13 +195,20 @@ export default function CuratorCollections() {
                 </div>
               </li>
             );
-          })
-        )}
-      </ul>
+          })}
+        </ul>
+      )}
+      <ModalCreator
+        open={openCreator}
+        setOpen={setOpenCreator}
+        onSave={(formFields) => console.log(formFields)}
+        availablePhotos={photos}
+      />
       {collectionId && (
         <SideEditor
           open={openEditor}
-          setClose={() => setOpenEditor(false)}
+          setOpen={setOpenEditor}
+          onSave={(formFields) => console.log(formFields)}
           collection={collections.find(
             (collection: CollectionProps) => collection.id === collectionId
           )}
