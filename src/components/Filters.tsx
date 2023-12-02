@@ -8,45 +8,108 @@ import {
 import classNames from "classnames";
 import { Fragment, useState } from "react";
 
+type CheckedFilter = {
+  fieldName: string;
+  options: {
+    name: string;
+    value: string;
+    checked: boolean;
+    imgSrc?: string;
+  }[];
+}
 type FiltersProps = {
   sortOptions: Array<{
     name: string;
     value: string;
   }>;
   setSort: (sortOption: string) => void;
-  filters: Array<{
-    id: string;
-    name: string;
-    options: Array<{
-      name: string;
-      value: string | boolean;
-      checked: boolean;
-    }>;
-  }>;
-  categories: Array<{
-    name: string;
-    href: string;
-  }>;
-  collections: Array<{
-    name: string;
-    href: string;
-  }>;
+  filters: GroupedFilter[];
+  setFilters: (filterBy: GroupedFilter[]) => void;
 };
 
 const Filters: React.FC<FiltersProps> = ({
   sortOptions,
   setSort,
   filters,
-  categories,
-  collections,
+  setFilters,
 }) => {
   const [open, setOpen] = useState(false);
 
+  // Adds "checked" attribute to each option
+  const extendFilters = (filters: GroupedFilter[]) => {
+    return filters.map((filter) => {
+      const extendedOptions = filter.options.map((option) => {
+        return {
+          ...option,
+          checked: false,
+        };
+      });
+      return {
+        ...filter,
+        options: extendedOptions,
+      };
+    });
+  };
+
+  const defaultFilters = extendFilters(filters);
+
+  const [localFilters, setLocalFilters] = useState(defaultFilters);
+
+  const onCheckOption = (fieldName: string, optionName: string) => {
+    const updatedFilters = localFilters.map((group) => {
+      if (group.id === fieldName) {
+        const updatedOptions = group.options.map((option) => {
+          if (option.name === optionName) {
+            return {
+              ...option,
+              checked: !option.checked,
+            };
+          } else {
+            return option;
+          }
+        });
+        return {
+          ...group,
+          options: updatedOptions,
+        };
+      } else {
+        return group;
+      }
+    });
+    setLocalFilters(updatedFilters);
+  };
+
+  const updateFilters = (checkedFilters: CheckedFilter[]) => {
+    // Update inherited filters with checked options
+    const updatedFilters = filters.map((filter) => {
+      // Just keep checked options
+      const checkedOptions = checkedFilters.find(
+        (checkedFilter) => checkedFilter.fieldName === filter.id
+      )?.options ?? [];
+      return {
+        ...filter,
+        options: checkedOptions,
+      };
+    });
+    setFilters(updatedFilters);
+  };
+
   const onSaveFilters = () => {
+    // Get all checked options and setFilters as [{field: id, value: [{name: name, value: value, checked: true}]}]
+    const checkedFilters = localFilters.map((group) => {
+      const checkedOptions = group.options.filter((option) => option.checked);
+      return {
+        fieldName: group.id,
+        options: checkedOptions,
+      };
+    });
+    updateFilters(checkedFilters);
     setOpen(false);
   };
 
   const onResetFilters = () => {
+    setLocalFilters(defaultFilters);
+    updateFilters([]);
     setOpen(false);
   };
 
@@ -95,7 +158,7 @@ const Filters: React.FC<FiltersProps> = ({
           </Transition>
         </Menu>
       )}
-      {filters.length > 0 && (
+      {localFilters.length > 0 && (
         <Menu as="div" className="relative inline-block text-left">
           <div>
             <Menu.Button
@@ -151,7 +214,7 @@ const Filters: React.FC<FiltersProps> = ({
                             </div>
                             <div className="relative mt-6 flex-1 px-4 sm:px-6">
                               <form className="mt-4 border-t border-gray-200">
-                                <h3 className="sr-only">Categories</h3>
+                                {/* <h3 className="sr-only">Categories</h3>
                                 <ul
                                   role="list"
                                   className="px-2 py-3 font-medium text-gray-900"
@@ -183,9 +246,9 @@ const Filters: React.FC<FiltersProps> = ({
                                       </a>
                                     </li>
                                   ))}
-                                </ul>
+                                </ul> */}
 
-                                {filters.map((section) => (
+                                {localFilters.map((section) => (
                                   <Disclosure
                                     as="div"
                                     key={section.id}
@@ -227,6 +290,12 @@ const Filters: React.FC<FiltersProps> = ({
                                                     type="checkbox"
                                                     defaultChecked={
                                                       option.checked
+                                                    }
+                                                    onChange={() =>
+                                                      onCheckOption(
+                                                        section.id,
+                                                        option.name
+                                                      )
                                                     }
                                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                                   />

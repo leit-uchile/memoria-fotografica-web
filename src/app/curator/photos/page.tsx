@@ -47,6 +47,7 @@ export default function CuratorPhotos() {
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["created_at=DESC"]
   );
+  const [filterBy, setFilterBy] = useState<GroupedFilter[]>([]);
 
   const { data: photos, isValidating } = useSWR("curator-photos", fetchPhotos);
   const { data: tags, isValidating: isValidatingTags } = useSWR(
@@ -72,6 +73,10 @@ export default function CuratorPhotos() {
     setSortBy(number);
   };
 
+  const updateFilters = (filters: GroupedFilter[]) => {
+    setFilterBy(filters);
+  }
+
   const sortPhotos = (sortOption: sortOptionsEnum, photos: PhotoProps[]) => {
     return genericSort(
       sortOption,
@@ -82,24 +87,6 @@ export default function CuratorPhotos() {
   };
 
   const sortedPhotos = sortPhotos(sortBy, photos ?? []);
-
-  // Add option "Todas" to each filter group
-  // and add "checked" attribute to each option
-  const extendedFilters = groupedFilters.map((group) => {
-    const extendedOptions = group.options.map((option) => {
-      return {
-        ...option,
-        checked: false,
-      };
-    });
-    return {
-      ...group,
-      options: [
-        { name: "Todas", value: "all", checked: true },
-        ...extendedOptions,
-      ],
-    };
-  });
 
   const sortLocalOptions = sortOptions
     .slice(0, 2)
@@ -133,7 +120,7 @@ export default function CuratorPhotos() {
       },
     };
   };
-
+  
   return (
     <div>
       <div className="mb-8 border-b border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
@@ -151,96 +138,94 @@ export default function CuratorPhotos() {
           <Filters
             sortOptions={sortLocalOptions}
             setSort={updateSort}
-            filters={extendedFilters}
-            categories={[]}
-            collections={[]}
+            filters={groupedFilters as GroupedFilter[]}
+            setFilters={updateFilters}
           />
         </div>
       </div>
       {isValidating ? (
         <LoadingGallery />
       ) : (
-        
-          <ul
-            role="list"
-            className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
-          >
-            {sortedPhotos.map((photo: PhotoProps) => {
-              const photoActions: ActionItemProps[] =
-                photo.approved && photo.visible
-                  ? [
-                      addOnClickFunction(availableActions.view, photo.id),
-                      addOnClickFunction(availableActions.edit, photo.id),
-                      addOnClickFunction(availableActions.archive, photo.id),
-                    ]
-                  : photo.approved
-                  ? [addOnClickFunction(availableActions.edit, photo.id)]
-                  : [
-                      addOnClickFunction(availableActions.curar, photo.id),
-                      addOnClickFunction(availableActions.rechazar, photo.id),
-                    ];
-              return (
-                <li key={photo.imgSrc} className="relative">
-                  <div className="group aspect-w-10 block w-full overflow-hidden rounded-lg focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                    <div className="relative inline-block">
-                      <img
-                        src={photo.imgSrc}
-                        alt={photo.title}
+        <ul
+          role="list"
+          className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
+        >
+          {sortedPhotos.map((photo: PhotoProps) => {
+            const photoActions: ActionItemProps[] =
+              photo.approved && photo.visible
+                ? [
+                    addOnClickFunction(availableActions.view, photo.id),
+                    addOnClickFunction(availableActions.edit, photo.id),
+                    addOnClickFunction(availableActions.archive, photo.id),
+                  ]
+                : photo.approved
+                ? [addOnClickFunction(availableActions.edit, photo.id)]
+                : [
+                    addOnClickFunction(availableActions.curar, photo.id),
+                    addOnClickFunction(availableActions.rechazar, photo.id),
+                  ];
+            return (
+              <li key={photo.imgSrc} className="relative">
+                <div className="group aspect-w-10 block w-full overflow-hidden rounded-lg focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                  <div className="relative inline-block">
+                    <img
+                      src={photo.imgSrc}
+                      alt={photo.title}
+                      className={classNames(
+                        "rounded-md pointer-events-none object-cover group-hover:opacity-75",
+                        photo.visible ? "opacity-100" : "opacity-25"
+                      )}
+                    />
+                    <span className="absolute top-0 right-0">
+                      <span
                         className={classNames(
-                          "rounded-md pointer-events-none object-cover group-hover:opacity-75",
-                          photo.visible ? "opacity-100" : "opacity-25"
+                          "inline-flex items-center rounded-full  px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10",
+                          photo.approved ? "bg-gray-50" : "bg-red-200"
                         )}
-                      />
-                      <span className="absolute top-0 right-0">
+                      >
+                        {photo.approved ? "Aprobada" : "Pendiente"}
+                      </span>
+                      {!photo.visible && (
                         <span
                           className={classNames(
                             "inline-flex items-center rounded-full  px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10",
-                            photo.approved ? "bg-gray-50" : "bg-red-200"
+                            "bg-red-200"
                           )}
                         >
-                          {photo.approved ? "Aprobada" : "Pendiente"}
+                          {"Oculta"}
                         </span>
-                        {!photo.visible && (
-                          <span
-                            className={classNames(
-                              "inline-flex items-center rounded-full  px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10",
-                              "bg-red-200"
-                            )}
-                          >
-                            {"Oculta"}
-                          </span>
-                        )}
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      className="absolute inset-0 focus:outline-none"
-                      onClick={(e) =>
-                        router.push(
-                          photo.approved && photo.visible
-                            ? `/gallery/${photo.id}`
-                            : "/curator"
-                        )
-                      }
-                    >
-                      <span className="sr-only">
-                        View details for {photo.title}
-                      </span>
-                    </button>
+                      )}
+                    </span>
                   </div>
-                  <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
-                    {photo.title}
+                  <button
+                    type="button"
+                    className="absolute inset-0 focus:outline-none"
+                    onClick={(e) =>
+                      router.push(
+                        photo.approved && photo.visible
+                          ? `/gallery/${photo.id}`
+                          : "/curator"
+                      )
+                    }
+                  >
+                    <span className="sr-only">
+                      View details for {photo.title}
+                    </span>
+                  </button>
+                </div>
+                <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">
+                  {photo.title}
+                </p>
+                <div className="flex items-center justify-between">
+                  <p className="pointer-events-none block text-sm font-medium text-gray-500">
+                    {photo.properties.code}
                   </p>
-                  <div className="flex items-center justify-between">
-                    <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                      {photo.properties.code}
-                    </p>
-                    <ActionsMenu items={photoActions} />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                  <ActionsMenu items={photoActions} />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       )}
       <ModalCreator
         open={openCreator}

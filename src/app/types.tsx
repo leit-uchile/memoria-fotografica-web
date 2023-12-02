@@ -113,3 +113,15 @@ type FieldProps = {
 type ExtendedFieldProps = FieldProps & {
   imgSrc: string;
 };
+
+type Filter = {
+  name: string;
+  value: string;
+  imgSrc?: string;
+};
+
+type GroupedFilter = {
+  id: string;
+  name: string;
+  options: Filter[];
+};
