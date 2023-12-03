@@ -142,7 +142,7 @@ export default function SideEditor({
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-2xl">
                   <form className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
-                      <div className="bg-indigo-700 px-4 py-6 sm:px-6">
+                      <div className="bg-mainmf-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-semibold leading-6 text-white">
                             Editando colección
@@ -150,7 +150,7 @@ export default function SideEditor({
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
-                              className="relative rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                              className="relative rounded-md bg-gray-100 text-mainmf-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                               onClick={() => setOpen(false)}
                             >
                               <span className="absolute -inset-2.5" />
@@ -163,7 +163,7 @@ export default function SideEditor({
                           </div>
                         </div>
                         <div className="mt-1">
-                          <p className="text-sm text-indigo-300">
+                          <p className="text-sm text-white">
                             Los cambios serán públicos una vez presione el botón
                             de guardar.
                           </p>
@@ -173,15 +173,23 @@ export default function SideEditor({
                         <div className="divide-y divide-gray-200 px-4 sm:px-6">
                           <div className="space-y-6 pb-5 pt-6">
                             <div className="relative h-40 sm:h-56">
-                              <img
-                                className="absolute h-full w-full object-cover"
-                                src={
-                                  availablePhotos.find(
-                                    (photo) => photo.id === formFields.coverId
-                                  )?.imgSrc
-                                }
-                                alt="Cover image"
-                              />
+                              {formFields.coverId ? (
+                                <img
+                                  className="absolute h-full w-full object-cover"
+                                  src={
+                                    availablePhotos.find(
+                                      (photo) => photo.id === formFields.coverId
+                                    )?.imgSrc
+                                  }
+                                  alt="Cover image"
+                                />
+                              ) : (
+                                <div className="absolute h-full w-full bg-gray-100 flex items-center justify-center">
+                                  <p className="text-gray-400 text-m">
+                                    Seleccione una foto de portada
+                                  </p>
+                                </div>
+                              )}
                             </div>
                             <div>
                               <SearchField
@@ -222,7 +230,7 @@ export default function SideEditor({
                                       name="privacy"
                                       aria-describedby="privacy-public-description"
                                       type="radio"
-                                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                      className="h-4 w-4 border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                                       checked={formFields.visible}
                                       onChange={() =>
                                         handleVisibilityChange(true)
@@ -253,7 +261,7 @@ export default function SideEditor({
                                         name="privacy"
                                         aria-describedby="privacy-private-to-project-description"
                                         type="radio"
-                                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                        className="h-4 w-4 border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                                         checked={!formFields.visible}
                                         onChange={() =>
                                           handleVisibilityChange(false)
@@ -307,7 +315,7 @@ export default function SideEditor({
                                           handleRemovePhoto(photo.id)
                                         }
                                       >
-                                        <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                                        <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-mainmf-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                                           <img
                                             src={photo.imgSrc}
                                             alt=""
@@ -341,9 +349,9 @@ export default function SideEditor({
                                     className="relative"
                                     onClick={() => loadMorePhotos()}
                                   >
-                                    <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                                    <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-mainmf-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                                       <div className="flex items-center justify-center">
-                                        <ArrowPathIcon className="pointer-events-none object-cover text-gray-500 w-10 h-10 group-hover:text-indigo-500" />
+                                        <ArrowPathIcon className="pointer-events-none object-cover text-gray-500 w-10 h-10 group-hover:text-mainmf-500" />
                                       </div>
                                       <button
                                         type="button"
@@ -363,10 +371,10 @@ export default function SideEditor({
                             <div className="flex text-sm">
                               <a
                                 href="#"
-                                className="group inline-flex items-center font-medium text-indigo-600 hover:text-indigo-900"
+                                className="group inline-flex items-center font-medium text-mainmf-600 hover:text-mainmf-900"
                               >
                                 <LinkIcon
-                                  className="h-5 w-5 text-indigo-500 group-hover:text-indigo-900"
+                                  className="h-5 w-5 text-mainmf-500 group-hover:text-mainmf-900"
                                   aria-hidden="true"
                                 />
                                 <span
@@ -393,7 +401,7 @@ export default function SideEditor({
                       </button>
                       <button
                         type="submit"
-                        className="ml-4 inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="ml-4 inline-flex justify-center rounded-md bg-mainmf-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
                         onClick={handleOnSave}
                       >
                         Guardar

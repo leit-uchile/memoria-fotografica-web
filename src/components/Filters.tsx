@@ -23,15 +23,15 @@ type FiltersProps = {
     value: string;
   }>;
   setSort: (sortOption: string) => void;
-  filters: GroupedFilter[];
-  setFilters: (filterBy: GroupedFilter[]) => void;
+  filters?: GroupedFilter[];
+  setFilters?: (filterBy: GroupedFilter[]) => void;
 };
 
 const Filters: React.FC<FiltersProps> = ({
   sortOptions,
   setSort,
-  filters,
-  setFilters,
+  filters = [],
+  setFilters = () => {},
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -159,7 +159,7 @@ const Filters: React.FC<FiltersProps> = ({
         </Menu>
       )}
       {localFilters.length > 0 && (
-        <Menu as="div" className="relative inline-block text-left">
+        <Menu as="div" className="relative inline-block text-left ml-2">
           <div>
             <Menu.Button
               onClick={() => setOpen(true)}
@@ -199,7 +199,7 @@ const Filters: React.FC<FiltersProps> = ({
                                 <div className="ml-3 flex h-7 items-center">
                                   <button
                                     type="button"
-                                    className="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-mainmf-500"
                                     onClick={() => setOpen(false)}
                                   >
                                     <span className="absolute -inset-2.5" />
@@ -297,7 +297,7 @@ const Filters: React.FC<FiltersProps> = ({
                                                         option.name
                                                       )
                                                     }
-                                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                    className="h-4 w-4 rounded border-gray-300 text-mainmf-600 focus:ring-mainmf-500"
                                                   />
                                                   <label
                                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
@@ -327,7 +327,7 @@ const Filters: React.FC<FiltersProps> = ({
                             </button>
                             <button
                               type="submit"
-                              className="ml-4 inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                              className="ml-4 inline-flex justify-center rounded-md bg-mainmf-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-500"
                               onClick={() => onSaveFilters()}
                             >
                               Aplicar

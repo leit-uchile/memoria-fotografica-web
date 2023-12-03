@@ -79,7 +79,7 @@ export default function SideEditor({
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <form className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
-                      <div className="bg-indigo-700 px-4 py-6 sm:px-6">
+                      <div className="bg-mainmf-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-semibold leading-6 text-white">
                             Editando etiqueta
@@ -87,7 +87,7 @@ export default function SideEditor({
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
-                              className="relative rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                              className="relative rounded-md bg-gray-100 text-mainmf-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                               onClick={() => setClose()}
                             >
                               <span className="absolute -inset-2.5" />
@@ -100,7 +100,7 @@ export default function SideEditor({
                           </div>
                         </div>
                         <div className="mt-1">
-                          <p className="text-sm text-indigo-300">
+                          <p className="text-sm text-white">
                             Los cambios serán públicos una vez presione el botón
                             de guardar.
                           </p>
@@ -131,10 +131,10 @@ export default function SideEditor({
                             <div className="flex text-sm">
                               <a
                                 href="#"
-                                className="group inline-flex items-center font-medium text-indigo-600 hover:text-indigo-900"
+                                className="group inline-flex items-center font-medium text-mainmf-600 hover:text-mainmf-900"
                               >
                                 <LinkIcon
-                                  className="h-5 w-5 text-indigo-500 group-hover:text-indigo-900"
+                                  className="h-5 w-5 text-mainmf-500 group-hover:text-mainmf-900"
                                   aria-hidden="true"
                                 />
                                 <span
@@ -161,7 +161,7 @@ export default function SideEditor({
                       </button>
                       <button
                         type="submit"
-                        className="ml-4 inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="ml-4 inline-flex justify-center rounded-md bg-mainmf-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
                         onClick={handleOnSave}
                       >
                         Guardar

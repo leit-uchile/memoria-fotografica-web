@@ -205,7 +205,7 @@ export default function ModalCreator({
                               <div className="mt-4 flex text-sm leading-6 text-gray-600">
                                 <label
                                   htmlFor="file-upload"
-                                  className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                                  className="relative cursor-pointer rounded-md bg-white font-semibold text-mainmf-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-mainmf-600 focus-within:ring-offset-2 hover:text-mainmf-500"
                                 >
                                   <span>Sube una fotografía</span>
                                   <input
@@ -278,7 +278,7 @@ export default function ModalCreator({
                                     type="number"
                                     name="width"
                                     id="width"
-                                    className="relative block w-full rounded-md rounded-r-none border-0 bg-transparent py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="relative block w-full rounded-md rounded-r-none border-0 bg-transparent py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                                     placeholder="Ancho"
                                     value={formFields.width}
                                     onChange={handleInputChange}
@@ -292,7 +292,7 @@ export default function ModalCreator({
                                     type="number"
                                     name="height"
                                     id="height"
-                                    className="relative block w-full rounded-md rounded-l-none border-0 bg-transparent py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="relative block w-full rounded-md rounded-l-none border-0 bg-transparent py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                                     placeholder="Alto"
                                     value={formFields.height}
                                     onChange={handleInputChange}
@@ -428,7 +428,7 @@ export default function ModalCreator({
                                     name="privacy"
                                     aria-describedby="privacy-public-description"
                                     type="radio"
-                                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                    className="h-4 w-4 border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                                     checked={formFields.visible}
                                     onChange={() =>
                                       handleVisibilityChange(true)
@@ -458,7 +458,7 @@ export default function ModalCreator({
                                       name="privacy"
                                       aria-describedby="privacy-private-to-project-description"
                                       type="radio"
-                                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                      className="h-4 w-4 border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                                       checked={!formFields.visible}
                                       onChange={() =>
                                         handleVisibilityChange(false)
@@ -491,7 +491,7 @@ export default function ModalCreator({
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                   <button
                     type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                    className="inline-flex w-full justify-center rounded-md bg-mainmf-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     onClick={() => handleOnSave()}
                   >
                     Crear

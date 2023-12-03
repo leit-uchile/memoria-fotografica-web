@@ -1,8 +1,6 @@
-import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
 import { fetchPhotoDetail } from "@/services/fetch";
 import { Dialog, Transition } from "@headlessui/react";
-import { LinkIcon } from "@heroicons/react/20/solid";
 import { PaperClipIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import useSWR from "swr";
@@ -84,7 +82,7 @@ export default function SideEditor({
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <form className="flex h-full flex-col divide-y divide-gray-200 bg-white shadow-xl">
                     <div className="h-0 flex-1 overflow-y-auto">
-                      <div className="bg-indigo-700 px-4 py-6 sm:px-6">
+                      <div className="bg-mainmf-700 px-4 py-6 sm:px-6">
                         <div className="flex items-center justify-between">
                           <Dialog.Title className="text-base font-semibold leading-6 text-white">
                             Conversación
@@ -92,7 +90,7 @@ export default function SideEditor({
                           <div className="ml-3 flex h-7 items-center">
                             <button
                               type="button"
-                              className="relative rounded-md bg-indigo-700 text-indigo-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                              className="relative rounded-md bg-gray-100 text-mainmf-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                               onClick={() => setOpen(false)}
                             >
                               <span className="absolute -inset-2.5" />
@@ -105,7 +103,7 @@ export default function SideEditor({
                           </div>
                         </div>
                         <div className="mt-1">
-                          <p className="text-sm text-indigo-300">
+                          <p className="text-sm text-white">
                             {mail?.solved
                               ? "La conversación está marcada como resuelta"
                               : "La conversación quedará marcada como resuelta una vez envie una respuesta a este mensaje."}
@@ -201,7 +199,7 @@ export default function SideEditor({
                                                 <div className="ml-4 flex-shrink-0">
                                                   <a
                                                     href="#"
-                                                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                    className="font-medium text-mainmf-600 hover:text-mainmf-500"
                                                   >
                                                     Download
                                                   </a>
@@ -225,7 +223,7 @@ export default function SideEditor({
                                                 <div className="ml-4 flex-shrink-0">
                                                   <a
                                                     href="#"
-                                                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                                                    className="font-medium text-mainmf-600 hover:text-mainmf-500"
                                                   >
                                                     Download
                                                   </a>
@@ -308,7 +306,7 @@ export default function SideEditor({
                                       aria-describedby="archive"
                                       name="archive"
                                       type="checkbox"
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                                      className="h-4 w-4 rounded border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                                       aria-invalid="true"
                                       onChange={() => handleArchivedChange()}
                                     />
@@ -339,7 +337,7 @@ export default function SideEditor({
                       {!mail?.solved && (
                         <button
                           type="submit"
-                          className="ml-4 inline-flex justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                          className="ml-4 inline-flex justify-center rounded-md bg-mainmf-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
                           onClick={handleOnSave}
                         >
                           Enviar

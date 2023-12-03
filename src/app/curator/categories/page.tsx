@@ -96,7 +96,7 @@ export default function CuratorCategories() {
           Categorías
           <button
             type="button"
-            className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="ml-3 inline-flex items-center rounded-md bg-mainmf-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
             onClick={() => setOpenCreator(true)}
           >
             Crear
@@ -106,9 +106,6 @@ export default function CuratorCategories() {
           <Filters
             sortOptions={sortLocalOptions}
             setSort={updateSort}
-            filters={[]}
-            categories={[]}
-            collections={[]}
           />
         </div>
       </div>
