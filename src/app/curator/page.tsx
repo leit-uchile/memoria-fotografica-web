@@ -38,8 +38,7 @@ const navigation = [
   { name: "Correo", href: "#", icon: EnvelopeOpenIcon },
 ];
 const secondaryNavigation = [
-  { name: "FAQ", href: "#", initial: "F", current: false },
-  { name: "Creative Commons", href: "#", initial: "CC", current: false },
+  { name: "Creative Commons", href: "/creativecommons", initial: "CC", current: false },
 ];
 
 const stats = [
@@ -220,6 +219,7 @@ export default function Dashboard() {
                           <li key={item.name}>
                             <a
                               href={item.href}
+                              target="_blank"
                               className={classNames(
                                 item.current
                                   ? "bg-gray-50 text-mainmf-600"

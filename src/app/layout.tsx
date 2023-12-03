@@ -101,7 +101,7 @@ const footerNavigation = {
     { name: "Biblioteca Central", href: "#" },
     { name: "Twitter", href: "#" },
     { name: "Instagram", href: "#" },
-    { name: "Términos y condiciones", href: "#" },
+    { name: "Términos y condiciones", href: "/termsofservice" },
   ],
 };
 
