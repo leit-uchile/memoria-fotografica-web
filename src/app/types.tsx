@@ -23,6 +23,7 @@ type PhotoProps = {
   description: string;
   visible: boolean;
   approved: boolean;
+  editedBy: string;
   properties: {
     code: string;
     tags: string[];
@@ -48,6 +49,7 @@ type CollectionProps = {
   description: string;
   createdAt: Date;
   visible: boolean;
+  editedBy: string;
   properties: {
     code: string;
     width: number;
@@ -61,6 +63,7 @@ type TagProps = {
   name: string;
   description: string;
   createdAt: Date;
+  editedBy: string;
 };
 
 type CategoryProps = {
@@ -68,6 +71,7 @@ type CategoryProps = {
   name: string;
   description: string;
   createdAt: Date;
+  editedBy: string;
   properties:{
     photos: string[];
   }
@@ -95,6 +99,7 @@ type MailProps = {
   isPhotoRequest: boolean;
   photoCode: string;
   createdAt: Date;
+  editedBy: string;
 };
 
 type ActionItemProps = {

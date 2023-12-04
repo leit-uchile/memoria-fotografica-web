@@ -1,3 +1,4 @@
+import { CircularAvatar } from "@/components/CircularAvatar";
 import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
 import { Dialog, Transition } from "@headlessui/react";
@@ -147,6 +148,9 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
+                            {tag?.editedBy && (
+                              <CircularAvatar fullName={tag.editedBy} />
+                            )}
                           </div>
                         </div>
                       </div>

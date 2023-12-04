@@ -1,3 +1,4 @@
+import { CircularAvatar } from "@/components/CircularAvatar";
 import SearchField from "@/components/SearchField";
 import SimpleField from "@/components/SimpleField";
 import SimpleTextArea from "@/components/SimpleTextArea";
@@ -387,6 +388,9 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
+                            {collection?.editedBy && (
+                              <CircularAvatar fullName={collection.editedBy} />
+                            )}
                           </div>
                         </div>
                       </div>

@@ -6,6 +6,7 @@ import {
   photoTechnique,
   photoTone,
 } from "@/app/constants";
+import { CircularAvatar } from "@/components/CircularAvatar";
 import DropdownField from "@/components/DropdownField";
 import SearchField from "@/components/SearchField";
 import SimpleField from "@/components/SimpleField";
@@ -517,7 +518,8 @@ export default function SideEditor({
                             </div>
                             <div className="mt-4 flex text-sm">
                               <a
-                                href="#"
+                                href="/creativecommons"
+                                target="_blank"
                                 className="group inline-flex items-center text-gray-500 hover:text-gray-900"
                               >
                                 <QuestionMarkCircleIcon
@@ -529,6 +531,9 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
+                            {photo?.editedBy && (
+                              <CircularAvatar fullName={photo.editedBy} />
+                            )}
                           </div>
                         </div>
                       </div>
