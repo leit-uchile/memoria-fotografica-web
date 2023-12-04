@@ -12,6 +12,7 @@ import {
   fetchPhotos,
   fetchTags,
 } from "@/services/fetch";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -75,7 +76,7 @@ export default function CuratorPhotos() {
 
   const updateFilters = (filters: GroupedFilter[]) => {
     setFilterBy(filters);
-  }
+  };
 
   const sortPhotos = (sortOption: sortOptionsEnum, photos: PhotoProps[]) => {
     return genericSort(
@@ -120,7 +121,7 @@ export default function CuratorPhotos() {
       },
     };
   };
-  
+
   return (
     <div>
       <div className="mb-8 border-b border-gray-200 pb-5 sm:flex sm:items-center sm:justify-between">
@@ -145,6 +146,11 @@ export default function CuratorPhotos() {
       </div>
       {isValidating ? (
         <LoadingGallery />
+      ) : sortedPhotos.length === 0 ? (
+        <div className="flex flex-col space-y-3 items-center justify-center text-gray-500">
+          <DocumentMagnifyingGlassIcon className="w-10 h-10" />
+          <p>No hay nada para mostrar</p>
+        </div>
       ) : (
         <ul
           role="list"

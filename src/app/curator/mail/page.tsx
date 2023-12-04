@@ -5,6 +5,7 @@ import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import { fetchMails } from "@/services/fetch";
 import { isoToDate } from "@/services/string";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { Fragment, useState } from "react";
 import useSWR from "swr";
@@ -16,7 +17,7 @@ export default function CuratorMails() {
     sortOptionsEnum["created_at=DESC"]
   );
 
-  const { data: mails } = useSWR("curator-mails", fetchMails);
+  const { data: mails, isValidating } = useSWR("curator-mails", fetchMails);
 
   const toggleEditor = (mailId: number) => {
     setMailId(mailId);
@@ -86,119 +87,120 @@ export default function CuratorMails() {
           Correo
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
-          <Filters
-            sortOptions={sortLocalOptions}
-            setSort={updateSort}
-            filters={[]}
-            categories={[]}
-            collections={[]}
-          />
+          <Filters sortOptions={sortLocalOptions} setSort={updateSort} />
         </div>
       </div>
-      <table className="min-w-full">
-        <thead className="bg-white">
-          <tr>
-            <th
-              scope="col"
-              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-            >
-              Apellido
-            </th>
-            <th
-              scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
-              Nombre
-            </th>
-            <th
-              scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
-              Fecha del primer mensaje
-            </th>
-            <th
-              scope="col"
-              className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-            >
-              Código de referencia
-            </th>
-            <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
-              <span className="sr-only">Actions</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white">
-          {Object.keys(groupedMails).map((type: string) => (
-            <Fragment key={type}>
-              <tr className="border-t border-gray-200">
-                <th
-                  colSpan={5}
-                  scope="colgroup"
-                  className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
-                >
-                  {type}
-                </th>
-              </tr>
-              {groupedMails[type].map((mail, mailIdx) => {
-                const tagActions: ActionItemProps[] = mail.solved
-                  ? [
-                      addOnClickFunction(availableActions.see, mail.id),
-                      addOnClickFunction(availableActions.archive, mail.id),
-                    ]
-                  : [
-                      addOnClickFunction(availableActions.reply, mail.id),
-                      addOnClickFunction(availableActions.archive, mail.id),
-                    ];
-                return (
-                  <tr
-                    key={mail.id}
-                    className={classNames(
-                      mailIdx === 0 ? "border-gray-300" : "border-gray-200",
-                      "border-t"
-                    )}
+      {isValidating ? null : sortedMails.length === 0 ? (
+        <div className="flex flex-col space-y-3 items-center justify-center text-gray-500">
+          <DocumentMagnifyingGlassIcon className="w-10 h-10" />
+          <p>No hay nada para mostrar</p>
+        </div>
+      ) : (
+        <table className="min-w-full">
+          <thead className="bg-white">
+            <tr>
+              <th
+                scope="col"
+                className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
+              >
+                Apellido
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Nombre
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Fecha del primer mensaje
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Código de referencia
+              </th>
+              <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
+                <span className="sr-only">Actions</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white">
+            {Object.keys(groupedMails).map((type: string) => (
+              <Fragment key={type}>
+                <tr className="border-t border-gray-200">
+                  <th
+                    colSpan={5}
+                    scope="colgroup"
+                    className="bg-gray-50 py-2 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3"
                   >
-                    <td
+                    {type}
+                  </th>
+                </tr>
+                {groupedMails[type].map((mail, mailIdx) => {
+                  const tagActions: ActionItemProps[] = mail.solved
+                    ? [
+                        addOnClickFunction(availableActions.see, mail.id),
+                        addOnClickFunction(availableActions.archive, mail.id),
+                      ]
+                    : [
+                        addOnClickFunction(availableActions.reply, mail.id),
+                        addOnClickFunction(availableActions.archive, mail.id),
+                      ];
+                  return (
+                    <tr
+                      key={mail.id}
                       className={classNames(
-                        !mail.solved ? "font-bold" : "",
-                        "whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-3"
+                        mailIdx === 0 ? "border-gray-300" : "border-gray-200",
+                        "border-t"
                       )}
                     >
-                      {mail.lastName}
-                    </td>
-                    <td
-                      className={classNames(
-                        !mail.solved ? "font-bold" : "",
-                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      )}
-                    >
-                      {mail.name}
-                    </td>
-                    <td
-                      className={classNames(
-                        !mail.solved ? "font-bold" : "",
-                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      )}
-                    >
-                      {isoToDate(mail.createdAt.toString())}
-                    </td>
-                    <td
-                      className={classNames(
-                        !mail.solved ? "font-bold" : "",
-                        "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
-                      )}
-                    >
-                      {mail.code}
-                    </td>
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                      <ActionsMenu items={tagActions} />
-                    </td>
-                  </tr>
-                );
-              })}
-            </Fragment>
-          ))}
-        </tbody>
-      </table>
+                      <td
+                        className={classNames(
+                          !mail.solved ? "font-bold" : "",
+                          "whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-3"
+                        )}
+                      >
+                        {mail.lastName}
+                      </td>
+                      <td
+                        className={classNames(
+                          !mail.solved ? "font-bold" : "",
+                          "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        )}
+                      >
+                        {mail.name}
+                      </td>
+                      <td
+                        className={classNames(
+                          !mail.solved ? "font-bold" : "",
+                          "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        )}
+                      >
+                        {isoToDate(mail.createdAt.toString())}
+                      </td>
+                      <td
+                        className={classNames(
+                          !mail.solved ? "font-bold" : "",
+                          "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        )}
+                      >
+                        {mail.code}
+                      </td>
+                      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                        <ActionsMenu items={tagActions} />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
+      )}
       {mailId && (
         <SideEditor
           open={openEditor}

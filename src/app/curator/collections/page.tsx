@@ -6,6 +6,7 @@ import ActionsMenu from "@/components/ActionsMenu";
 import Filters from "@/components/Filters";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
 import { fetchCollections, fetchPhotos } from "@/services/fetch";
+import { DocumentMagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -116,14 +117,16 @@ export default function CuratorCollections() {
           </button>
         </h3>
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
-          <Filters
-            sortOptions={sortLocalOptions}
-            setSort={updateSort}
-          />
+          <Filters sortOptions={sortLocalOptions} setSort={updateSort} />
         </div>
       </div>
       {isValidating ? (
         <LoadingGallery />
+      ) : sortedCollections.length === 0 ? (
+        <div className="flex flex-col space-y-3 items-center justify-center text-gray-500">
+          <DocumentMagnifyingGlassIcon className="w-10 h-10" />
+          <p>No hay nada para mostrar</p>
+        </div>
       ) : (
         <ul
           role="list"
