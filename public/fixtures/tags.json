@@ -3,90 +3,120 @@
     "id": 1,
     "name": "UChileCampusCentral",
     "description": "El campus central de la Universidad de Chile.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-01-15T12:30:00Z"
   },
   {
     "id": 2,
     "name": "FacultadIngenieria",
     "description": "Tag relacionado con la Facultad de Ingeniería.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-02-01T09:45:00Z"
   },
   {
     "id": 3,
     "name": "DeportesUChile",
     "description": "Tag relacionado con las actividades deportivas de la UChile.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-02-10T15:20:00Z"
   },
   {
     "id": 4,
     "name": "BibliotecaCentral",
     "description": "Tag relacionado con la biblioteca central de la Universidad.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-03-05T10:10:00Z"
   },
   {
     "id": 5,
     "name": "UChileCienciasSociales",
     "description": "Tag relacionado con la Facultad de Ciencias Sociales.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-03-20T14:00:00Z"
   },
   {
     "id": 6,
     "name": "InvestigacionUChile",
     "description": "Tag relacionado con las actividades de investigación en la Universidad.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-04-02T08:30:00Z"
   },
   {
     "id": 7,
     "name": "ArteYCulturaUChile",
     "description": "Tag relacionado con eventos culturales y artísticos en la Universidad.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-04-18T11:45:00Z"
   },
   {
     "id": 8,
     "name": "UChileMedicina",
     "description": "Tag relacionado con la Facultad de Medicina de la UChile.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-05-01T13:15:00Z"
   },
   {
     "id": 9,
     "name": "EstudiantesUChile",
     "description": "Tag relacionado con la vida estudiantil en la Universidad.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-05-15T16:40:00Z"
   },
   {
     "id": 10,
     "name": "UChileEconomia",
     "description": "Tag relacionado con la Facultad de Economía y Negocios.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-06-01T10:05:00Z"
   },
   {
     "id": 11,
     "name": "ConciertosUChile",
     "description": "Tag relacionado con conciertos y eventos musicales en la UChile.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-06-15T12:00:00Z"
   },
   {
     "id": 12,
     "name": "UChileDerecho",
     "description": "Tag relacionado con la Facultad de Derecho.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-07-01T14:30:00Z"
   },
   {
     "id": 13,
     "name": "UChileCursosOnline",
     "description": "Tag relacionado con cursos en línea ofrecidos por la Universidad.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-07-15T09:20:00Z"
   },
   {
     "id": 14,
     "name": "ActividadesCientificas",
     "description": "Tag relacionado con actividades científicas y conferencias en la UChile.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-08-02T11:10:00Z"
   },
   {
     "id": 15,
     "name": "UChileArquitectura",
     "description": "Tag relacionado con la Facultad de Arquitectura y Urbanismo.",
+    "properties": { "editedBy": "John Smith" },
+    "updatedAt": "2023-01-15T12:30:00Z",
     "createdAt": "2023-08-15T15:00:00Z"
   }
 ]

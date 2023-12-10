@@ -121,6 +121,12 @@ export default function CuratorMails() {
                 scope="col"
                 className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
               >
+                Fecha de la respuesta
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
                 Código de referencia
               </th>
               <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
@@ -181,6 +187,14 @@ export default function CuratorMails() {
                         )}
                       >
                         {isoToDate(mail.createdAt.toString())}
+                      </td>
+                      <td
+                        className={classNames(
+                          !mail.solved ? "font-bold" : "",
+                          "whitespace-nowrap px-3 py-4 text-sm text-gray-500"
+                        )}
+                      >
+                        {mail.updatedAt && isoToDate(mail.updatedAt.toString())}
                       </td>
                       <td
                         className={classNames(

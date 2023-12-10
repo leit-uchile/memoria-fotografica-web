@@ -38,7 +38,7 @@ const LoadingGallery = () => (
 export default function CuratorCollections() {
   const [openCreator, setOpenCreator] = useState(false);
   const [openEditor, setOpenEditor] = useState(false);
-  const [collectionId, setCollectionId] = useState("");
+  const [collectionId, setCollectionId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["created_at=DESC"]
   );
@@ -49,7 +49,7 @@ export default function CuratorCollections() {
   );
   const { data: photos } = useSWR("curator-photos", fetchPhotos);
 
-  const toggleEditor = (collectionId: string) => {
+  const toggleEditor = (collectionId: number) => {
     setCollectionId(collectionId);
     setOpenEditor(!openEditor);
   };
@@ -87,7 +87,7 @@ export default function CuratorCollections() {
       type: string;
       label: string;
     },
-    collectionId: string
+    collectionId: number
   ) => {
     return {
       ...action,
@@ -189,7 +189,7 @@ export default function CuratorCollections() {
                 </p>
                 <div className="flex items-center justify-between">
                   <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                    {collection.properties.code}
+                    {collection.code}
                   </p>
                   <ActionsMenu items={collectionActions} />
                 </div>

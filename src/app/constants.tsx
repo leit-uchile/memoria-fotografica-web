@@ -1,4 +1,62 @@
-export const photoStatus = [
+// Choices from server translated to Spanish
+
+export const photoFormatLabels: {
+  [key: number]: string;
+} = {
+  1: "35mm",
+  2: "APS",
+  3: "Digital",
+  4: "Otro",
+};
+
+export const photoProcessLabels: {
+  [key: number]: string;
+} = {
+  1: "Negativo",
+  2: "Positivo",
+  3: "Otro",
+};
+
+export const photoSupportLabels: {
+  [key: number]: string;
+} = {
+  1: "Papel",
+  2: "Acetato",
+  3: "Otro",
+};
+
+export const photoTechniqueLabels: {
+  [key: number]: string;
+} = {
+  1: "Gelatina",
+  2: "Cianotipia",
+  3: "Platinotipia",
+  4: "Otro",
+};
+
+export const photoToneLabels: {
+  [key: number]: string;
+} = {
+  1: "Color",
+  2: "Blanco y Negro",
+  3: "Sepia",
+  4: "Otro",
+};
+
+export const ccLabels: {
+  [key: number]: string;
+} = {
+  1: "CC BY",
+  2: "CC BY-SA",
+  3: "CC BY-ND",
+  4: "CC BY-NC",
+  5: "CC BY-NC-SA",
+  6: "CC BY-NC-ND",
+};
+
+// Dropdown options
+
+export const photoStatus: { name: string; value: boolean }[] = [
   {
     name: "Aprobada",
     value: true,
@@ -9,7 +67,7 @@ export const photoStatus = [
   },
 ];
 
-export const photoVisibility = [
+export const photoVisibility: { name: string; value: boolean }[] = [
   {
     name: "Visible",
     value: true,
@@ -20,94 +78,42 @@ export const photoVisibility = [
   },
 ];
 
-export const photoFormat = [
-  {
-    name: "35mm",
-    value: "35mm",
-  },
-  {
-    name: "APS",
-    value: "APS",
-  },
-  {
-    name: "Digital",
-    value: "Digital",
-  },
-  {
-    name: "Otro",
-    value: "Other",
-  },
-];
+export const photoFormat: { name: string; value: string }[] = Object.entries(
+  photoFormatLabels
+).map(([value, name]) => ({
+  name,
+  value: value,
+}));
 
-export const photoProcess = [
-  {
-    name: "Negativo",
-    value: "Negative",
-  },
-  {
-    name: "Positivo",
-    value: "Positive",
-  },
-  {
-    name: "Otro",
-    value: "Other",
-  },
-];
+export const photoProcess: { name: string; value: string }[] = Object.entries(
+  photoProcessLabels
+).map(([value, name]) => ({
+  name,
+  value: value,
+}));
 
-export const photoSupport = [
-  {
-    name: "Papel",
-    value: "Paper",
-  },
-  {
-    name: "Acetato",
-    value: "Acetate",
-  },
-  {
-    name: "Otro",
-    value: "Other",
-  },
-];
+export const photoSupport: { name: string; value: string }[] = Object.entries(
+  photoSupportLabels
+).map(([value, name]) => ({
+  name,
+  value: value,
+}));
 
-export const photoTechnique = [
-  {
-    name: "Gelatina",
-    value: "Gelatin",
-  },
-  {
-    name: "Cianotipia",
-    value: "Cyanotype",
-  },
-  {
-    name: "Platinotipia",
-    value: "Platinum",
-  },
-  {
-    name: "Otro",
-    value: "Other",
-  },
-];
+export const photoTechnique: { name: string; value: string }[] = Object.entries(
+  photoTechniqueLabels
+).map(([value, name]) => ({
+  name,
+  value: value,
+}));
 
-export const photoTone = [
-  {
-    name: "Color",
-    value: "Color",
-  },
-  {
-    name: "Blanco y Negro",
-    value: "Black and White",
-  },
-  {
-    name: "Sepia",
-    value: "Sepia",
-  },
-  {
-    name: "Otro",
-    value: "Other",
-  },
-];
+export const photoTone: { name: string; value: string }[] = Object.entries(
+  photoToneLabels
+).map(([value, name]) => ({
+  name,
+  value: value,
+}));
 
-export const cc = [
+export const cc: { name: string; value: string; imgSrc: string }[] = [
   {
     name: "CC BY",
     value: "CC BY",
@@ -139,6 +145,8 @@ export const cc = [
     imgSrc: "/assets/CC/CCBYNCND.svg",
   },
 ];
+
+// Filters
 
 const filters = [
   ...photoStatus,

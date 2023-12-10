@@ -40,10 +40,11 @@ export default function SideEditor({
   const [photoLimit, setPhotoLimit] = useState(7);
 
   useEffect(() => {
+    const photos = category?.properties.photos.map((photoId) => photoId.toString());
     setFormFields({
       name: category?.name ?? "",
       description: category?.description ?? "",
-      photos: category?.properties.photos ?? [],
+      photos: photos ?? [],
     });
   }, [category]);
 
@@ -95,9 +96,9 @@ export default function SideEditor({
 
   const photoList = availablePhotos.map((photo) => {
     return {
-      value: photo.id,
+      value: photo.id.toString(),
       name: photo.title,
-      secondaryText: photo.properties.code,
+      secondaryText: photo.code,
     };
   });
 
@@ -188,7 +189,7 @@ export default function SideEditor({
                                 {subsetPhotosInCollection.map(
                                   (photoId: string) => {
                                     const photo = availablePhotos.find(
-                                      (photo) => photo.id === photoId
+                                      (photo) => photo.id.toString() === photoId
                                     );
                                     if (!photo) return null;
                                     return (
@@ -196,7 +197,7 @@ export default function SideEditor({
                                         key={photo.imgSrc}
                                         className="relative"
                                         onClick={() =>
-                                          handleRemovePhoto(photo.id)
+                                          handleRemovePhoto(photo.id.toString())
                                         }
                                       >
                                         <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-mainmf-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
@@ -221,7 +222,7 @@ export default function SideEditor({
                                           {photo.title}
                                         </p>
                                         <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                                          {photo.properties.code}
+                                          {photo.code}
                                         </p>
                                       </li>
                                     );
@@ -273,8 +274,8 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
-                            {category?.editedBy && (
-                              <CircularAvatar fullName={category.editedBy} />
+                            {category?.properties.editedBy && (
+                              <CircularAvatar fullName={category.properties.editedBy} />
                             )}
                           </div>
                         </div>

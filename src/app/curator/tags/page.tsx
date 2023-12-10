@@ -67,7 +67,7 @@ export default function CuratorTags() {
         if (action.type === "edit") {
           toggleEditor(tagId);
         } else if (action.type === "view") {
-          router.push(`/gallery/${tagId.toString()}`);
+          router.push(`/gallery/${tagId}`);
         } else if (action.type === "delete") {
           console.log("delete");
         }
@@ -119,6 +119,12 @@ export default function CuratorTags() {
               >
                 Fecha de creación
               </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Última modificación
+              </th>
               <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                 <span className="sr-only">Actions</span>
               </th>
@@ -158,6 +164,9 @@ export default function CuratorTags() {
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         {isoToDate(tag.createdAt.toString())}
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        {isoToDate(tag.updatedAt.toString())}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                         <ActionsMenu items={tagActions} />

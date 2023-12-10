@@ -24,7 +24,7 @@ type FormFields = {
   height: number;
   author: string;
   location: string;
-  albumSelected: string;
+  collectionSelected: string;
   campusSelected: string | null;
   formatSelected: string | null;
   processSelected: string | null;
@@ -44,7 +44,7 @@ const defaultForm = {
   height: 0,
   author: "",
   location: "",
-  albumSelected: "",
+  collectionSelected: "",
   campusSelected: null,
   formatSelected: null,
   processSelected: null,
@@ -59,14 +59,14 @@ export default function ModalCreator({
   open,
   setOpen,
   onSave,
-  availableAlbums = [],
+  availableCollections = [],
   availableCampuses = [],
   availableTags = [],
 }: {
   open: boolean;
   setOpen: any;
   onSave: (formFields: FormFields) => void;
-  availableAlbums?: CollectionProps[];
+  availableCollections?: CollectionProps[];
   availableCampuses?: CampusProps[];
   availableTags?: TagProps[];
 }) {
@@ -100,10 +100,10 @@ export default function ModalCreator({
     }));
   };
 
-  const handleAlbumChange = (value: string[]) => {
+  const handlecollectionChange = (value: string[]) => {
     setFormFields((prevFields) => ({
       ...prevFields,
-      albumSelected: value[0],
+      collectionSelected: value[0],
     }));
   };
 
@@ -133,14 +133,20 @@ export default function ModalCreator({
     setOpen(false);
   };
 
-  const mappedAlbumes = availableAlbums.map((album) => ({
-    name: album.title,
-    value: album.id,
+  const mappedCollections = availableCollections.map((collection) => ({
+    name: collection.title,
+    value: collection.id.toString(),
   }));
 
   const mappedTags = availableTags.map((tag) => ({
     name: tag.name,
     value: tag.id.toString(),
+  }));
+
+  const mappedCampuses = availableCampuses.map((campus) => ({
+    name: campus.name,
+    value: campus.id.toString(),
+    imgSrc: campus.imgSrc,
   }));
 
   return (
@@ -234,14 +240,16 @@ export default function ModalCreator({
                             />
                           </div>
                           <div>
-                            <SearchField
-                              label="Etiquetas"
-                              optionsList={mappedTags}
-                              selectedOptions={formFields.tags}
-                              setSelectedOptions={handleTagsChange}
-                              multipleSelection
-                              hideSelectedOptionsFromList
-                            />
+                            {!availableTags ? null : (
+                              <SearchField
+                                label="Etiquetas"
+                                optionsList={mappedTags}
+                                selectedOptions={formFields.tags}
+                                setSelectedOptions={handleTagsChange}
+                                multipleSelection
+                                hideSelectedOptionsFromList
+                              />
+                            )}
                             {formFields.tags.length > 0 && (
                               <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
                                 {formFields.tags.map((option) => {
@@ -302,16 +310,16 @@ export default function ModalCreator({
                             </div>
                           </fieldset>
                           <div>
-                            <SearchField
+                            {!availableCollections ? null : <SearchField
                               label="Colección a la que pertenece"
-                              optionsList={mappedAlbumes}
+                              optionsList={mappedCollections}
                               selectedOptions={
-                                formFields.albumSelected
-                                  ? [formFields.albumSelected]
+                                formFields.collectionSelected
+                                  ? [formFields.collectionSelected]
                                   : []
                               }
-                              setSelectedOptions={handleAlbumChange}
-                            />
+                              setSelectedOptions={handlecollectionChange}
+                            />}
                           </div>
                           <div>
                             <SimpleField
@@ -402,7 +410,7 @@ export default function ModalCreator({
                                 fieldName="campusSelected"
                                 selectedValue={formFields.campusSelected}
                                 onChange={handleDropdownChange}
-                                options={availableCampuses}
+                                options={mappedCampuses}
                               />
                             )}
                           </div>

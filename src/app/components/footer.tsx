@@ -3,7 +3,7 @@ type FooterProps = {
     name: string;
     href: string;
   }>;
-  albums: Array<{
+  collections: Array<{
     name: string;
     href: string;
   }>;
@@ -13,7 +13,7 @@ type FooterProps = {
   }>;
 };
 
-const Footer: React.FC<FooterProps> = ({ campus, albums, connect }) => (
+const Footer: React.FC<FooterProps> = ({ campus, collections, connect }) => (
   <footer aria-labelledby="footer-heading" className="bg-mainmf-100">
     <h2 id="footer-heading" className="sr-only">
       Footer
@@ -38,9 +38,9 @@ const Footer: React.FC<FooterProps> = ({ campus, albums, connect }) => (
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-medium text-white">Albums</h3>
+              <h3 className="text-sm font-medium text-white">collections</h3>
               <ul role="list" className="mt-6 space-y-6">
-                {albums.map((item) => (
+                {collections.map((item) => (
                   <li key={item.name} className="text-sm">
                     <a
                       href={item.href}

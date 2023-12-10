@@ -1,20 +1,24 @@
 [
   {
+    "id": 1,
     "name": "Campus Antumapu",
     "value": "Campus Antumapu",
     "imgSrc": "https://raw.githubusercontent.com/mmattamala/LogosFCFM/bc4186357252deeff5ef37ff0e95f2b53c3a6d0d/Universidad%20de%20Chile/logo_escudo.svg"
   },
   {
+    "id": 2,
     "name": "Campus Juan Gómez Millas",
     "value": "Campus Juan Gómez Millas",
     "imgSrc": "https://raw.githubusercontent.com/mmattamala/LogosFCFM/bc4186357252deeff5ef37ff0e95f2b53c3a6d0d/Universidad%20de%20Chile/logo_escudo.svg"
   },
   {
+    "id": 3,
     "name": "Campus Beauchef",
     "value": "Campus Beauchef",
     "imgSrc": "https://raw.githubusercontent.com/mmattamala/LogosFCFM/bc4186357252deeff5ef37ff0e95f2b53c3a6d0d/Universidad%20de%20Chile/logo_escudo.svg"
   },
   {
+    "id": 4,
     "name": "Campus Andrés Bello",
     "value": "Campus Andrés Bello",
     "imgSrc": "https://raw.githubusercontent.com/mmattamala/LogosFCFM/bc4186357252deeff5ef37ff0e95f2b53c3a6d0d/Universidad%20de%20Chile/logo_escudo.svg"

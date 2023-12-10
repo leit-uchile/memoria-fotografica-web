@@ -44,7 +44,7 @@ const LoadingGallery = () => (
 export default function CuratorPhotos() {
   const [openCreator, setOpenCreator] = useState(false);
   const [openEditor, setOpenEditor] = useState(false);
-  const [photoId, setPhotoId] = useState("");
+  const [photoId, setPhotoId] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<sortOptionsEnum>(
     sortOptionsEnum["created_at=DESC"]
   );
@@ -59,12 +59,12 @@ export default function CuratorPhotos() {
     "curator-campuses",
     fetchCampuses
   );
-  const { data: albums, isValidating: isValidatingAlbums } = useSWR(
-    "curator-albums",
+  const { data: collections, isValidating: isValidatingCollections } = useSWR(
+    "curator-collections",
     fetchCollections
   );
 
-  const toggleEditor = (photoId: string) => {
+  const toggleEditor = (photoId: number) => {
     setPhotoId(photoId);
     setOpenEditor(!openEditor);
   };
@@ -102,7 +102,7 @@ export default function CuratorPhotos() {
       type: string;
       label: string;
     },
-    photoId: string
+    photoId: number
   ) => {
     return {
       ...action,
@@ -224,7 +224,7 @@ export default function CuratorPhotos() {
                 </p>
                 <div className="flex items-center justify-between">
                   <p className="pointer-events-none block text-sm font-medium text-gray-500">
-                    {photo.properties.code}
+                    {photo.code}
                   </p>
                   <ActionsMenu items={photoActions} />
                 </div>
@@ -237,7 +237,7 @@ export default function CuratorPhotos() {
         open={openCreator}
         setOpen={setOpenCreator}
         onSave={(formFields) => console.log(formFields)}
-        availableAlbums={isValidatingAlbums ? [] : albums}
+        availableCollections={isValidatingCollections ? [] : collections}
         availableCampuses={isValidatingCampus ? [] : campuses}
         availableTags={isValidatingTags ? [] : tags}
       />
@@ -247,7 +247,7 @@ export default function CuratorPhotos() {
           setOpen={setOpenEditor}
           onSave={(formFields) => console.log(formFields)}
           photo={photos.find((photo: PhotoProps) => photo.id === photoId)}
-          availableAlbums={isValidatingAlbums ? [] : albums}
+          availableCollections={isValidatingCollections ? [] : collections}
           availableCampuses={isValidatingCampus ? [] : campuses}
           availableTags={isValidatingTags ? [] : tags}
         />

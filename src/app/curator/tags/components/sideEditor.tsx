@@ -148,8 +148,8 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
-                            {tag?.editedBy && (
-                              <CircularAvatar fullName={tag.editedBy} />
+                            {tag?.properties.editedBy && (
+                              <CircularAvatar fullName={tag.properties.editedBy} />
                             )}
                           </div>
                         </div>

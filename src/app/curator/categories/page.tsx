@@ -83,7 +83,7 @@ export default function CuratorCategories() {
         if (action.type === "edit") {
           toggleEditor(categoryId);
         } else if (action.type === "view") {
-          router.push(`/gallery/${categoryId.toString()}`);
+          router.push(`/gallery/${categoryId}`);
         } else if (action.type === "delete") {
           console.log("delete");
         }
@@ -135,6 +135,12 @@ export default function CuratorCategories() {
               >
                 Fecha de creación
               </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+              >
+                Última modificación
+              </th>
               <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                 <span className="sr-only">Actions</span>
               </th>
@@ -176,6 +182,9 @@ export default function CuratorCategories() {
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                         {isoToDate(category.createdAt.toString())}
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        {isoToDate(category.updatedAt.toString())}
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                         <ActionsMenu items={categoryActions} />

@@ -16,45 +16,49 @@ interface InitialGroupingProps {
 }
 
 type PhotoProps = {
-  id: string;
+  id: number;
+  code: string;
   imgSrc: string;
   title: string;
-  date: string;
   description: string;
-  visible: boolean;
+  date: string;
+  cc: string;
+  width: number;
+  height: number;
+  author: string;
+  owner: string;
+  location: string;
+  format: number;
+  process: number;
+  support: number;
+  photoTechnique: number;
+  tone: number;
+  createdAt: Date;
+  updatedAt: Date;
   approved: boolean;
-  editedBy: string;
+  visible: boolean;
   properties: {
-    code: string;
-    tags: string[];
-    cc: string;
-    width: number;
-    height: number;
-    album: string;
-    author: string;
-    location: string;
-    campus: string;
-    format: string;
-    process: string;
-    support: string;
-    photoTechnique: string;
-    tone: string;
+    editedBy: string;
+    tags: number[];
+    collection: number;
+    campus: number;
   };
 };
 
 type CollectionProps = {
-  id: string;
+  id: number;
+  code: string;
   imgSrc: string;
   title: string;
   description: string;
+  width: number;
+  height: number;
   createdAt: Date;
+  updatedAt: Date;
   visible: boolean;
-  editedBy: string;
   properties: {
-    code: string;
-    width: number;
-    height: number;
-    photos: string[];
+    editedBy: string;
+    photos: number[];
   };
 };
 
@@ -63,7 +67,10 @@ type TagProps = {
   name: string;
   description: string;
   createdAt: Date;
-  editedBy: string;
+  updatedAt: Date;
+  properties: {
+    editedBy: string;
+  };
 };
 
 type CategoryProps = {
@@ -71,23 +78,23 @@ type CategoryProps = {
   name: string;
   description: string;
   createdAt: Date;
-  editedBy: string;
-  properties:{
-    photos: string[];
-  }
+  updatedAt: Date;
+  properties: {
+    editedBy: string;
+    photos: number[];
+  };
 };
 
 type CampusProps = {
+  id: number;
   name: string;
-  value: string;
   imgSrc: string;
 };
 
 type MailProps = {
   id: number;
-  archived: boolean;
-  solved: boolean;
-  approved: boolean;
+  code: string;
+  isPhotoRequest: boolean;
   subject: string;
   name: string;
   lastName: string;
@@ -95,11 +102,15 @@ type MailProps = {
   email: string;
   message: string;
   answer: string;
-  code: string;
-  isPhotoRequest: boolean;
   photoCode: string;
   createdAt: Date;
-  editedBy: string;
+  updatedAt: Date;
+  solved: boolean;
+  approved: boolean;
+  visible: boolean;
+  properties:{
+    editedBy: string;
+  }
 };
 
 type ActionItemProps = {

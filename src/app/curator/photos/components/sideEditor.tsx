@@ -26,7 +26,7 @@ type FormFields = {
   height: number;
   author: string;
   location: string;
-  albumSelected: string;
+  collectionSelected: string;
   campusSelected: string | null;
   formatSelected: string | null;
   processSelected: string | null;
@@ -46,7 +46,7 @@ const defaultForm = {
   height: 0,
   author: "",
   location: "",
-  albumSelected: "",
+  collectionSelected: "",
   campusSelected: null,
   formatSelected: null,
   processSelected: null,
@@ -62,7 +62,7 @@ export default function SideEditor({
   setOpen,
   onSave,
   photo,
-  availableAlbums = [],
+  availableCollections = [],
   availableCampuses = [],
   availableTags = [],
 }: {
@@ -70,30 +70,38 @@ export default function SideEditor({
   setOpen: any;
   onSave: (formFields: FormFields) => void;
   photo?: PhotoProps;
-  availableAlbums?: CollectionProps[];
+  availableCollections?: CollectionProps[];
   availableCampuses?: CampusProps[];
   availableTags?: TagProps[];
 }) {
   const [formFields, setFormFields] = useState<FormFields>(defaultForm);
 
   useEffect(() => {
+    const tags = photo?.properties.tags?.map((tagId) => tagId.toString());
+    const collection = photo?.properties.collection.toString();
+    const campus = photo?.properties.campus?.toString();
+    const format = photo?.format.toString();
+    const process = photo?.process.toString();
+    const support = photo?.support.toString();
+    const technique = photo?.photoTechnique.toString();
+    const tone = photo?.tone.toString();
     setFormFields({
       title: photo?.title ?? "",
       date: photo?.date ? dateToISO(photo?.date) : "",
       description: photo?.description ?? "",
-      tags: photo?.properties?.tags ?? [],
-      width: photo?.properties.width ?? 0,
-      height: photo?.properties.height ?? 0,
-      author: photo?.properties.author ?? "",
-      location: photo?.properties.location ?? "",
-      albumSelected: photo?.properties.album ?? "",
-      campusSelected: photo?.properties.campus ?? null,
-      formatSelected: photo?.properties.format ?? null,
-      processSelected: photo?.properties.process ?? null,
-      supportSelected: photo?.properties.support ?? null,
-      techniqueSelected: photo?.properties.photoTechnique ?? null,
-      toneSelected: photo?.properties.tone ?? null,
-      ccSelected: photo?.properties.cc ?? null,
+      tags: tags ?? [],
+      width: photo?.width ?? 0,
+      height: photo?.height ?? 0,
+      author: photo?.author ?? "",
+      location: photo?.location ?? "",
+      collectionSelected: collection ?? "",
+      campusSelected: campus ?? null,
+      formatSelected: format ?? null,
+      processSelected: process ?? null,
+      supportSelected: support ?? null,
+      techniqueSelected: technique ?? null,
+      toneSelected: tone ?? null,
+      ccSelected: photo?.cc ?? null,
       visible: photo?.visible ?? false,
     });
   }, [photo]);
@@ -121,10 +129,10 @@ export default function SideEditor({
     }));
   };
 
-  const handleAlbumChange = (value: string[]) => {
+  const handleCollectionChange = (value: string[]) => {
     setFormFields((prevFields) => ({
       ...prevFields,
-      albumSelected: value[0],
+      collectionSelected: value[0],
     }));
   };
 
@@ -159,14 +167,20 @@ export default function SideEditor({
     });
   };
 
-  const mappedAlbumes = availableAlbums.map((album) => ({
-    name: album.title,
-    value: album.id,
+  const mappedCollections = availableCollections.map((collection) => ({
+    name: collection.title,
+    value: collection.id.toString(),
   }));
 
   const mappedTags = availableTags.map((tag) => ({
     name: tag.name,
     value: tag.id.toString(),
+  }));
+
+  const mappedCampuses = availableCampuses.map((campus) => ({
+    name: campus.name,
+    value: campus.id.toString(),
+    imgSrc: campus.imgSrc,
   }));
 
   return (
@@ -233,7 +247,7 @@ export default function SideEditor({
                               <SimpleField
                                 label="Código de la fotografía"
                                 fieldName="code"
-                                value={photo?.properties.code}
+                                value={photo?.code}
                                 disabled
                                 onChange={() => {}}
                               />
@@ -265,14 +279,16 @@ export default function SideEditor({
                               />
                             </div>
                             <div>
-                              <SearchField
-                                label="Etiquetas"
-                                optionsList={mappedTags}
-                                selectedOptions={formFields.tags}
-                                setSelectedOptions={handleTagsChange}
-                                multipleSelection
-                                hideSelectedOptionsFromList
-                              />
+                              {!availableTags ? null : (
+                                <SearchField
+                                  label="Etiquetas"
+                                  optionsList={mappedTags}
+                                  selectedOptions={formFields.tags}
+                                  setSelectedOptions={handleTagsChange}
+                                  multipleSelection
+                                  hideSelectedOptionsFromList
+                                />
+                              )}
                               {formFields.tags.length > 0 && (
                                 <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
                                   {formFields.tags.map((option) => {
@@ -333,16 +349,18 @@ export default function SideEditor({
                               </div>
                             </fieldset>
                             <div>
-                              <SearchField
-                                label="Colección a la que pertenece"
-                                optionsList={mappedAlbumes}
-                                selectedOptions={
-                                  formFields.albumSelected
-                                    ? [formFields.albumSelected]
-                                    : []
-                                }
-                                setSelectedOptions={handleAlbumChange}
-                              />
+                              {!availableCollections ? null : (
+                                <SearchField
+                                  label="Colección a la que pertenece"
+                                  optionsList={mappedCollections}
+                                  selectedOptions={
+                                    formFields.collectionSelected
+                                      ? [formFields.collectionSelected]
+                                      : []
+                                  }
+                                  setSelectedOptions={handleCollectionChange}
+                                />
+                              )}
                             </div>
                             <div>
                               <SimpleField
@@ -368,7 +386,7 @@ export default function SideEditor({
                                   fieldName="campusSelected"
                                   selectedValue={formFields.campusSelected}
                                   onChange={handleDropdownChange}
-                                  options={availableCampuses}
+                                  options={mappedCampuses}
                                 />
                               )}
                             </div>
@@ -509,7 +527,7 @@ export default function SideEditor({
                                 <span
                                   className="ml-2"
                                   onClick={() =>
-                                    handleCopyLink(photo?.id ?? "")
+                                    handleCopyLink(photo?.id.toString() ?? "")
                                   }
                                 >
                                   Copiar vínculo
@@ -531,8 +549,10 @@ export default function SideEditor({
                                 </span>
                               </a>
                             </div>
-                            {photo?.editedBy && (
-                              <CircularAvatar fullName={photo.editedBy} />
+                            {photo?.properties.editedBy && (
+                              <CircularAvatar
+                                fullName={photo.properties.editedBy}
+                              />
                             )}
                           </div>
                         </div>

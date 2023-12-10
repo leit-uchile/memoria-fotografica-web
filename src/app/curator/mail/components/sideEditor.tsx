@@ -7,12 +7,12 @@ import useSWR from "swr";
 
 type FormFields = {
   answer: string;
-  archived: boolean;
+  visible: boolean;
 };
 
 const defaultForm = {
   answer: "",
-  archived: false,
+  visible: false,
 };
 
 export default function SideEditor({
@@ -39,7 +39,7 @@ export default function SideEditor({
   useEffect(() => {
     setFormFields({
       answer: mail?.answer ?? "",
-      archived: mail?.archived ?? false,
+      visible: mail?.visible ?? false,
     });
   }, [mail]);
 
@@ -54,7 +54,7 @@ export default function SideEditor({
   const handleArchivedChange = () => {
     setFormFields((prevFields) => ({
       ...prevFields,
-      archived: !prevFields.archived,
+      visible: !prevFields.visible,
     }));
   };
 
@@ -168,7 +168,7 @@ export default function SideEditor({
                                           Respondido por
                                         </dt>
                                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                                          {mail?.editedBy}
+                                          {mail?.properties.editedBy}
                                         </dd>
                                       </div>
                                       <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
