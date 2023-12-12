@@ -78,6 +78,11 @@ export default function ModalCreator({
     };
   });
 
+  const photoIndexes = availablePhotos.reduce((indexes: {[id: string]: PhotoProps}, photo: PhotoProps) => {
+    indexes[photo.id.toString()] = photo;
+    return indexes;
+  }, {});
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -162,9 +167,7 @@ export default function ModalCreator({
                           className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
                         >
                           {formFields.photos.map((photoId: string) => {
-                            const photo = availablePhotos.find(
-                              (photo) => photo.id.toString() === photoId
-                            );
+                            const photo = photoIndexes[photoId] ?? null;
                             if (!photo) return null;
                             return (
                               <li

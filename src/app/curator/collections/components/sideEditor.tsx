@@ -44,12 +44,14 @@ export default function SideEditor({
   const [photoLimit, setPhotoLimit] = useState(7);
 
   useEffect(() => {
-    const photos = collection?.properties.photos?.map((photoId) => photoId.toString());
+    const photos = collection?.properties.photos?.map((photoId) =>
+      photoId.toString()
+    );
     setFormFields({
       coverId: collection?.imgSrc ?? "", // TODO: Change collection attribute for photo id
       title: collection?.title ?? "",
       description: collection?.description ?? "",
-      photos:  photos ?? [],
+      photos: photos ?? [],
       visible: collection?.visible ?? false,
     });
   }, [collection]);
@@ -124,6 +126,14 @@ export default function SideEditor({
 
   const subsetPhotosInCollection = formFields.photos.slice(0, photoLimit) ?? [];
 
+  const photoIndexes = availablePhotos.reduce(
+    (indexes: { [id: string]: PhotoProps }, photo: PhotoProps) => {
+      indexes[photo.id.toString()] = photo;
+      return indexes;
+    },
+    {}
+  );
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -179,9 +189,8 @@ export default function SideEditor({
                                 <img
                                   className="absolute h-full w-full object-cover"
                                   src={
-                                    availablePhotos.find(
-                                      (photo) => photo.id.toString() === formFields.coverId
-                                    )?.imgSrc
+                                    photoIndexes[formFields.coverId]?.imgSrc ??
+                                    ""
                                   }
                                   alt="Cover image"
                                 />
@@ -305,9 +314,7 @@ export default function SideEditor({
                               >
                                 {subsetPhotosInCollection.map(
                                   (photoId: string) => {
-                                    const photo = availablePhotos.find(
-                                      (photo) => photo.id.toString() === photoId
-                                    );
+                                    const photo = photoIndexes[photoId] ?? null;
                                     if (!photo) return null;
                                     return (
                                       <li
@@ -382,7 +389,9 @@ export default function SideEditor({
                                 <span
                                   className="ml-2"
                                   onClick={() =>
-                                    handleCopyLink(collection?.id.toString() ?? "")
+                                    handleCopyLink(
+                                      collection?.id.toString() ?? ""
+                                    )
                                   }
                                 >
                                   Copiar vínculo
@@ -390,7 +399,9 @@ export default function SideEditor({
                               </a>
                             </div>
                             {collection?.properties.editedBy && (
-                              <CircularAvatar fullName={collection.properties.editedBy} />
+                              <CircularAvatar
+                                fullName={collection.properties.editedBy}
+                              />
                             )}
                           </div>
                         </div>

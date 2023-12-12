@@ -19,6 +19,11 @@ export default function CuratorMails() {
 
   const { data: mails, isValidating } = useSWR("curator-mails", fetchMails);
 
+  const mailIndexes = mails?.reduce((indexes: {[id: string]: MailProps}, mail: MailProps) => {
+    indexes[mail.id.toString()] = mail;
+    return indexes;
+  }, {}); 
+
   const toggleEditor = (mailId: number) => {
     setMailId(mailId);
     setOpenEditor(!openEditor);
@@ -220,7 +225,7 @@ export default function CuratorMails() {
           open={openEditor}
           setOpen={setOpenEditor}
           onSave={(formFields) => console.log(formFields)}
-          mail={mails.find((mail: MailProps) => mail.id === mailId)}
+          mail={mailIndexes[mailId.toString()]}
         />
       )}
     </div>

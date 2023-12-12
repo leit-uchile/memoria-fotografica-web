@@ -16,7 +16,7 @@ type CheckedFilter = {
     checked: boolean;
     imgSrc?: string;
   }[];
-}
+};
 type FiltersProps = {
   sortOptions: Array<{
     name: string;
@@ -80,12 +80,17 @@ const Filters: React.FC<FiltersProps> = ({
   };
 
   const updateFilters = (checkedFilters: CheckedFilter[]) => {
+    const filterIndexes = checkedFilters.reduce(
+      (indexes: { [id: string]: CheckedFilter }, filter: CheckedFilter) => {
+        indexes[filter.fieldName] = filter;
+        return indexes;
+      },
+      {}
+    );
     // Update inherited filters with checked options
     const updatedFilters = filters.map((filter) => {
       // Just keep checked options
-      const checkedOptions = checkedFilters.find(
-        (checkedFilter) => checkedFilter.fieldName === filter.id
-      )?.options ?? [];
+      const checkedOptions = filterIndexes[filter.id]?.options ?? [];
       return {
         ...filter,
         options: checkedOptions,

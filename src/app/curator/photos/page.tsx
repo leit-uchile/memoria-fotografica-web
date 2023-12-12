@@ -64,6 +64,11 @@ export default function CuratorPhotos() {
     fetchCollections
   );
 
+  const photoIndexes = photos?.reduce((indexes: {[id: string]: PhotoProps}, photo: PhotoProps) => {
+    indexes[photo.id.toString()] = photo;
+    return indexes;
+  }, {});
+
   const toggleEditor = (photoId: number) => {
     setPhotoId(photoId);
     setOpenEditor(!openEditor);
@@ -246,7 +251,7 @@ export default function CuratorPhotos() {
           open={openEditor}
           setOpen={setOpenEditor}
           onSave={(formFields) => console.log(formFields)}
-          photo={photos.find((photo: PhotoProps) => photo.id === photoId)}
+          photo={photoIndexes[photoId.toString()]}
           availableCollections={isValidatingCollections ? [] : collections}
           availableCampuses={isValidatingCampus ? [] : campuses}
           availableTags={isValidatingTags ? [] : tags}

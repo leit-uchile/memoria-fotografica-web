@@ -35,6 +35,11 @@ export default function CuratorCategories() {
     fetchPhotos
   );
 
+  const categoryIndexes = categories?.reduce((indexes: {[id: string]: CategoryProps}, category: CategoryProps) => {
+    indexes[category.id.toString()] = category;
+    return indexes;
+  }, {});
+
   const toggleEditor = (categoryId: number) => {
     setCategoryId(categoryId);
     setOpenEditor(!openEditor);
@@ -208,9 +213,7 @@ export default function CuratorCategories() {
           open={openEditor}
           setOpen={setOpenEditor}
           onSave={(formFields) => console.log(formFields)}
-          category={categories.find(
-            (category: CategoryProps) => category.id === categoryId
-          )}
+          category={categoryIndexes[categoryId.toString()]}
           availablePhotos={isValidatingPhotos ? [] : photos}
         />
       )}

@@ -40,7 +40,9 @@ export default function SideEditor({
   const [photoLimit, setPhotoLimit] = useState(7);
 
   useEffect(() => {
-    const photos = category?.properties.photos.map((photoId) => photoId.toString());
+    const photos = category?.properties.photos.map((photoId) =>
+      photoId.toString()
+    );
     setFormFields({
       name: category?.name ?? "",
       description: category?.description ?? "",
@@ -103,6 +105,14 @@ export default function SideEditor({
   });
 
   const subsetPhotosInCollection = formFields.photos.slice(0, photoLimit) ?? [];
+
+  const photoIndexes = availablePhotos.reduce(
+    (indexes: { [id: string]: PhotoProps }, photo: PhotoProps) => {
+      indexes[photo.id.toString()] = photo;
+      return indexes;
+    },
+    {}
+  );
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -188,9 +198,7 @@ export default function SideEditor({
                               >
                                 {subsetPhotosInCollection.map(
                                   (photoId: string) => {
-                                    const photo = availablePhotos.find(
-                                      (photo) => photo.id.toString() === photoId
-                                    );
+                                    const photo = photoIndexes[photoId] ?? null;
                                     if (!photo) return null;
                                     return (
                                       <li
@@ -275,7 +283,9 @@ export default function SideEditor({
                               </a>
                             </div>
                             {category?.properties.editedBy && (
-                              <CircularAvatar fullName={category.properties.editedBy} />
+                              <CircularAvatar
+                                fullName={category.properties.editedBy}
+                              />
                             )}
                           </div>
                         </div>

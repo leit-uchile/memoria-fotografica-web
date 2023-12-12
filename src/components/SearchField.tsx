@@ -71,6 +71,14 @@ const SearchField: React.FC<SearchFieldProps> = ({
           return option.name.toLowerCase().includes(query.toLowerCase());
         });
 
+  const optionIndexes = optionsList.reduce(
+    (indexes: { [id: string]: OptionProps }, option: OptionProps) => {
+      indexes[option.value] = option;
+      return indexes;
+    },
+    {}
+  );
+
   return (
     <>
       <Combobox
@@ -89,8 +97,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
           <Combobox.Input
             className="w-full rounded-md border-0 bg-white py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
             onChange={(event) => handleOnWrite(event.target.value)}
-            displayValue={(option: string) =>
-              optionsList.find((o) => o.value === option)?.name ?? ""
+            displayValue={(option: string) => optionIndexes[option]?.name ?? ""
             }
           />
           <div className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">

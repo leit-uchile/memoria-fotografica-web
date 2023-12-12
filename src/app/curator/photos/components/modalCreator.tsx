@@ -143,6 +143,12 @@ export default function ModalCreator({
     value: tag.id.toString(),
   }));
 
+  const tagIndexes = availableTags.reduce((indexes: {[id: string]: TagProps}, tag: TagProps) => {
+    indexes[tag.id.toString()] = tag;
+    return indexes;
+  }, {});
+  
+
   const mappedCampuses = availableCampuses.map((campus) => ({
     name: campus.name,
     value: campus.id.toString(),
@@ -252,15 +258,13 @@ export default function ModalCreator({
                             )}
                             {formFields.tags.length > 0 && (
                               <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
-                                {formFields.tags.map((option) => {
-                                  const name = mappedTags.find(
-                                    (opt) => opt.value === option
-                                  )?.name;
+                                {formFields.tags.map((optionId) => {
+                                  const name = tagIndexes[optionId]?.name ?? "";
                                   return (
                                     <span
-                                      key={option}
+                                      key={optionId}
                                       onClick={() =>
-                                        handleTagsManuallyRemove(option)
+                                        handleTagsManuallyRemove(optionId)
                                       }
                                       className="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 bg-gray-50 cursor-pointer"
                                     >

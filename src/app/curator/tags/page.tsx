@@ -22,6 +22,11 @@ export default function CuratorTags() {
 
   const { data: tags, isValidating } = useSWR("curator-tags", fetchTags);
 
+  const tagIndexes = tags?.reduce((indexes: {[id: string]: TagProps}, tag: TagProps) => {
+    indexes[tag.id.toString()] = tag;
+    return indexes;
+  }, {});
+
   const toggleEditor = (tagId: number) => {
     setTagId(tagId);
     setOpenEditor(!openEditor);
@@ -188,7 +193,7 @@ export default function CuratorTags() {
         <SideEditor
           open={openEditor}
           setClose={() => setOpenEditor(false)}
-          tag={tags.find((tag: TagProps) => tag.id === tagId)}
+          tag={tagIndexes[tagId.toString()]}
         />
       )}
     </div>

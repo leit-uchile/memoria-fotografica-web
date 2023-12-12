@@ -87,6 +87,14 @@ export default function ModalCreator({
     };
   });
 
+  const photoIndexes = availablePhotos.reduce(
+    (indexes: { [id: string]: PhotoProps }, photo: PhotoProps) => {
+      indexes[photo.id.toString()] = photo;
+      return indexes;
+    },
+    {}
+  );
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -145,9 +153,7 @@ export default function ModalCreator({
                               <img
                                 className="absolute h-full w-full object-cover"
                                 src={
-                                  availablePhotos.find(
-                                    (photo) => photo.id.toString() === formFields.coverId
-                                  )?.imgSrc
+                                  photoIndexes[formFields.coverId].imgSrc ?? ""
                                 }
                                 alt="Cover image"
                               />
@@ -207,15 +213,15 @@ export default function ModalCreator({
                           className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"
                         >
                           {formFields.photos.map((photoId: string) => {
-                            const photo = availablePhotos.find(
-                              (photo) => photo.id.toString() === photoId
-                            );
+                            const photo = photoIndexes[photoId] ?? null;
                             if (!photo) return null;
                             return (
                               <li
                                 key={photo.imgSrc}
                                 className="relative"
-                                onClick={() => handleRemovePhoto(photo.id.toString())}
+                                onClick={() =>
+                                  handleRemovePhoto(photo.id.toString())
+                                }
                               >
                                 <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-mainmf-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                                   <img

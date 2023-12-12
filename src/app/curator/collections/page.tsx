@@ -49,6 +49,11 @@ export default function CuratorCollections() {
   );
   const { data: photos } = useSWR("curator-photos", fetchPhotos);
 
+  const collectionIndexes = collections?.reduce((indexes: {[id: string]: CollectionProps}, collection: CollectionProps) => {
+    indexes[collection.id.toString()] = collection;
+    return indexes;
+  }, {});
+
   const toggleEditor = (collectionId: number) => {
     setCollectionId(collectionId);
     setOpenEditor(!openEditor);
@@ -209,9 +214,7 @@ export default function CuratorCollections() {
           open={openEditor}
           setOpen={setOpenEditor}
           onSave={(formFields) => console.log(formFields)}
-          collection={collections.find(
-            (collection: CollectionProps) => collection.id === collectionId
-          )}
+          collection={collectionIndexes[collectionId.toString()]}
           availablePhotos={photos}
         />
       )}

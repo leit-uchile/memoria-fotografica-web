@@ -21,6 +21,16 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
   withIcons = false,
 }) => {
   const extendedOptions = options as ExtendedFieldProps[];
+  const optionIndexes = extendedOptions.reduce(
+    (
+      indexes: { [id: string]: ExtendedFieldProps },
+      option: ExtendedFieldProps
+    ) => {
+      indexes[option.value.toString()] = option;
+      return indexes;
+    },
+    {}
+  );
 
   const _onChange = (value: string) => {
     onChange(fieldName, value);
@@ -28,9 +38,8 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
 
   const selectedOptionHasImage =
     withIcons &&
-    extendedOptions.find(
-      (option: ExtendedFieldProps) => option.value === selectedValue
-    ) !== undefined;
+    selectedValue &&
+    optionIndexes[selectedValue].imgSrc !== undefined;
 
   return (
     <Listbox value={selectedValue} onChange={_onChange}>
@@ -44,12 +53,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
               <span className="flex items-center">
                 {selectedOptionHasImage && (
                   <img
-                    src={
-                      extendedOptions.find(
-                        (option: ExtendedFieldProps) =>
-                          option.value === selectedValue
-                      )?.imgSrc
-                    }
+                    src={optionIndexes[selectedValue].imgSrc ?? ""}
                     alt=""
                     className="h-5 w-5 flex-shrink-0 rounded-full"
                   />
@@ -60,10 +64,9 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
                     "block truncate"
                   )}
                 >
-                  {extendedOptions.find(
-                    (option: ExtendedFieldProps) =>
-                      option.value === selectedValue
-                  )?.name ?? "N/A"}
+                  {selectedValue
+                    ? optionIndexes[selectedValue]?.name ?? "N/A"
+                    : "N/A"}
                 </span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
