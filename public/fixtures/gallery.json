@@ -2,13 +2,14 @@
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Octubre-2023/Galeria%20Desayuno%20deportistas%20panamericanos.zip/Galeria-Desayuno-deportistas-panamericanos/Panamericano-027-L.jpg/jcr:content/Panamericano-027-L.jpg.jpg",
     "title": "U. de Chile que participará en los Juegos Panamericanos",
+    "code": "PH-001",
     "date": "11/08/1986",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
-      "cc": "CC BY-SA 4.0",
+      "cc": "CC BY-SA",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -18,18 +19,27 @@
       "photoTechnique": "Estenopeica",
       "tone": "Tono cálido"
     },
-    "id": "7290ae0a-1a36-41f5-a7ed-e568c7557e64"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "7290ae0a-1a36-41f5-a7ed-e568c7557e64",
+    "visible": false,
+    "approved": true,
+    "editedBy": "John Smith"
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Fonda-los-80-/fonda-esp.zip/11.jpg/jcr:content/11.jpg.jpg",
     "title": "Celebración de Fiestas Patrias 2023",
+    "code": "PH-001",
     "date": "17/09/1983",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -39,18 +49,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono blanco y negro"
     },
-    "id": "21af7389-f4a0-433f-a111-9c37ef7d4868"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "21af7389-f4a0-433f-a111-9c37ef7d4868",
+    "visible": true,
+    "approved": false
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_octubre_2023/simulacro_Al.jpg/jcr:content/simulacro_Al.jpg.jpg",
     "title": "Simulacro de evacuación por sismo en campus Beauchef",
+    "code": "PH-001",
     "date": "27/05/1982",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -60,18 +78,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono de alto contraste"
     },
-    "id": "ba2dfe18-e745-4c29-b1a4-d5e74ddcd3dd"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "ba2dfe18-e745-4c29-b1a4-d5e74ddcd3dd",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/FAVET/noticias/2023/octubre/02.10.23-fiestas-patrias-favet/portada.jpg/jcr:content/portada.jpg.jpg",
     "title": "Favet celebró Fiestas Patrias con jornada de baile y juegos criollos",
+    "code": "PH-001",
     "date": "20/03/1999",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Sergio Larrain",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -81,18 +107,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono de alta clave"
     },
-    "id": "256fa865-736b-4585-b6d4-552a4919cc1b"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "256fa865-736b-4585-b6d4-552a4919cc1b",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Odontologia/imagenes-contenidos-generales/ceremonia-112-16.JPG/jcr:content/ceremonia%2520112-16.JPG.JPG",
     "title": "Ceremonia Aniversario 112 años Facultad de Odontología.",
+    "code": "PH-001",
     "date": "04/02/1987",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Isabel Corthorn",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -102,18 +136,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono de alto contraste"
     },
-    "id": "ab75441f-be7b-4f63-a537-cbefd33e6675"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "ab75441f-be7b-4f63-a537-cbefd33e6675",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%20Juegos%20de%20la%20Innovacio%CC%81n%202%202.zip/Copia-de-1--Juegos-de-la-Innovacio-n-2/16__49B9396.png/jcr:content/16__49B9396.png.png",
     "title": "Primeros Juegos de Innovación para la Sustentabilidad en Minería",
+    "code": "PH-001",
     "date": "21/12/1993",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -123,18 +165,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono de baja clave"
     },
-    "id": "aca11de2-24f5-4736-a684-1c27ce70aec2"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "aca11de2-24f5-4736-a684-1c27ce70aec2",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20Mujica.zip/Galeria-Mujica/Mujica--26.jpg/jcr:content/Mujica%2520-26.jpg.jpg",
     "title": "Pepe Mujica en la U. de Chile",
+    "code": "PH-001",
     "date": "27/01/2001",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Soledad Fariña",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -144,18 +194,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono cálido"
     },
-    "id": "bde7814b-0bcd-4c23-9034-ec3f0ae48849"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "bde7814b-0bcd-4c23-9034-ec3f0ae48849",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20estatuas.zip/Galeria-estatuas/Expo-Los-Presidentes--L-01.jpg/jcr:content/Expo%2520Los%2520Presidentes-%2520L-01.jpg.jpg",
     "title": "Exposición escultórica “Galería de los Presidentes”",
+    "code": "PH-001",
     "date": "15/08/1996",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Claudio Pérez",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -165,18 +223,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono de alta clave"
     },
-    "id": "5397a7b9-8ac4-4f68-9312-de98ada7e48d"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "5397a7b9-8ac4-4f68-9312-de98ada7e48d",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/GALERIA%2050%20AN%CC%83OS.zip/Galeria%20voces%20.zip/Galeria-voces-/Voces-03.jpg/jcr:content/Voces-03.jpg.jpg",
     "title": "U.de Chile homenajea a víctimas de la dictadura con maratónica lectura",
+    "code": "PH-001",
     "date": "04/01/2019",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Claudio Pérez",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -186,18 +252,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono cálido"
     },
-    "id": "b2ec14dd-bd45-4918-89b0-cf69b98039b4"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "b2ec14dd-bd45-4918-89b0-cf69b98039b4",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/LUCES%20GALERIA.zip/LUCES-GALERIA/Deligth-en-intervencio-n-en-casa-central-Prensa-UChile-03.jpg/jcr:content/Deligth-en-intervenci%25C3%25B3n-en-casa-central-Prensa-UChile-03.jpg.jpg",
     "title": "Deligth en intervención en casa central",
+    "code": "PH-001",
     "date": "10/11/1983",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -207,18 +281,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono vintage"
     },
-    "id": "ce44b214-2abb-442f-985a-97a7b9c4af33"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "ce44b214-2abb-442f-985a-97a7b9c4af33",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20ceremonia%2011%20sep.zip/Galeria-ceremonia-11-sep/Ceremonia-48.jpg/jcr:content/Ceremonia-48.jpg.jpg",
     "title": "Día de los Derechos Humanos y la Memoria en la Universidad de Chile",
+    "code": "PH-001",
     "date": "25/05/2010",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Paz Errázuriz",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -228,18 +310,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono sepia"
     },
-    "id": "f60db5ce-94f7-4722-8dce-900218b4c48f"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "f60db5ce-94f7-4722-8dce-900218b4c48f",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Galeria%20ceremonia%2011%20sep.zip/Galeria%20concierto%20sinfonico.zip/Galeria-concierto-sinfonico/Concierto-Sinfonico-1.jpg/jcr:content/Concierto%2520Sinfonico-1.jpg.jpg",
     "title": "Concierto “Víctor Jara Sinfónico”",
+    "code": "PH-001",
     "date": "18/11/1981",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -249,18 +339,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono frío"
     },
-    "id": "21bded24-66d5-43bd-80fb-11852f5993e6"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "21bded24-66d5-43bd-80fb-11852f5993e6",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Gobierno/galerias/Jornada-Reflexi-n-Facultad-Gobierno-0109/IMG_2146.JPG/jcr:content/IMG_2146.JPG.JPG",
     "title": "A 50 años del Golpe: Reflexiones del pasado para nuestro futuro",
+    "code": "PH-001",
     "date": "03/03/1989",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -270,18 +368,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono de colores pastel"
     },
-    "id": "04c870e4-9a09-4d9d-868e-8732577823b3"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "04c870e4-9a09-4d9d-868e-8732577823b3",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_septiembre_2023/AA_conmemoraciongolpe.jpg/jcr:content/AA_conmemoraciongolpe.jpg.jpg",
     "title": "Un futuro con memoria: FCFM honró a las víctimas del golpe de Estado",
+    "code": "PH-001",
     "date": "03/12/1993",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -291,18 +397,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono de baja clave"
     },
-    "id": "1b564573-760c-48a8-aa6b-03c918025626"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "1b564573-760c-48a8-aa6b-03c918025626",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Gobierno/galerias/Conmemoracion-ex-estudiantes-victimas-dictadura/IMG_1952.JPG/jcr:content/IMG_1952.JPG.JPG",
     "title": "Conmemoración para recordar a ex estudiantes víctimas de la dictadura",
+    "code": "PH-001",
     "date": "21/08/2017",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Isabel Corthorn",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -312,18 +426,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono blanco y negro"
     },
-    "id": "060180df-9f14-451c-955e-fcd855f51740"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "060180df-9f14-451c-955e-fcd855f51740",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Gobierno/imagenes-noticias/DSC_2468.JPG0/jcr:content/DSC_2468.JPG.JPG",
     "title": "Galería Seminario Red de Políticas Públicas",
+    "code": "PH-001",
     "date": "15/06/1996",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -333,18 +455,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono de alta clave"
     },
-    "id": "9b15f9b4-489d-4942-90a0-4c65b49dfefb"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "9b15f9b4-489d-4942-90a0-4c65b49dfefb",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Obrabierta.zip/Obrabierta/Exposicion-Obrabierta-L-06.jpg/jcr:content/Exposicion%2520Obrabierta-L-06.jpg.jpg",
     "title": "“Obrabierta: El tiempo, la vida, la información” de Hernán Parada.",
+    "code": "PH-001",
     "date": "21/06/1981",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Sergio Larrain",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -354,18 +484,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono blanco y negro"
     },
-    "id": "e0d5bdb6-aad3-4e65-b974-1165cf7369df"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "e0d5bdb6-aad3-4e65-b974-1165cf7369df",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Galeria-Septiembre/Exposicion%20Victor%20Jara.zip/Exposicion-Victor-Jara/Exposicion-Victor-Jara-02.jpg/jcr:content/Exposicion%2520Victor%2520Jara-02.jpg.jpg",
     "title": "U. de Chile inaugura exposición “Víctor Jara. Dos miradas. 50 años”",
+    "code": "PH-001",
     "date": "01/05/1988",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -375,18 +513,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono de alta clave"
     },
-    "id": "a5e9fd9a-c131-46e0-b3c5-98f9a4a31a73"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "a5e9fd9a-c131-46e0-b3c5-98f9a4a31a73",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_agosto2023/AA_conmemoracion.jpg/jcr:content/AA_conmemoracion.jpg.jpg",
     "title": "Galería de imágenes",
+    "code": "PH-001",
     "date": "04/02/2004",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Alejandro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -396,18 +542,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono sepia"
     },
-    "id": "a8165f36-7724-470a-a7e9-786ea2591d21"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "a8165f36-7724-470a-a7e9-786ea2591d21",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%2072(formato_web).zip/Copia-de-72-formato_web-/62_295A0856.jpg/jcr:content/62_295A0856.jpg.jpg",
     "title": "Seminario \"Geomecánica para una Minería Sostenible\"",
+    "code": "PH-001",
     "date": "01/12/1991",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -417,18 +571,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono de alto contraste"
     },
-    "id": "83144c6c-80b9-452e-aae6-fea2451851b1"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "83144c6c-80b9-452e-aae6-fea2451851b1",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Archivo%203.zip/E8C332EB-C198-4542-8314-CF33EA5F99A4.png/jcr:content/E8C332EB-C198-4542-8314-CF33EA5F99A4.png.png",
     "title": "Desayuno Mujeres en Minería 2023",
+    "code": "PH-001",
     "date": "15/12/2007",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Sergio Larrain",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -438,18 +600,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono monocromático"
     },
-    "id": "42d6ab2f-c171-4e12-8cb4-ea00f38728a0"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "42d6ab2f-c171-4e12-8cb4-ea00f38728a0",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/galerias/semana-induccion-2023.zip/MECHONES-1.jpg/jcr:content/MECHONES%25201.jpg.jpg",
     "title": "Semana de Inducción 2023",
+    "code": "PH-001",
     "date": "01/11/2009",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Isabel Corthorn",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -459,18 +629,26 @@
       "photoTechnique": "Estenopeica",
       "tone": "Tono blanco y negro"
     },
-    "id": "26c439e2-25f9-404c-954d-fcfd649e9c1f"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "26c439e2-25f9-404c-954d-fcfd649e9c1f",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%20Alumini%20FCFM%20INGENIERIA%20EN%20MINAS.zip/Copia-de-Alumini-FCFM-INGENIERIA-EN-MINAS/1.jpg/jcr:content/1.jpg.jpg",
     "title": "Cena Azul 2023",
+    "code": "PH-001",
     "date": "01/01/2010",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Claudio Pérez",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -480,18 +658,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono monocromático"
     },
-    "id": "2933edf9-5775-4b91-9dfb-e624ea1af5c5"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "2933edf9-5775-4b91-9dfb-e624ea1af5c5",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/GALERIA%2050%20AN%CC%83OS.zip/GALERIA-50-AN-OS/11--de-septiembre-2014-02.jpg/jcr:content/11--de-septiembre-2014-02.jpg.jpg",
     "title": "La Universidad y la conmemoración del Golpe",
+    "code": "PH-001",
     "date": "27/02/1994",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Álvaro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -501,18 +687,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono monocromático"
     },
-    "id": "da646f6e-fd8b-4893-ad10-a96a8a14dd0f"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "da646f6e-fd8b-4893-ad10-a96a8a14dd0f",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Pe-a-aniversario/penia-aniv-ok.zip/01.jpg/jcr:content/01.jpg.jpg",
     "title": "Peña Aniversario Escuela de Salud Pública",
+    "code": "PH-001",
     "date": "25/06/1994",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -522,18 +716,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono sepia"
     },
-    "id": "2ade2247-dd4c-44a6-b02b-e04a0b92642f"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "2ade2247-dd4c-44a6-b02b-e04a0b92642f",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Archivo1.zip/unnamed-3.jpg/jcr:content/unnamed-3.jpg.jpg",
     "title": "Ceremonia de Graduación de los Programas de Postítulo",
+    "code": "PH-001",
     "date": "01/05/2016",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Álvaro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -543,18 +745,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono vintage"
     },
-    "id": "5263cf2c-a140-4b65-9d5e-837fef5351c2"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "5263cf2c-a140-4b65-9d5e-837fef5351c2",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Archivo%202.zip/1--2-.jpg/jcr:content/1%2520(2).jpg.jpg",
     "title": "Salida terreno a la división El Teniente de Codelco",
+    "code": "PH-001",
     "date": "08/04/1991",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Alejandro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -564,18 +774,26 @@
       "photoTechnique": "Macrofotografía",
       "tone": "Tono blanco y negro"
     },
-    "id": "f26c6533-b5e3-4804-b30f-262ef4c49e96"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "f26c6533-b5e3-4804-b30f-262ef4c49e96",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/ceremonia-aniversario-postgrado-2023/Ceremonia-posgrado2023.zip/IMG_9170.jpg/jcr:content/IMG_9170.jpg.jpg",
     "title": "Ceremonia 80 aniversario Postgrado 2023",
+    "code": "PH-001",
     "date": "22/04/1982",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -585,18 +803,26 @@
       "photoTechnique": "Macrofotografía",
       "tone": "Tono monocromático"
     },
-    "id": "825adb07-2511-40da-bb5a-ffb19161e8b1"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "825adb07-2511-40da-bb5a-ffb19161e8b1",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Copia%20de%2072dpi(formato_web).zip/Copia-de-72dpi-formato_web-/_49B1941.jpg/jcr:content/_49B1941.jpg.jpg",
     "title": "Ceremonia de Apertura y Graduación de Postgrado DIMin 2023",
+    "code": "PH-001",
     "date": "26/06/1989",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Álvaro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -606,18 +832,26 @@
       "photoTechnique": "Estenopeica",
       "tone": "Tono de alta clave"
     },
-    "id": "df0d4148-a4ce-40e6-8bfb-17b3d139ea36"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "df0d4148-a4ce-40e6-8bfb-17b3d139ea36",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/ceremonia-aniversario-casa-central-2023/ceremonia-1406.zip/02.jpg/jcr:content/02.jpg.jpg",
     "title": "Ceremonia 80 años Escuela de Salud Pública",
+    "code": "PH-001",
     "date": "15/04/1989",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -627,18 +861,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono de alta clave"
     },
-    "id": "dad2b567-5de8-481a-b74d-4f758b305d06"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "dad2b567-5de8-481a-b74d-4f758b305d06",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Terreno%20Enami2.zip/Terreno-Enami/20230607_150049-1-.jpg/jcr:content/20230607_150049(1).jpg.jpg",
     "title": "Salida a terreno a ENAMI en Paipote",
+    "code": "PH-001",
     "date": "18/08/2003",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -648,18 +890,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono frío"
     },
-    "id": "c704be2c-8002-4da1-8efb-17dad6a6540e"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "c704be2c-8002-4da1-8efb-17dad6a6540e",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/ceremonia--aniversario-reconocimientos-2023/ceremonia-060623.zip/IMG_8850.jpg/jcr:content/IMG_8850.jpg.jpg",
     "title": "Ceremonia 80 aniversario reconocimientos ESP",
+    "code": "PH-001",
     "date": "28/09/1995",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Paz Errázuriz",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -669,18 +919,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono frío"
     },
-    "id": "56621d70-8e32-4ee7-ba87-4182622180ca"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "56621d70-8e32-4ee7-ba87-4182622180ca",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Nueva%20carpeta%20con%20elementos.zip/Nueva-carpeta-con-elementos/6.JPG/jcr:content/6.JPG.JPG",
     "title": "Salida a terreno curso MI3105 Geología",
+    "code": "PH-001",
     "date": "11/05/2017",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Juan Domingo Marinello",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -690,18 +948,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono cálido"
     },
-    "id": "b4a038e7-dfc4-4690-95fa-8e8ff4a1c549"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "b4a038e7-dfc4-4690-95fa-8e8ff4a1c549",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/20230517_141803.jpg/jcr:content/20230517_141803.jpg.jpg",
     "title": "Salida a terreno Curso Fundamentos de Tecnologías Mineras",
+    "code": "PH-001",
     "date": "05/02/1992",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -711,18 +977,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono cálido"
     },
-    "id": "0bd134a8-91fc-4a56-8217-6c870f096b94"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "0bd134a8-91fc-4a56-8217-6c870f096b94",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/FAVET/noticias/2023/mayo/31.05.23-dia-patrimonio/portada.jpg/jcr:content/portada.jpg.jpg",
     "title": "Día de los Patrimonios: Encuentro intercultural en Favet",
+    "code": "PH-001",
     "date": "16/12/2008",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -732,18 +1006,26 @@
       "photoTechnique": "Macrofotografía",
       "tone": "Tono vintage"
     },
-    "id": "59853185-57f7-4380-abc5-c073e09ed8ac"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "59853185-57f7-4380-abc5-c073e09ed8ac",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Civil/imagenes-noticias/2023/Concierto-Enrique-Kaliski-2023--27-.png/jcr:content/Concierto%2520Enrique%2520Kaliski%25202023%2520(27).png.png",
     "title": "Concierto de Despedida prof. Enrique Kaliski",
+    "code": "PH-001",
     "date": "02/10/2020",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -753,18 +1035,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono blanco y negro"
     },
-    "id": "b77ee903-f9c0-47d3-8062-d1f4f94578d2"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "b77ee903-f9c0-47d3-8062-d1f4f94578d2",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Civil/imagenes-noticias/2023/Ceremonia-ECIC_Fotos-noticias-peque-ntilde-as-web.png/jcr:content/Ceremonia%2520ECIC_Fotos%2520noticias%2520peque%C3%B1as%2520web.png.png",
     "title": "Ceremonia Diplomas en Ing. Geotécnica y en Proyectos Ferroviarios",
+    "code": "PH-001",
     "date": "03/10/1982",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Paz Errázuriz",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -774,18 +1064,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono cálido"
     },
-    "id": "3b81dd3b-1202-42db-a08d-1f1718cb6ec1"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "3b81dd3b-1202-42db-a08d-1f1718cb6ec1",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/imagenes_mayo2023/A_patrimonios.jpg/jcr:content/A_patrimonios.jpg.jpg",
     "title": "Día de los Patrimonios en el OAN - Cerro Calán",
+    "code": "PH-001",
     "date": "13/02/2019",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Natalia Babarovic",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -795,18 +1093,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono de alto contraste"
     },
-    "id": "0aa6c9f2-5d11-4b76-8732-40e8e6f80837"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "0aa6c9f2-5d11-4b76-8732-40e8e6f80837",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Odontologia/imagenes-contenidos-generales/Flyer_Dia-de-los-Patrimonios-2023--1-.jpg/jcr:content/Flyer_Dia%2520de%2520los%2520Patrimonios%25202023%2520(1).jpg.jpg",
     "title": "Proyecto Salud Pública y Memoria Social",
+    "code": "PH-001",
     "date": "09/05/2020",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Juan Domingo Marinello",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -816,18 +1122,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono de alto contraste"
     },
-    "id": "11ef1cf6-53ff-435a-87ab-e3421d27d48e"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "11ef1cf6-53ff-435a-87ab-e3421d27d48e",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Seleccio%CC%81n%20Alumni.zip/Seleccio-n-Alumni/EVENTO-FCFM1223.JPG/jcr:content/EVENTO%2520FCFM1223.JPG.JPG",
     "title": "Asamblea General Ordinaria de Alumni-DIMin",
+    "code": "PH-001",
     "date": "02/10/1996",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -837,18 +1151,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono cálido"
     },
-    "id": "2e968bd9-46e9-4039-8f70-f70f9d3491db"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "2e968bd9-46e9-4039-8f70-f70f9d3491db",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/imagenes_mayo2023/AA_CorridaB.jpg/jcr:content/AA_CorridaB.jpg.jpg",
     "title": "Corrida Beauchef 2023",
+    "code": "PH-001",
     "date": "17/09/2012",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Alejandro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -858,18 +1180,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono frío"
     },
-    "id": "afc162c4-18a3-4273-bf11-343371211866"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "afc162c4-18a3-4273-bf11-343371211866",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/u-mas-gestion/Galerias/Capacitaciones-usuarias-y-usuarios-l-deres/1.jpeg/jcr:content/1.jpeg.jpeg",
     "title": "Usuarias y usuarios líderes de SAP iniciaron sus capacitaciones",
+    "code": "PH-001",
     "date": "23/05/1998",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -879,18 +1209,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono de alto contraste"
     },
-    "id": "a5d77eeb-f787-4ebf-8c24-87264a326947"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "a5d77eeb-f787-4ebf-8c24-87264a326947",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/Galer-as-2023/Happy%20hour%20Alumni.zip/Happy-hour-Alumni/WhatsApp-Image-2023-05-08-at-10.09.42.jpeg/jcr:content/WhatsApp%2520Image%25202023-05-08%2520at%252010.09.42.jpeg.jpeg",
     "title": "Primer encuentro Alumni 2023",
+    "code": "PH-001",
     "date": "12/11/1988",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Isabel Corthorn",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -900,18 +1238,26 @@
       "photoTechnique": "Estenopeica",
       "tone": "Tono blanco y negro"
     },
-    "id": "1aae64be-eb17-4313-b2e9-45602e804d33"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "1aae64be-eb17-4313-b2e9-45602e804d33",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/FAVET/noticias/2023/mayo/09.05.23-aniversario-favet/53.jpg/jcr:content/53.jpg.jpg",
     "title": "Aniversario Favet 95 años",
+    "code": "PH-001",
     "date": "17/01/1993",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Natalia Babarovic",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -921,18 +1267,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono de alto contraste"
     },
-    "id": "eeb1cc8c-9229-436d-8f40-4f9b6a8c3137"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "eeb1cc8c-9229-436d-8f40-4f9b6a8c3137",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/galerias/en%20baja%202.zip/en-baja/DSCF3200.jpg/jcr:content/DSCF3200.jpg.jpg",
     "title": "Ceremonia Apertura Año Académico y Premiación DIMin 2023",
+    "code": "PH-001",
     "date": "16/09/1983",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Alejandro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -942,18 +1296,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono vintage"
     },
-    "id": "b54fb13d-65e4-482d-a581-b2d3640ad0b9"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "b54fb13d-65e4-482d-a581-b2d3640ad0b9",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Esan-2023/esan02.zip/IMG_8268.jpg/jcr:content/IMG_8268.jpg.jpg",
     "title": "Universidad ESAN y Escuela de Salud Pública",
+    "code": "PH-001",
     "date": "05/02/1986",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Claudio Pérez",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -963,18 +1325,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono frío"
     },
-    "id": "67a219a4-2002-46f7-a519-49d8b4df2aaf"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "67a219a4-2002-46f7-a519-49d8b4df2aaf",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Abril/UCHILEONLINE.zip/UCHILEONLINE/DiscursoRectora-4-800-L.jpg/jcr:content/DiscursoRectora-4-800-L.jpg.jpg",
     "title": "Ceremonia Inauguración Año Académico",
+    "code": "PH-001",
     "date": "16/06/1985",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -984,18 +1354,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono de colores pastel"
     },
-    "id": "e1a48abc-7de2-429d-be13-72d098194ffd"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "e1a48abc-7de2-429d-be13-72d098194ffd",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Civil/galerias/Semana-Civil-2023/Galeria-Semana-Civil-2023.zip/Galeria-Semana-Civil-2023/Semana-Civil-2023--65-.jpg/jcr:content/Semana-Civil-2023%2520(65).jpg.jpg",
     "title": "Galería Semana Civil 2023",
+    "code": "PH-001",
     "date": "06/08/2009",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1005,18 +1383,26 @@
       "photoTechnique": "Perspectiva forzada",
       "tone": "Tono cálido"
     },
-    "id": "e2399a43-0fe7-4b3d-bc05-b18dabb063d0"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "e2399a43-0fe7-4b3d-bc05-b18dabb063d0",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/ICEI/imagenes-noticias/3villa.jpeg/jcr:content/3villa.jpeg.jpeg",
     "title": "Estudiantes de periodismo y de cine y TV visitan Villa Grimaldi",
+    "code": "PH-001",
     "date": "04/03/1994",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Juan Domingo Marinello",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1026,18 +1412,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono frío"
     },
-    "id": "fb60fbac-a384-4dc3-9450-c64512344fd4"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "fb60fbac-a384-4dc3-9450-c64512344fd4",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Lanzamiento-Libro-Salud-y-Proceso-Constituyente/Libro-Saludyprocesoconstituyente.zip/IMG_7686.jpg/jcr:content/IMG_7686.jpg.jpg",
     "title": "Lanzamiento Libro Salud y Proceso Constituyente",
+    "code": "PH-001",
     "date": "03/02/2004",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Isabel Corthorn",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -1047,18 +1441,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono de colores pastel"
     },
-    "id": "7f2086eb-573f-4f09-9fe5-4b064814a0a5"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "7f2086eb-573f-4f09-9fe5-4b064814a0a5",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Marzo-2023/Ceremonica%20de%20extension.zip/Ceremonica-de-extension/Ceremonia-entrega-Diplomado-Extension-012-L.jpg/jcr:content/Ceremonia-entrega-Diplomado-Extension-012-L.jpg.jpg",
     "title": "Ceremonia entrega Diplomado Extensión",
+    "code": "PH-001",
     "date": "18/05/1995",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Claudio Pérez",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1068,18 +1470,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono frío"
     },
-    "id": "18217408-d30d-4422-b860-a3fb6da0869d"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "18217408-d30d-4422-b860-a3fb6da0869d",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Bienvenida-MBio23/Mbio-2023-OK.zip/09-MBio2023-2.jpg/jcr:content/09-MBio2023-2.jpg.jpg",
     "title": "Bienvenida Cohorte 2023 Magíster en Bioestadística",
+    "code": "PH-001",
     "date": "19/09/1986",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Juan Domingo Marinello",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -1089,18 +1499,26 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono de alta clave"
     },
-    "id": "9fedddb5-525b-4b43-afee-696fbcd623d8"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "9fedddb5-525b-4b43-afee-696fbcd623d8",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Bienvenida-Doctorado23/_Bienvenida-Doctorado2023.zip/_Bienvenida-Doctorado2023/06-Doctorado2023-2.jpg/jcr:content/06-Doctorado2023-2.jpg.jpg",
     "title": "Bienvenida Cohorte 2023 Doctorado en Salud Pública",
+    "code": "PH-001",
     "date": "27/02/1982",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1110,18 +1528,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono blanco y negro"
     },
-    "id": "75fd962f-7729-4bd8-9f12-6d9ed33f73c6"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "75fd962f-7729-4bd8-9f12-6d9ed33f73c6",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Bienvenida-MSM23/Bienvenida-MSM2023.zip/Bienvenida-MSM2023/IMG_7536.jpg/jcr:content/IMG_7536.jpg.jpg",
     "title": "Bienvenida Cohorte 2023 Magíster en Salud Mental",
+    "code": "PH-001",
     "date": "16/01/2004",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -1131,18 +1557,26 @@
       "photoTechnique": "Fotografía infrarroja",
       "tone": "Tono monocromático"
     },
-    "id": "f7ee0e09-0ec3-4f2f-b9b0-6c7bba946fff"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "f7ee0e09-0ec3-4f2f-b9b0-6c7bba946fff",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_marzo2023/AA_MTRg.jpg/jcr:content/AA_MTRg.jpg.jpg",
     "title": "Ceremonia Homenaje María Teresa Ruiz",
+    "code": "PH-001",
     "date": "13/07/2007",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Juegos Panamericanos",
+      "collection": "Juegos Panamericanos",
       "author": "Cristóbal Olivares",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1152,18 +1586,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono de baja clave"
     },
-    "id": "bcdf7b2b-b70d-48d6-82e3-304289bcb972"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "bcdf7b2b-b70d-48d6-82e3-304289bcb972",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_marzo2023/AA_PA23.jpg/jcr:content/AA_PA23.jpg.jpg",
     "title": "Puertas Abiertas 2023",
+    "code": "PH-001",
     "date": "10/08/1994",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY 3.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -1173,18 +1615,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono de alto contraste"
     },
-    "id": "900f1a86-36da-4312-bb93-e5b10e708213"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "900f1a86-36da-4312-bb93-e5b10e708213",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Marzo-2023/Medalla%20Carlos%20Castro.zip/Medalla-Carlos-Castro/Medalla-019-L.jpg/jcr:content/Medalla-019-L.jpg.jpg",
     "title": "Medalla Rectoral al profesional Carlos Castro tras 30 años de carrera",
+    "code": "PH-001",
     "date": "12/04/2003",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1194,18 +1644,26 @@
       "photoTechnique": "Macrofotografía",
       "tone": "Tono de alto contraste"
     },
-    "id": "74fd21c9-26a7-4494-a3dc-7d6826b92696"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "74fd21c9-26a7-4494-a3dc-7d6826b92696",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Ingenieria/Imagenes_marzo2023/AA_festi.jpg/jcr:content/AA_festi.jpg.jpg",
     "title": "FestiBeauchef 2023",
+    "code": "PH-001",
     "date": "15/04/1996",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Universidad de Chile",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1215,18 +1673,26 @@
       "photoTechnique": "Captura de movimiento",
       "tone": "Tono de baja clave"
     },
-    "id": "45fcfd1f-ee8b-4383-a2ef-bab8e75b5271"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "45fcfd1f-ee8b-4383-a2ef-bab8e75b5271",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Minas/imagenes-noticias/Fotos-2023/Marzo/Alumni-CAM%202023.zip/Alumni-CAM-2023/7abacf1a-7dfa-482d-8522-973791f49b2e.jpg/jcr:content/7abacf1a-7dfa-482d-8522-973791f49b2e.jpg.jpg",
     "title": "Encuentro Alumni - CAM 2023",
+    "code": "PH-001",
     "date": "11/12/1998",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Kena Lorenzini",
       "location": "Santiago, Chile",
       "campus": "Campus Beauchef",
@@ -1236,18 +1702,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono de colores pastel"
     },
-    "id": "00d9818d-7dd2-42d3-adec-c989be75732c"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "00d9818d-7dd2-42d3-adec-c989be75732c",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/FAVET/noticias/2023/marzo/15.03.23-Bienvenida-mechona-2023/IMG_2406.jpg/jcr:content/IMG_2406.jpg.jpg",
     "title": "Favet da la bienvenida a su generación de estudiantes 2023",
+    "code": "PH-001",
     "date": "13/05/2018",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "CC BY-SA 4.0",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Sergio Larrain",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -1257,18 +1731,26 @@
       "photoTechnique": "Enfoque selectivo",
       "tone": "Tono vintage"
     },
-    "id": "9c9c8c57-89ff-4471-bc0b-083509446142"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "9c9c8c57-89ff-4471-bc0b-083509446142",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Odontologia/imagenes-contenidos-generales/Induccion-marzo-23-8.JPG/jcr:content/Induccion%2520marzo%252023-8.JPG.JPG",
     "title": "Feria de organizaciones/Semana Inducción Mechon@s 2023",
+    "code": "PH-001",
     "date": "14/04/1993",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Fiesta Nacional",
+      "collection": "Fiesta Nacional",
       "author": "Juan Domingo Marinello",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -1278,18 +1760,26 @@
       "photoTechnique": "Estenopeica",
       "tone": "Tono cálido"
     },
-    "id": "82c523f1-fea8-4e44-b375-0ff1117322c7"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "82c523f1-fea8-4e44-b375-0ff1117322c7",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/Bienvenida-Magister-salud-P-blica-2023/bienvenida%20MSP23.zip/18_estudiantes-MSP23.JPG/jcr:content/18_estudiantes-MSP23.JPG.JPG",
     "title": "Inicia Magíster en Salud Pública 2023",
+    "code": "PH-001",
     "date": "26/01/2020",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Dominio público",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Alejandro Hoppe",
       "location": "Santiago, Chile",
       "campus": "Campus Juan Gómez Millas",
@@ -1299,18 +1789,26 @@
       "photoTechnique": "Fotografía de alta velocidad",
       "tone": "Tono de baja clave"
     },
-    "id": "c7d54d76-fb8c-43d7-a386-4326bbcb76ed"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "c7d54d76-fb8c-43d7-a386-4326bbcb76ed",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Uchile/VEXCOM/Galerias-foto-2023/Marzo-2023/Galerias%208M.zip/Galerias-8M/Ceremonia8MUchile-800-L-05.jpg/jcr:content/Ceremonia8MUchile-800-L-05.jpg.jpg",
     "title": "Día Internacional de la Mujer 2023",
+    "code": "PH-001",
     "date": "11/02/2010",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Eventos 2023",
+      "collection": "Eventos 2023",
       "author": "Soledad Fariña",
       "location": "Santiago, Chile",
       "campus": "Campus Andrés Bello",
@@ -1320,18 +1818,26 @@
       "photoTechnique": "Fotografía de larga exposición",
       "tone": "Tono de colores pastel"
     },
-    "id": "3e6860ff-c167-4f03-a978-ea37845b1ab4"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "3e6860ff-c167-4f03-a978-ea37845b1ab4",
+    "visible": true,
+    "approved": true
   },
   {
     "imgSrc": "https://uchile.cl/.imaging/stk/uchile/PEC/dam/imagenes/Salud-publica/galerias/8m-homenaje_mujeres_2023/8M-homenaje2023.zip/04_8M-homenaje_mujeres.jpg/jcr:content/04_8M-homenaje_mujeres.jpg.jpg",
     "title": "Homenaje a mujeres en la Escuela de Salud Pública",
+    "code": "PH-001",
     "date": "06/08/1983",
     "description": "Explora la vibrante atmósfera de eventos universitarios capturada en esta imagen. Sumérgete en la diversidad de experiencias que abarcan desde ceremonias conmemorativas hasta encuentros culturales. La fotografía refleja la energía y el compromiso de la comunidad universitaria, donde se entrelazan la academia, la creatividad y la celebración. Cada instantánea cuenta una historia única, capturando momentos que resaltan el espíritu dinámico y la riqueza de la vida universitaria en la Universidad de Chile.",
     "properties": {
       "cc": "Todos los derechos reservados",
       "width": 515,
       "height": 305,
-      "album": "Celebraciones",
+      "collection": "Celebraciones",
       "author": "Tomás Munita",
       "location": "Santiago, Chile",
       "campus": "Campus Antumapu",
@@ -1341,6 +1847,13 @@
       "photoTechnique": "Doble exposición",
       "tone": "Tono frío"
     },
-    "id": "faaffa95-d7f8-42d7-8ac5-685c4d474792"
+    "format": 4,
+    "process": 3,
+    "support": 3,
+    "photoTechnique": 4,
+    "tone": 4,
+    "id": "faaffa95-d7f8-42d7-8ac5-685c4d474792",
+    "visible": true,
+    "approved": true
   }
 ]

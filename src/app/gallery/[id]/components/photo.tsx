@@ -1,30 +1,10 @@
+import { photoFormatLabels, photoProcessLabels, photoSupportLabels, photoTechniqueLabels, photoToneLabels } from "@/app/constants";
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
 import { useParams, useRouter } from "next/navigation";
 
-type PhotoProps = {
-  photo: {
-    imgSrc: string;
-    title: string;
-    date: string;
-    description: string;
-    properties: {
-      code: string;
-      cc: string;
-      width: number;
-      height: number;
-      album: string;
-      author: string;
-      location: string;
-      campus: string;
-      format: string;
-      process: string;
-      support: string;
-      photoTechnique: string;
-      tone: string;
-    };
-  };
-  loading?: boolean;
-};
+type ExtendedPhotoProps = {
+  photo: PhotoProps;
+} & { loading?: boolean };
 
 const LoadingSideComponent: React.FC = () => (
   <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
@@ -56,8 +36,25 @@ const LoadingSideComponent: React.FC = () => (
   </div>
 );
 
-const Photo: React.FC<PhotoProps> = ({
-  photo: { imgSrc, title, date, description, properties },
+const Photo: React.FC<ExtendedPhotoProps> = ({
+  photo: {
+    imgSrc,
+    title,
+    description,
+    date,
+    cc,
+    width,
+    height,
+    author,
+    owner,
+    location,
+    format,
+    process,
+    support,
+    photoTechnique,
+    tone,
+    properties,
+  },
   loading,
 }) => {
   const router = useRouter();
@@ -92,7 +89,18 @@ const Photo: React.FC<PhotoProps> = ({
                 Documento perteneciente a la Biblioteca Central de la Facultad
                 de Ciencias Físicas y Matemáticas de la Universidad de Chile.
               </p>
+              {owner && <p>Aportado por {owner}</p>}
             </div>
+            {properties.tags?.length > 0 && (
+              <div className="mt-8 text-justify text-black">
+                <h2 className="font-bold uppercase">Etiquetas</h2>
+                <p className="mt-2">
+                  {properties.tags?.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="w-full lg:max-w-xs lg:flex-auto">
@@ -117,7 +125,7 @@ const Photo: React.FC<PhotoProps> = ({
                     <div className="flex-none self-end px-6 pt-4">
                       <dt className="sr-only">CC</dt>
                       <dd className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium text-black ring-2 ring-inset ring-black">
-                        {properties.cc}
+                        {cc}
                       </dd>
                     </div>
                     <div className="mt-4 flex w-full flex-none px-6">
@@ -134,17 +142,17 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Dimentions</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Dimensiones:</span>{" "}
-                        {properties.width}cm x {properties.height}cm
+                        <span className="font-bold">Dimensiones:</span> {width}
+                        cm x {height}cm
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
                       <dt className="flex-none">
-                        <span className="sr-only">Album</span>
+                        <span className="sr-only">Collection</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Álbum:</span>{" "}
-                        {properties.album}
+                        <span className="font-bold">Colección:</span>{" "}
+                        {properties.collection}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -152,8 +160,7 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Author</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Autor:</span>{" "}
-                        {properties.author}
+                        <span className="font-bold">Autor:</span> {author}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -161,8 +168,7 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Location</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Ubicación:</span>{" "}
-                        {properties.location}
+                        <span className="font-bold">Ubicación:</span> {location}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -180,8 +186,7 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Format</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Formato:</span>{" "}
-                        {properties.format}
+                        <span className="font-bold">Formato:</span> {photoFormatLabels[format]}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -190,7 +195,7 @@ const Photo: React.FC<PhotoProps> = ({
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
                         <span className="font-bold">Proceso fotográfico:</span>{" "}
-                        {properties.process}
+                        {photoProcessLabels[process]}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -198,8 +203,7 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Soporte</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Soporte:</span>{" "}
-                        {properties.support}
+                        <span className="font-bold">Soporte:</span> {photoSupportLabels[support]}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -208,7 +212,7 @@ const Photo: React.FC<PhotoProps> = ({
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
                         <span className="font-bold">Técnica fotográfica:</span>{" "}
-                        {properties.photoTechnique}
+                        {photoTechniqueLabels[photoTechnique]}
                       </dd>
                     </div>
                     <div className="flex w-full flex-none gap-x-4 px-6 pt-6">
@@ -216,14 +220,15 @@ const Photo: React.FC<PhotoProps> = ({
                         <span className="sr-only">Tono</span>
                       </dt>
                       <dd className="text-sm leading-6 text-gray-900">
-                        <span className="font-bold">Tono:</span>{" "}
-                        {properties.tone}
+                        <span className="font-bold">Tono:</span> {photoToneLabels[tone]}
                       </dd>
                     </div>
                   </dl>
                   <div
                     className="mt-6 border-t border-gray-900/5 px-6 py-6"
-                    onClick={() => router.push(`/gallery/${currentPhotoId}/request`)}
+                    onClick={() =>
+                      router.push(`/gallery/${currentPhotoId}/request`)
+                    }
                   >
                     <a
                       href="#"

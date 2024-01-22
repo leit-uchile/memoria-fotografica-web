@@ -89,7 +89,7 @@ const footerNavigation = {
     { name: "Juan Gomez Millas", href: "#" },
     { name: "Medicina", href: "#" },
   ],
-  albums: [
+  collections: [
     { name: "Colecciones de autor", href: "#" },
     { name: "Material de estudiantes", href: "#" },
     { name: "Prensa", href: "#" },
@@ -101,7 +101,7 @@ const footerNavigation = {
     { name: "Biblioteca Central", href: "#" },
     { name: "Twitter", href: "#" },
     { name: "Instagram", href: "#" },
-    { name: "Términos y condiciones", href: "#" },
+    { name: "Términos y condiciones", href: "/termsofservice" },
   ],
 };
 

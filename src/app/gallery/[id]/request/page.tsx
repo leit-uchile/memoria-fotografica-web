@@ -9,18 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-
-async function fetchPhotos(index: string) {
-  const res = await fetch("http://localhost:3000/fixtures/gallery.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const parsed = await res.json();
-
-  return parsed[index];
-}
+import { fetchPhotoDetail } from "@/services/fetch";
 
 const ContactForm: React.FC = () => {
   const query = useParams();
@@ -29,7 +18,7 @@ const ContactForm: React.FC = () => {
   const isRequesting = currentPhotoId !== undefined;
 
   const { data: currentPhoto, isValidating } = useSWR(currentPhotoId, () =>
-    fetchPhotos(currentPhotoId ?? "0"),
+    fetchPhotoDetail(currentPhotoId ?? "0"),
     {
       revalidateOnFocus: false,
     }
@@ -164,7 +153,7 @@ const ContactForm: React.FC = () => {
                     name="first-name"
                     id="first-name"
                     autoComplete="given-name"
-                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -187,7 +176,7 @@ const ContactForm: React.FC = () => {
                     name="last-name"
                     id="last-name"
                     autoComplete="family-name"
-                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -210,7 +199,7 @@ const ContactForm: React.FC = () => {
                     name="email"
                     id="email"
                     autoComplete="email"
-                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -233,7 +222,7 @@ const ContactForm: React.FC = () => {
                     name="phone-number"
                     id="phone-number"
                     autoComplete="tel"
-                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                   />
                 </div>
               </div>
@@ -249,7 +238,7 @@ const ContactForm: React.FC = () => {
                     name="message"
                     id="message"
                     rows={4}
-                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                     defaultValue={""}
                   />
                 </div>
@@ -258,7 +247,7 @@ const ContactForm: React.FC = () => {
                 {isRequesting && !isValidating ? (
                   <>
                     <div className="sm:col-span-2 relative flex items-start">
-                      <div className="w-1/3 relative bg-gray-50 rounded-md rounded-r-none px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
+                      <div className="w-1/3 relative bg-gray-50 rounded-md rounded-r-none px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-mainmf-600">
                         <label
                           htmlFor="photo-code"
                           className="block text-xs font-medium text-gray-900"
@@ -274,7 +263,7 @@ const ContactForm: React.FC = () => {
                           disabled
                         />
                       </div>
-                      <div className="w-2/3 relative bg-gray-50 rounded-md rounded-l-none px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-indigo-600">
+                      <div className="w-2/3 relative bg-gray-50 rounded-md rounded-l-none px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-gray-300 focus-within:z-10 focus-within:ring-2 focus-within:ring-mainmf-600">
                         <label
                           htmlFor="photo-title"
                           className="block text-xs font-medium text-gray-900"
@@ -298,8 +287,9 @@ const ContactForm: React.FC = () => {
                           aria-describedby="terms-description"
                           name="terms"
                           type="checkbox"
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          className="h-4 w-4 rounded border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                           aria-invalid="true"
+                          required
                         />
                       </div>
                       <div className="ml-3 text-sm leading-6">
@@ -308,7 +298,7 @@ const ContactForm: React.FC = () => {
                           className="font-medium text-gray-900"
                         >
                           He leído y acepto los{" "}
-                          <a href="#" className="text-indigo-600">
+                          <a href="/termsofservice" target="_blank" className="text-mainmf-600">
                             Términos y Condiciones
                           </a>
                         </label>{" "}
@@ -328,7 +318,7 @@ const ContactForm: React.FC = () => {
             <div className="mt-8 flex justify-end">
               <button
                 type="submit"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-mainmf-700 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
               >
                 Enviar mensaje
               </button>

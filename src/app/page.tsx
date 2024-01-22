@@ -1,3 +1,4 @@
+import { fetchCollections } from "@/services/fetch";
 import { truncate } from "@/services/string";
 
 const categories = [
@@ -61,16 +62,6 @@ const deprecated_collections = [
       "Be more productive than enterprise project managers with a single piece of paper.",
   },
 ];
-
-async function fetchCollections() {
-  const res = await fetch("http://localhost:3000/fixtures/collections.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
 
 export default async function Home() {
   const collections = await fetchCollections();

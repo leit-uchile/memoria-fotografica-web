@@ -1,3 +1,5 @@
+import { fetchCollections } from "@/services/fetch";
+
 const posts = [
   {
     id: 1,
@@ -22,16 +24,6 @@ const defaultAuthor = {
   name: "Biblioteca Central",
   imageUrl:
     "https://ucampus.uchile.cl/d/r/usuario/9d/9d4438c4ec735ef3b745b3b369a43216/perfil/3ee573197dde61aad94aa26359acb3d6.jpg",
-}
-
-async function fetchCollections() {
-  const res = await fetch("http://localhost:3000/fixtures/collections.json");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
 }
 
 export default async function Collection() {
