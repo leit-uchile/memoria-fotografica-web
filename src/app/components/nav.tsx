@@ -158,25 +158,6 @@ const MobileNavigation: React.FC<
                 </div>
               ))}
             </div>
-
-            <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Crear una cuenta
-                </a>
-              </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 block p-2 font-medium text-gray-900"
-                >
-                  Ingresar
-                </a>
-              </div>
-            </div>
           </Dialog.Panel>
         </Transition.Child>
       </div>
@@ -197,26 +178,6 @@ const Navigation: React.FC<MenuProps> = (props) => {
       <header className="relative z-10">
         <nav aria-label="Top">
           {/* Top navigation */}
-          <div className="bg-mainmf-700">
-            <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-              <div className="flex items-center space-x-6">
-                <a
-                  href="#"
-                  className="text-sm font-medium text-white hover:text-gray-100"
-                >
-                  Ingresar
-                </a>
-                <a
-                  href="#"
-                  className="text-sm font-medium text-white hover:text-gray-100"
-                >
-                  Crear una cuenta
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Secondary navigation */}
           <div className="bg-mainmf-900 backdrop-blur-md backdrop-filter">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div>
@@ -311,7 +272,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
 
                     {/* Search */}
                     <a href="/gallery" className="ml-2 p-2 text-white">
-                      <span className="sr-only">Buscar</span>
+                      <span className="sr-only">Explorar</span>
                       <MagnifyingGlassIcon
                         className="h-6 w-6"
                         aria-hidden="true"
@@ -330,7 +291,7 @@ const Navigation: React.FC<MenuProps> = (props) => {
                       href="/gallery"
                       className="hidden text-sm font-medium text-white lg:flex space-x-2"
                     >
-                      <span>Buscar</span>
+                      <span>Explorar</span>
                       <MagnifyingGlassIcon
                         className="h-6 w-6"
                         aria-hidden="true"

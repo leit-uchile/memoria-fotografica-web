@@ -1,11 +1,4 @@
-const stats = [
-  { label: "Founded", value: "2021" },
-  { label: "Employees", value: "37" },
-  { label: "Countries", value: "12" },
-  { label: "Raised", value: "$25M" },
-];
-
-export default function Example() {
+export default function TermsOfService() {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -43,23 +36,18 @@ export default function Example() {
                   />
                   <use href="#0ef284b8-28c2-426e-9442-8655d393522e" x={86} />
                 </svg>
-                <img
-                  src="assets/bcentral.svg"
-                  alt=""
-                  className="h-12 w-auto"
-                />
+                <img src="assets/bcentral.svg" alt="" className="h-12 w-auto" />
                 <blockquote className="mt-6 text-xl font-semibold leading-8 text-white">
                   <p>
-                    “Amet amet eget scelerisque tellus sit neque faucibus non
-                    eleifend. Integer eu praesent at a. Ornare arcu gravida
-                    natoque erat et cursus tortor.”
+                    Por una biblioteca que acoja a sus estudiantes a través del
+                    cariño de sus funcionarios y los sueños de una sociedad mejor.
                   </p>
                 </blockquote>
                 <figcaption className="mt-6 text-sm leading-6 text-gray-300">
                   <strong className="font-semibold text-white">
-                    Judith Rogers,
+                    Rosa Leal,
                   </strong>{" "}
-                  CEO at Workcation
+                  Ex directora de la Biblioteca Central
                 </figcaption>
               </figure>
             </div>

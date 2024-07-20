@@ -97,10 +97,10 @@ const footerNavigation = {
     { name: "Restauraciones", href: "#" },
   ],
   connect: [
-    { name: "Nosotros", href: "#" },
-    { name: "Biblioteca Central", href: "#" },
-    { name: "Twitter", href: "#" },
-    { name: "Instagram", href: "#" },
+    { name: "Nosotros", href: "/about" },
+    { name: "Biblioteca Central", href: "https://ingenieria.uchile.cl/biblioteca.html" },
+    { name: "Facebook", href: "https://facebook.com/BibliotecaCentralFCFM/" },
+    { name: "Instagram", href: "https://www.instagram.com/bibliotecacentralfcfm/" },
     { name: "Términos y condiciones", href: "/termsofservice" },
   ],
 };

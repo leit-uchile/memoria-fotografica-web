@@ -2,14 +2,12 @@
 
 import CuratorCategories from "./categories/page";
 import CuratorCollections from "./collections/page";
+import Landing from "./landing/page";
 import CuratorMails from "./mail/page";
 import CuratorPhotos from "./photos/page";
 import CuratorTags from "./tags/page";
-import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/20/solid";
 import {
-  CursorArrowRaysIcon,
   EnvelopeOpenIcon,
-  UsersIcon,
   FolderIcon,
   HomeIcon,
   PhotoIcon,
@@ -20,7 +18,7 @@ import classNames from "classnames";
 import { useState } from "react";
 
 const navigation = [
-  { name: "Resumen", href: "#", icon: HomeIcon },
+  { name: "Inicio", href: "#", icon: HomeIcon },
   { name: "Fotos", href: "#", icon: PhotoIcon, count: "20+" },
   { name: "Etiquetas", href: "#", icon: TagIcon },
   {
@@ -38,103 +36,13 @@ const navigation = [
   { name: "Correo", href: "#", icon: EnvelopeOpenIcon },
 ];
 const secondaryNavigation = [
-  { name: "Creative Commons", href: "/creativecommons", initial: "CC", current: false },
-];
-
-const stats = [
   {
-    id: 1,
-    name: "Visitas totales",
-    stat: "71,897",
-    icon: UsersIcon,
-    change: "122",
-    changeType: "increase",
-  },
-  {
-    id: 2,
-    name: "Contenido aportado",
-    stat: "58.16%",
-    icon: EnvelopeOpenIcon,
-    change: "5.4%",
-    changeType: "increase",
-  },
-  {
-    id: 3,
-    name: "Contenido compartido",
-    stat: "24.57%",
-    icon: CursorArrowRaysIcon,
-    change: "3.2%",
-    changeType: "decrease",
+    name: "Creative Commons",
+    href: "/creativecommons",
+    initial: "CC",
+    current: false,
   },
 ];
-
-const landing = (
-  <div>
-    <h3 className="text-base font-semibold leading-6 text-gray-900">
-      Últimos 30 días
-    </h3>
-
-    <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {stats.map((item) => (
-        <div
-          key={item.id}
-          className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
-        >
-          <dt>
-            <div className="absolute rounded-md bg-mainmf-800 p-3">
-              <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
-            </div>
-            <p className="ml-16 truncate text-sm font-medium text-gray-500">
-              {item.name}
-            </p>
-          </dt>
-          <dd className="ml-16 flex items-baseline pb-6 sm:pb-7">
-            <p className="text-2xl font-semibold text-gray-900">{item.stat}</p>
-            <p
-              className={classNames(
-                item.changeType === "increase"
-                  ? "text-green-600"
-                  : "text-red-600",
-                "ml-2 flex items-baseline text-sm font-semibold"
-              )}
-            >
-              {item.changeType === "increase" ? (
-                <ArrowUpIcon
-                  className="h-5 w-5 flex-shrink-0 self-center text-green-500"
-                  aria-hidden="true"
-                />
-              ) : (
-                <ArrowDownIcon
-                  className="h-5 w-5 flex-shrink-0 self-center text-red-500"
-                  aria-hidden="true"
-                />
-              )}
-
-              <span className="sr-only">
-                {" "}
-                {item.changeType === "increase"
-                  ? "Increased"
-                  : "Decreased"} by{" "}
-              </span>
-              {item.change}
-            </p>
-            <div className="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
-              <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-medium text-mainmf-600 hover:text-mainmf-500"
-                >
-                  Ver todo
-                  <span className="sr-only"> {item.name} stats</span>
-                </a>
-              </div>
-            </div>
-          </dd>
-        </div>
-      ))}
-    </dl>
-  </div>
-);
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState(0);
@@ -152,7 +60,7 @@ export default function Dashboard() {
       case 5:
         return <CuratorMails />;
       default:
-        return landing;
+        return <Landing />;
     }
   };
 
@@ -197,14 +105,6 @@ export default function Dashboard() {
                                 aria-hidden="true"
                               />
                               {item.name}
-                              {/* {item.count ? (
-                                <span
-                                  className="ml-auto w-9 min-w-max whitespace-nowrap rounded-full bg-gray-50 px-2.5 py-0.5 text-center text-xs font-medium leading-5 text-gray-600 ring-1 ring-inset ring-gray-200"
-                                  aria-hidden="true"
-                                >
-                                  {item.count}
-                                </span>
-                              ) : null} */}
                             </a>
                           </li>
                         ))}
@@ -246,7 +146,7 @@ export default function Dashboard() {
                   </ul>
                 </nav>
               </div>
-              {/* Right Columna */}
+              {/* Right Column */}
               <div className="w-full lg:w-4/5">{renderTabContent()}</div>
             </div>
           </div>

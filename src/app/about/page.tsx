@@ -107,7 +107,7 @@ const colaborators_photos = [
   },
 ];
 
-export default function Example() {
+export default function About() {
   return (
     <div className="bg-white py-24 sm:py-32 space-y-10">
       

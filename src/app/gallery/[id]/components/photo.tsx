@@ -124,7 +124,10 @@ const Photo: React.FC<ExtendedPhotoProps> = ({
                     </div>
                     <div className="flex-none self-end px-6 pt-4">
                       <dt className="sr-only">CC</dt>
-                      <dd className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium text-black ring-2 ring-inset ring-black">
+                      <dd 
+                      className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium text-black ring-2 ring-inset ring-black cursor-pointer"
+                      onClick={() => router.push(`/creativecommons`)}
+                      >
                         {cc}
                       </dd>
                     </div>

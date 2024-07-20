@@ -279,13 +279,13 @@ export default async function Home() {
                 <p className="mt-3 text-xl text-white">
                   La historia de la Universidad de Chile es la historia de
                   todos, y es por eso que queremos que todos puedan ser parte de
-                  ella. ¿Quieres aportar con tus fotos? Contactanos!
+                  ella. ¿Quieres aportar con tus fotos? Contáctanos!
                 </p>
                 <a
                   href="#"
                   className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
-                  Contactanos
+                  Contáctanos
                 </a>
               </div>
             </div>
