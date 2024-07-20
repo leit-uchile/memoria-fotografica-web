@@ -39,7 +39,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
   const selectedOptionHasImage =
     withIcons &&
     selectedValue &&
-    optionIndexes[selectedValue].imgSrc !== undefined;
+    optionIndexes[selectedValue]?.imgSrc !== undefined;
 
   return (
     <Listbox value={selectedValue} onChange={_onChange}>
@@ -53,7 +53,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
               <span className="flex items-center">
                 {selectedOptionHasImage && (
                   <img
-                    src={optionIndexes[selectedValue].imgSrc ?? ""}
+                    src={optionIndexes[selectedValue]?.imgSrc ?? ""}
                     alt=""
                     className="h-5 w-5 flex-shrink-0 rounded-full"
                   />

@@ -1,10 +1,11 @@
 "use client";
 
+import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useCallback } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Select from "react-select";
-import Creatable from 'react-select/creatable';
+import Creatable from "react-select/creatable";
 
 const options = [
   { value: "Alumno", label: "Alumno" },
@@ -16,13 +17,13 @@ const options = [
 ];
 
 const cc_options = [
-    { value: "CC BY", label: "Atribución" },
-    { value: "CC BY-SA", label: "Atribución, Compartir Igual" },
-    { value: "CC BY-ND", label: "Atribución, Sin Derivadas" },
-    { value: "CC BY-NC", label: "Atribución, No Comercial" },
-    { value: "CC BY-NC-SA", label: "Atribución, No Comercial, Compartir Igual" },
-    { value: "CC BY-NC-ND", label: "Atribución, No Comercial, Sin Derivadas" },
-]
+  { value: "CC BY", label: "Atribución" },
+  { value: "CC BY-SA", label: "Atribución, Compartir Igual" },
+  { value: "CC BY-ND", label: "Atribución, Sin Derivadas" },
+  { value: "CC BY-NC", label: "Atribución, No Comercial" },
+  { value: "CC BY-NC-SA", label: "Atribución, No Comercial, Compartir Igual" },
+  { value: "CC BY-NC-ND", label: "Atribución, No Comercial, Sin Derivadas" },
+];
 
 function Form() {
   const {
@@ -35,6 +36,27 @@ function Form() {
     (e: any /*  */) => console.log("sending data", e),
     []
   );
+
+  if (false) {
+    // TODO: Condicion de formulario cerrado por curadores
+    return (
+      <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <ExclamationTriangleIcon
+              className="h-5 w-5 text-yellow-400"
+              aria-hidden="true"
+            />
+          </div>
+          <div className="ml-3">
+            <p className="text-sm text-yellow-700">
+              Nuestro equipo se encuentra con alta demanda, por lo que el formulario de aportación de fotografías se encuentra cerrado. Disculpe las molestias.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -64,7 +86,7 @@ function Form() {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -82,7 +104,7 @@ function Form() {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -91,7 +113,7 @@ function Form() {
                 htmlFor="personal-role"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                ¿Como describirias tu rol en la comunidad ?
+                ¿Cómo describirias tu rol en la comunidad ?
               </label>
               <div className="mt-2 text-gray-600">
                 <Select
@@ -115,7 +137,7 @@ function Form() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -128,17 +150,19 @@ function Form() {
               Fotografías
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
-              Ingresa aqui la información de la o las fotografías que quieres aportar.
+              Ingresa aqui la información de la o las fotografías que quieres
+              aportar.
             </p>
           </div>
 
           <div className="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 md:col-span-2">
-          <div className="sm:col-span-full">
+            <div className="sm:col-span-full">
               <label
                 htmlFor="personal-role"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                ¿Con que derechos de Creative Commons quieres compartir las imágenes?
+                ¿Con qué derechos de Creative Commons quieres compartir las
+                imágenes?
               </label>
               <div className="mt-2 text-gray-600">
                 <Select
@@ -153,14 +177,14 @@ function Form() {
                 htmlFor="about"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Cuentanos sobre la foto o las fotos que quieres aportar
+                Cuéntanos sobre la foto o las fotos que quieres aportar
               </label>
               <div className="mt-2">
                 <textarea
                   id="about"
                   name="about"
                   rows={3}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-mainmf-600 sm:text-sm sm:leading-6"
                   defaultValue={""}
                 />
               </div>
@@ -185,7 +209,7 @@ function Form() {
                   <div className="mt-4 flex text-sm leading-6 text-gray-600">
                     <label
                       htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      className="relative cursor-pointer rounded-md bg-white font-semibold text-mainmf-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-mainmf-600 focus-within:ring-offset-2 hover:text-mainmf-500"
                     >
                       <span>Sube una fotografía</span>
                       <input
@@ -227,7 +251,7 @@ function Form() {
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-12 md:grid-cols-3">
           <div>
             <h2 className="text-base font-semibold leading-7 text-gray-900">
-              ¿ Quieres recibir información de nosotros ?
+              ¿Quieres recibir información de nosotros?
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
               Por favor selecciona las opciones que te interesan.
@@ -240,13 +264,13 @@ function Form() {
                 Sobre mi fotografía
               </legend>
               <div className="mt-6 space-y-6">
-{/*                 <div className="relative flex gap-x-3">
+                {/*                 <div className="relative flex gap-x-3">
                   <div className="flex h-6 items-center">
                     <input
                       id="comments"
                       name="comments"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      className="h-4 w-4 rounded border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                     />
                   </div>
                   <div className="text-sm leading-6">
@@ -267,7 +291,7 @@ function Form() {
                       id="candidates"
                       name="candidates"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                      className="h-4 w-4 rounded border-gray-300 text-mainmf-600 focus:ring-mainmf-600"
                     />
                   </div>
                   <div className="text-sm leading-6">
@@ -291,7 +315,7 @@ function Form() {
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button
           type="submit"
-          className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-mainmf-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-mainmf-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mainmf-600"
         >
           Enviar
         </button>

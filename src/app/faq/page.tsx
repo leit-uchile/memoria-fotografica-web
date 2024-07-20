@@ -54,12 +54,11 @@ export default function Example() {
             <p className="mt-4 text-base leading-7 text-gray-600">
             ¿No puedes encontrar la respuesta a tu pregunta? Contáctate con nosotros a través del{" "}
               <a
-                href="#"
+                href="/gallery/contact/request"
                 className="font-semibold text-mainmf-600 hover:text-mainmf-500"
               >
-                formulario de contacto
-              </a>{" "}
-              .
+                formulario de contacto.
+              </a>
             </p>
           </div>
           <div className="mt-10 lg:col-span-7 lg:mt-0">

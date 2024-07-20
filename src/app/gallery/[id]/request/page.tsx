@@ -1,6 +1,7 @@
 "use client";
 
 import RectangleSkeleton from "@/components/animate/RectangleSkeleton";
+import { fetchPhotoDetail } from "@/services/fetch";
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
@@ -9,16 +10,18 @@ import {
 } from "@heroicons/react/24/outline";
 import { useParams } from "next/navigation";
 import useSWR from "swr";
-import { fetchPhotoDetail } from "@/services/fetch";
 
 const ContactForm: React.FC = () => {
   const query = useParams();
-  const currentPhotoId = query.id;
+  const urlQuery = query.id;
 
-  const isRequesting = currentPhotoId !== undefined;
+  const isRequesting = urlQuery !== "contact";
 
-  const { data: currentPhoto, isValidating } = useSWR(currentPhotoId, () =>
-    fetchPhotoDetail(currentPhotoId ?? "0"),
+  const currentPhotoId = isRequesting ? urlQuery : null;
+
+  const { data: currentPhoto, isValidating } = useSWR(
+    currentPhotoId ? currentPhotoId : null,
+    () => (currentPhotoId ? fetchPhotoDetail(currentPhotoId) : null),
     {
       revalidateOnFocus: false,
     }
@@ -298,7 +301,11 @@ const ContactForm: React.FC = () => {
                           className="font-medium text-gray-900"
                         >
                           He leído y acepto los{" "}
-                          <a href="/termsofservice" target="_blank" className="text-mainmf-600">
+                          <a
+                            href="/termsofservice"
+                            target="_blank"
+                            className="text-mainmf-600"
+                          >
                             Términos y Condiciones
                           </a>
                         </label>{" "}
