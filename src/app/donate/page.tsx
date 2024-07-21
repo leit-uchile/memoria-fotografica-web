@@ -1,9 +1,9 @@
 "use client";
 
 import { ExclamationTriangleIcon } from "@heroicons/react/20/solid";
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { PhotoIcon } from "@heroicons/react/24/solid";
 import { useCallback } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Select from "react-select";
 import Creatable from "react-select/creatable";
 
@@ -50,7 +50,9 @@ function Form() {
           </div>
           <div className="ml-3">
             <p className="text-sm text-yellow-700">
-              Nuestro equipo se encuentra con alta demanda, por lo que el formulario de aportación de fotografías se encuentra cerrado. Disculpe las molestias.
+              Nuestro equipo se encuentra con alta demanda, por lo que el
+              formulario de aportación de fotografías se encuentra cerrado.
+              Disculpe las molestias.
             </p>
           </div>
         </div>
@@ -164,6 +166,12 @@ function Form() {
                 ¿Con qué derechos de Creative Commons quieres compartir las
                 imágenes?
               </label>
+              <span
+                className="block text-sm font-small leading-6 text-gray-900 underline cursor-pointer"
+                onClick={() => window.open(`/creativecommons`, '_blank')}
+              >
+                ¿Qué son los derechos Creative Commons?
+              </span>
               <div className="mt-2 text-gray-600">
                 <Select
                   options={cc_options}
